@@ -1,5 +1,0 @@
-<mxfile host="65bd71144e">
-    <diagram id="streaming_flow" name="Data Ops Architecture">
-        <!-- El XML de Draw.io permite visualizar el flujo: Kafka -> Flink -> Postgres -> dbt -> Metabase -->
-    </diagram>
-</mxfile>
