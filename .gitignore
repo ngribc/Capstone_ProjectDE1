@@ -3,6 +3,6 @@ M7_Visualization/voice-retail/
 M5_Batch/spark_jobs_retail/
 M5_Batch/code_taxi/
 M3_DataWarehouse/api_integration/utils_retail/
-.json
+*.json.
 # Archivos específicos
 .github/instructions/codacy.instructions.md
