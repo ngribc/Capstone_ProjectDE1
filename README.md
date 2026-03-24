@@ -117,4 +117,4 @@ dbt run
 
 ## 👨‍💻 Autor
 
-Nestor Gribaudo
+N.G.
