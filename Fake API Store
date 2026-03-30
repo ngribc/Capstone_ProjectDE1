@@ -1,4 +1,4 @@
-Project Overview: Custom Service Ticket Platform
+Project Overview: 
 
 El proyecto consiste en el desarrollo de una plataforma de análisis en tiempo real para el seguimiento de tickets de servicio y órdenes de una tienda virtual (basada en la  **Fake Store API** ). El sistema integra flujos de datos continuos, procesa eventos en tiempo real, almacena registros históricos en la nube y proporciona herramientas de visualización avanzada para la toma de decisiones proactivas en la gestión de clientes y logística.
 
