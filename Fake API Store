@@ -29,7 +29,7 @@ Tech Stack Used
 
 * **Docker:** **Containerización para aislamiento y portabilidad de todos los servicios.**
 * **Apache Kafka:** **Plataforma de streaming distribuido para la ingesta de datos.**
-* **Kestra / Mage:** **Orquestadores para la ejecución de flujos de trabajo y pipelines.**
+* **Kestra ** **Orquestadores para la ejecución de flujos de trabajo y pipelines.**
 * **Apache Spark:** **Motor de computación distribuida para procesamiento de datos a gran escala.**
 * **dbt (Data Build Tool):** **Transformación de datos SQL para convertir datos crudos en insights.**
 * **PostgreSQL:** **Base de datos relacional para almacenamiento operativo y metadatos.**
