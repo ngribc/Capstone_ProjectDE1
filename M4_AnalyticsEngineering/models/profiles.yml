@@ -6,7 +6,7 @@ retail_voice:
       user: root
       pass: root
       port: 5432
-      dbname: retail_db
+      dbname: customer_support_tickets_db
       schema: public
       threads: 4
   target: dev

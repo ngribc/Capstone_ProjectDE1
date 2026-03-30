@@ -1,0 +1,16 @@
+flowchart TD
+
+A[(Data Lake - Parquet)] --> B[Staging Tables]
+
+B --> C[dim_product]
+B --> D[dim_category]
+B --> E[dim_date]
+
+B --> F[fact_sales]
+
+C --> G[STAR SCHEMA]
+D --> G
+E --> G
+F --> G
+
+G --> H[OLAP Queries]

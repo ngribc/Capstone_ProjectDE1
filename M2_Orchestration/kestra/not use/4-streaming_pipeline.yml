@@ -1,0 +1,45 @@
+id: streaming_pipeline
+namespace: zoomcamp
+
+tasks:
+
+  # 1. LEVANTAR PRODUCER
+  - id: run_producer
+    type: io.kestra.plugin.scripts.python.Script
+    beforeCommands:
+      - pip install kafka-python requests
+    script: |
+      import requests, json, time
+      from kafka import KafkaProducer
+
+      producer = KafkaProducer(
+          bootstrap_servers='localhost:9092',
+          value_serializer=lambda v: json.dumps(v).encode('utf-8')
+      )
+
+      while True:
+          data = requests.get("https://fakestoreapi.com/products").json()
+          for p in data:
+              producer.send("products_stream", p)
+          time.sleep(30)
+
+  # 2. EJECUTAR FLINK
+  - id: run_flink
+    type: io.kestra.plugin.scripts.shell.Commands
+    commands:
+      - python flink_job.py
+
+  # 3. CARGAR A OLAP
+  - id: load_duckdb
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      INSTALL parquet;
+      LOAD parquet;
+
+      CREATE TABLE IF NOT EXISTS fact_sales AS
+      SELECT * FROM read_parquet('/tmp/products_parquet/*.parquet');
+
+  # 4. LOG FINAL
+  - id: done
+    type: io.kestra.plugin.core.log.Log
+    message: "Streaming pipeline corriendo 🚀"

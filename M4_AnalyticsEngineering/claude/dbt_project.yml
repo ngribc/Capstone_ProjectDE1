@@ -1,0 +1,21 @@
+name: 'capstone_bi'
+version: '1.0.0'
+config-version: 2
+
+profile: 'capstone_bi'
+
+model-paths: ["models"]
+seed-paths:  ["seeds"]
+test-paths:  ["tests"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  capstone_bi:
+    staging:
+      +schema:      silver          # DuckDB schema: capstone_bi_silver
+      +materialized: view           # staging como views → sin costo de storage
+    marts:
+      +schema:      gold            # DuckDB schema: capstone_bi_gold
+      +materialized: table          # marts como tablas físicas → performance OLAP

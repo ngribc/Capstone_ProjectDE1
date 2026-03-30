@@ -1,0 +1,5 @@
+name: customer_service_pipeline
+
+connection:
+  type: duckdb
+  path: warehouse.duckdb

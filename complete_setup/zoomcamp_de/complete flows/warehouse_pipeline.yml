@@ -1,0 +1,51 @@
+id: warehouse_pipeline
+namespace: de.project
+labels:
+  env: dev
+  layer: warehouse
+tasks:
+  - id: load_products_bronze
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    url: jdbc:duckdb:/shared/duckdb/capstone.duckdb
+    sql: |
+      CREATE TABLE IF NOT EXISTS bronze_products (
+          id INTEGER, title VARCHAR, price DOUBLE, description VARCHAR,
+          category VARCHAR, image VARCHAR, snapshot_month VARCHAR, ingested_at VARCHAR
+      );
+      DELETE FROM bronze_products WHERE snapshot_month = strftime(CURRENT_TIMESTAMP, '%Y-%m');
+      INSERT INTO bronze_products
+      SELECT * FROM read_parquet(
+          '/tmp/products_parquet/snapshot_month=*/products_*.parquet',
+          hive_partitioning = true
+      ) WHERE snapshot_month = strftime(CURRENT_TIMESTAMP, '%Y-%m');
+      SELECT snapshot_month, COUNT(*) AS n FROM bronze_products GROUP BY 1;
+
+  - id: load_tickets_bronze
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    url: jdbc:duckdb:/shared/duckdb/capstone.duckdb
+    sql: |
+      CREATE TABLE IF NOT EXISTS bronze_tickets (snapshot_month VARCHAR);
+      DELETE FROM bronze_tickets WHERE snapshot_month = strftime(CURRENT_TIMESTAMP, '%Y-%m');
+      INSERT INTO bronze_tickets
+      SELECT *, strftime(CURRENT_TIMESTAMP, '%Y-%m') AS snapshot_month
+      FROM read_csv_auto('/shared/data/customer_support_tickets.csv', header=true, null_padding=true);
+      SELECT snapshot_month, COUNT(*) AS n FROM bronze_tickets GROUP BY 1;
+
+  - id: dbt_run
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - cd /app/dbt/capstone_bi && dbt run --profiles-dir /app/dbt --target prod
+
+  - id: dbt_test
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - cd /app/dbt/capstone_bi && dbt test --profiles-dir /app/dbt --target prod
+
+errors:
+  - id: on_failure
+    type: io.kestra.plugin.core.log.Log
+    message: "❌ warehouse_pipeline falló en {{ task.id }} | execution={{ execution.id }}"

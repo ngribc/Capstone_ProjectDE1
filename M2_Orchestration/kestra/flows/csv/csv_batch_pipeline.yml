@@ -1,0 +1,93 @@
+id: csv_batch_pipeline
+namespace: de.project
+labels:
+  env: dev
+  team: data-engineering
+  type: batch
+
+triggers:
+  - id: monthly_end_of_month
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "30 23 28-31 * *"
+
+tasks:
+  - id: debug_files
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - echo "Listando contenido de /app/data:"
+      - ls -R /app/data
+      - echo "Ruta actual:"
+      - pwd
+
+  - id: transform_csv
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - apt-get update && apt-get install -y python3-venv --quiet
+      - python3 -m venv venv
+      - . venv/bin/activate
+      - pip install pandas --quiet
+    script: |
+      import pandas as pd
+      import sys
+      INPUT_PATH = "/app/data/customer_support_tickets.csv"
+      OUTPUT_PATH = "/tmp/clean_tickets.csv"
+      try:
+          df = pd.read_csv(INPUT_PATH)
+      except FileNotFoundError:
+          print(f"[ERROR] Archivo no encontrado: {INPUT_PATH}", file=sys.stderr)
+          sys.exit(1)
+      
+      df.columns = df.columns.str.lower().str.strip().str.replace(' ', '_')
+      df = df.drop_duplicates()
+      df = df.dropna(how='all')
+      str_cols = df.select_dtypes(include='object').columns
+      df[str_cols] = df[str_cols].apply(lambda c: c.str.strip())
+      
+      if df.empty:
+          print("[ERROR] DataFrame vacío después de limpieza", file=sys.stderr)
+          sys.exit(1)
+      df.to_csv(OUTPUT_PATH, index=False)
+      print(f"[OK] Filas procesadas: {len(df)}")
+
+  - id: load_duckdb
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    url: "jdbc:duckdb:/app/storage/warehouse.db"
+    sql: |
+      DROP TABLE IF EXISTS dim_ticket;
+      CREATE TABLE dim_ticket AS SELECT *, CURRENT_TIMESTAMP AS loaded_at FROM read_csv_auto('/tmp/clean_tickets.csv', header=true, null_padding=true);
+      SELECT COUNT(*) AS total_tickets FROM dim_ticket;
+
+  - id: merge_datalake_csv
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - pip install pandas pyarrow fastparquet --quiet
+    script: |
+      import pandas as pd
+      import glob
+      parquet_files = glob.glob('/tmp/products_parquet/*.parquet')
+      if not parquet_files:
+          print("No hay parquets de la API para cruzar.")
+      else:
+          df_api = pd.concat([pd.read_parquet(f) for f in parquet_files])
+          df_csv = pd.read_csv('/tmp/clean_tickets.csv')
+          df_analytics = pd.merge(df_api, df_csv, left_on='id', right_on='product_id', how='inner')
+          df_analytics.to_parquet('/tmp/analytics_joined.parquet')
+          print(f"Cruce exitoso: {len(df_analytics)} filas.")
+
+  - id: dbt_transform
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - pip install dbt-duckdb --quiet
+    commands:
+      - dbt deps
+      - dbt run --profiles-dir . --project-dir ./my_dbt_project
+    env:
+      DBT_DUCKDB_PATH: /app/storage/warehouse.db

@@ -1,0 +1,45 @@
+id: api_full_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  type: orchestrator
+
+description: |
+  Pipeline orquestador del flujo API completo.
+  Ejecuta streaming → warehouse en secuencia compartiendo la red del host.
+
+# Configuramos que todos los subflows esperen y propaguen errores correctamente
+taskDefaults:
+  - type: io.kestra.plugin.core.flow.Subflow
+    values:
+      wait: true          # Obligatorio para ejecución secuencial
+      transmitFailed: true # Si el hijo falla, el padre también falla
+
+tasks:
+
+  - id: streaming
+    type: io.kestra.plugin.core.flow.Subflow
+    flowId: api_streaming_pipeline
+    namespace: de.project
+
+  - id: warehouse
+    type: io.kestra.plugin.core.flow.Subflow
+    flowId: api_warehouse_pipeline
+    namespace: de.project
+
+  - id: done
+    type: io.kestra.plugin.core.log.Log
+    message: "Pipeline API completo ✅ | Execution: {{ execution.id }}"
+
+# Manejo de errores centralizado
+errors:
+  - id: notify_failure
+    type: io.kestra.plugin.core.log.Log
+    level: ERROR
+    message: |
+      ❌ El Pipeline falló.
+      Tarea con error: {{ outputs.streaming.state.name or outputs.warehouse.state.name }}
+      Execution ID: {{ execution.id }}
+      Revisar logs del subflow correspondiente.

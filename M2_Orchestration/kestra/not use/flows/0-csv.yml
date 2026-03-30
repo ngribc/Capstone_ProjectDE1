@@ -1,0 +1,28 @@
+id: csv_pipeline
+namespace: zoomcamp
+
+tasks:
+
+  - id: ingest_csv
+    type: io.kestra.plugin.core.storage.LocalFiles
+    inputs:
+      tickets.csv: /path/to/customer_support_tickets.csv
+
+  - id: transform_csv
+    type: io.kestra.plugin.scripts.python.Script
+    beforeCommands:
+      - pip install pandas
+    script: |
+      import pandas as pd
+
+      df = pd.read_csv("tickets.csv")
+
+      df.columns = df.columns.str.lower()
+
+      df.to_csv("clean_tickets.csv", index=False)
+
+  - id: load_duckdb
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      CREATE TABLE IF NOT EXISTS dim_ticket AS 
+      SELECT * FROM read_csv_auto('clean_tickets.csv');

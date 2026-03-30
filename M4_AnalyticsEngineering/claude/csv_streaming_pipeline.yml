@@ -1,0 +1,106 @@
+id: streaming_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  source: fakestore-api
+
+description: |
+  1. Producer: extrae productos de FakeStore API → Redpanda topic 'products_stream'
+  2. Flink job: consume el topic → escribe Parquet particionado en /tmp/products_parquet/
+  SCHEDULE: fin de mes (ver api_streaming_pipeline para el trigger mensual).
+
+tasks:
+
+  # ── PASO 1: Producer → Kafka ──────────────────────────────────────────────
+  - id: run_producer
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - apt-get update && apt-get install -y python3-venv --quiet
+      - python3 -m venv /tmp/venv_producer
+      - /tmp/venv_producer/bin/pip install kafka-python requests --quiet
+    retry:
+      type: exponential
+      interval: PT5S
+      maxInterval: PT60S
+      maxAttempt: 3
+      delayFactor: 2.0
+    script: |
+      import sys
+      sys.path.insert(0, '/tmp/venv_producer/lib/python3.11/site-packages')
+
+      import requests
+      import json
+      from datetime import datetime, timezone
+      from kafka import KafkaProducer
+      from kafka.errors import KafkaError
+
+      BOOTSTRAP_SERVERS = 'redpanda:29092'
+      TOPIC = 'products_stream'
+      snapshot_month = datetime.now(timezone.utc).strftime("%Y-%m")
+
+      response = requests.get("https://fakestoreapi.com/products", timeout=30)
+      response.raise_for_status()
+      data = response.json()
+
+      producer = KafkaProducer(
+          bootstrap_servers=BOOTSTRAP_SERVERS,
+          value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+          acks='all',
+          retries=3,
+          request_timeout_ms=30000
+      )
+
+      sent, failed = 0, 0
+      for product in data:
+          product["snapshot_month"] = snapshot_month
+          try:
+              producer.send(TOPIC, product).get(timeout=10)
+              sent += 1
+          except KafkaError as e:
+              print(f"[WARN] id={product.get('id')}: {e}", file=sys.stderr)
+              failed += 1
+
+      producer.flush()
+      producer.close()
+      print(f"[Producer] snapshot={snapshot_month} | Enviados: {sent} | Fallidos: {failed}")
+      if failed > 0:
+          sys.exit(1)
+
+  # ── PASO 2: PyFlink → Parquet Data Lake ──────────────────────────────────
+  - id: run_flink
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - apt-get update && apt-get install -y python3-venv --quiet
+      - python3 -m venv /tmp/venv_flink
+      # pyarrow y kafka-python son suficientes para el modo compatible
+      # Para PyFlink nativo agregar: apache-flink (>1GB, lento en CI)
+      - /tmp/venv_flink/bin/pip install pyarrow pandas kafka-python --quiet
+    script: |
+      import sys
+      sys.path.insert(0, '/tmp/venv_flink/lib/python3.11/site-packages')
+
+      # Ejecuta el flink_job.py que está montado en /app/scripts/
+      import subprocess
+      result = subprocess.run(
+          ['/tmp/venv_flink/bin/python', '/app/scripts/flink_job.py'],
+          capture_output=False,   # muestra stdout/stderr en los logs de Kestra
+          text=True
+      )
+      sys.exit(result.returncode)
+
+  # ── PASO 3: Verificación rápida del Data Lake ─────────────────────────────
+  - id: verify_parquet
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - echo "=== Parquet Data Lake ==="
+      - find /tmp/products_parquet -name "*.parquet" -exec ls -lh {} \;
+      - echo "Particiones disponibles:"
+      - ls /tmp/products_parquet/

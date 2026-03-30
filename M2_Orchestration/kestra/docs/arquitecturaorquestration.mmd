@@ -1,0 +1,17 @@
+flowchart TD
+
+A[Kestra] --> B[Streaming Pipeline]
+A --> C[Batch Pipeline]
+A --> D[Warehouse Pipeline]
+
+B --> E[Kafka]
+E --> F[Flink]
+
+C --> G[CSV]
+
+F --> H[Parquet]
+G --> H
+
+H --> I[DuckDB]
+
+I --> J[STAR SCHEMA]

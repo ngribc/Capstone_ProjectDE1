@@ -1,0 +1,80 @@
+id: streaming_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  source: csv
+
+description: |
+  Lee productos desde FakeStore API, los envía a Redpanda topic 'products_stream'
+  y dispara el job de Flink. Sin Docker runner para resolver hostname en la red docker-compose.
+
+tasks:
+
+  - id: run_producer
+    type: io.kestra.plugin.scripts.python.Script
+    beforeCommands:
+      - pip install kafka-python requests --quiet
+    retry:
+      type: exponential
+      interval: PT5S
+      maxInterval: PT60S
+      maxAttempt: 2
+      delayFactor: 2.0        # FIX: campo correcto es 'delayFactor', no 'multiplier'
+    script: |
+      import requests
+      import json
+      import sys
+      from kafka import KafkaProducer
+      from kafka.errors import KafkaError
+
+      BOOTSTRAP_SERVERS = 'redpanda:29092'
+      TOPIC = 'products_stream'
+      API_URL = 'https://fakestoreapi.com/products'
+
+      try:
+          response = requests.get(API_URL, timeout=30)
+          response.raise_for_status()
+          data = response.json()
+      except requests.RequestException as e:
+          print(f"[ERROR] Fallo al llamar la API: {e}", file=sys.stderr)
+          sys.exit(1)
+
+      try:
+          producer = KafkaProducer(
+              bootstrap_servers=BOOTSTRAP_SERVERS,
+              value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+              acks='all',
+              retries=3,
+              request_timeout_ms=30000
+          )
+      except Exception as e:
+          print(f"[ERROR] No se pudo conectar a Kafka: {e}", file=sys.stderr)
+          sys.exit(1)
+
+      sent, failed = 0, 0
+      for product in data:
+          try:
+              producer.send(TOPIC, product).get(timeout=10)
+              sent += 1
+          except KafkaError as e:
+              print(f"[WARN] Error enviando id={product.get('id')}: {e}", file=sys.stderr)
+              failed += 1
+
+      producer.flush()
+      producer.close()
+      print(f"[OK] Productos enviados: {sent} | Fallidos: {failed}")
+
+      if failed > 0:
+          sys.exit(1)
+
+  - id: run_flink
+    type: io.kestra.plugin.scripts.shell.Commands
+    commands:
+      - |
+        if [ -f /app/scripts/flink_job.py ]; then
+          python /app/scripts/flink_job.py
+        else
+          echo "[WARN] flink_job.py no encontrado, saltando paso Flink"
+        fi

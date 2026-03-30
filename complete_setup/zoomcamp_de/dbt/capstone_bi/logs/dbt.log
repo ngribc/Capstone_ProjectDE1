@@ -1,0 +1,162 @@
+[0m12:46:07.999766 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79de420c2390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79de42122750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79de42f70310>]}
+
+
+============================== 12:46:08.067869 | 579d6a31-0e8e-4060-9011-2d5a1bb4ea87 ==============================
+[0m12:46:08.067869 [info ] [MainThread]: Running with dbt=1.11.7
+[0m12:46:08.074261 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'log_cache_events': 'False', 'profiles_dir': '/usr/app/dbt', 'partial_parse': 'True', 'use_colors': 'True', 'quiet': 'False', 'write_json': 'True', 'no_print': 'None', 'debug': 'False', 'invocation_command': 'dbt debug --profiles-dir /usr/app/dbt', 'use_experimental_parser': 'False', 'log_path': '/usr/app/dbt/capstone_bi/logs', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'printer_width': '80', 'version_check': 'True', 'empty': 'None', 'log_format': 'default', 'indirect_selection': 'eager', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'cache_selected_only': 'False'}
+[0m12:46:08.203111 [info ] [MainThread]: dbt version: 1.11.7
+[0m12:46:08.204190 [info ] [MainThread]: python version: 3.11.15
+[0m12:46:08.208397 [info ] [MainThread]: python path: /usr/local/bin/python3.11
+[0m12:46:08.210878 [info ] [MainThread]: os info: Linux-6.8.0-1044-azure-x86_64-with-glibc2.41
+[0m12:46:12.861501 [info ] [MainThread]: Using profiles dir at /usr/app/dbt
+[0m12:46:12.868940 [info ] [MainThread]: Using profiles.yml file at /usr/app/dbt/profiles.yml
+[0m12:46:12.871055 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt/capstone_bi/dbt_project.yml
+[0m12:46:12.877857 [info ] [MainThread]: adapter type: duckdb
+[0m12:46:12.883632 [info ] [MainThread]: adapter version: 1.9.6
+[0m12:46:13.888280 [info ] [MainThread]: Configuration:
+[0m12:46:13.894384 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:46:13.898455 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m12:46:13.902219 [info ] [MainThread]: Required dependencies:
+[0m12:46:13.906548 [debug] [MainThread]: Executing "git --help"
+[0m12:46:13.993088 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m12:46:13.999408 [info ] [MainThread]: Connection:
+[0m12:46:14.003987 [info ] [MainThread]:   database: capstone
+[0m12:46:14.008334 [info ] [MainThread]:   schema: main
+[0m12:46:14.009465 [info ] [MainThread]:   path: /shared/duckdb/capstone.duckdb
+[0m12:46:14.011472 [info ] [MainThread]:   config_options: None
+[0m12:46:14.016014 [info ] [MainThread]:   extensions: None
+[0m12:46:14.017138 [info ] [MainThread]:   settings: {}
+[0m12:46:14.022952 [info ] [MainThread]:   external_root: .
+[0m12:46:14.033459 [info ] [MainThread]:   use_credential_provider: None
+[0m12:46:14.033959 [info ] [MainThread]:   attach: None
+[0m12:46:14.034324 [info ] [MainThread]:   filesystems: None
+[0m12:46:14.048330 [info ] [MainThread]:   remote: None
+[0m12:46:14.052500 [info ] [MainThread]:   plugins: None
+[0m12:46:14.057152 [info ] [MainThread]:   disable_transactions: False
+[0m12:46:14.058847 [info ] [MainThread]: Registered adapter: duckdb=1.9.6
+[0m12:46:15.447526 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m12:46:17.635782 [debug] [MainThread]: Using duckdb connection "debug"
+[0m12:46:17.638192 [debug] [MainThread]: On debug: select 1 as id
+[0m12:46:17.644648 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:46:22.911260 [debug] [MainThread]: SQL status: OK in 5.268 seconds
+[0m12:46:22.930335 [debug] [MainThread]: On debug: Close
+[0m12:46:22.931131 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:46:22.936773 [info ] [MainThread]: [31m1 check failed:[0m
+[0m12:46:22.937454 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+
+[0m12:46:22.946535 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 15.651466, "process_in_blocks": "181528", "process_kernel_time": 0.843773, "process_mem_max_rss": "148152", "process_out_blocks": "3272", "process_user_time": 2.997616}
+[0m12:46:22.948912 [debug] [MainThread]: Command `dbt debug` failed at 12:46:22.948744 after 15.66 seconds
+[0m12:46:22.951751 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:46:22.952340 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79de42441e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79de420b4250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79de41fcb2d0>]}
+[0m12:46:22.953533 [debug] [MainThread]: Flushing usage events
+[0m12:46:23.478464 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:09:46.096730 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d5094eed50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d5097f5ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d5097f5f10>]}
+
+
+============================== 13:09:46.225485 | 3b71cf32-8aee-46ac-bdcd-90272137db13 ==============================
+[0m13:09:46.225485 [info ] [MainThread]: Running with dbt=1.11.7
+[0m13:09:46.231158 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'static_parser': 'True', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'version_check': 'True', 'log_path': '/usr/app/dbt/capstone_bi/logs', 'printer_width': '80', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'profiles_dir': '/usr/app/dbt', 'fail_fast': 'False', 'partial_parse': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'write_json': 'True', 'debug': 'False', 'invocation_command': 'dbt debug --profiles-dir /usr/app/dbt', 'introspect': 'True', 'use_colors': 'True', 'no_print': 'None'}
+[0m13:09:46.349726 [info ] [MainThread]: dbt version: 1.11.7
+[0m13:09:46.352466 [info ] [MainThread]: python version: 3.11.15
+[0m13:09:46.357814 [info ] [MainThread]: python path: /usr/local/bin/python3.11
+[0m13:09:46.364262 [info ] [MainThread]: os info: Linux-6.8.0-1044-azure-x86_64-with-glibc2.41
+[0m13:09:47.525054 [info ] [MainThread]: Using profiles dir at /usr/app/dbt
+[0m13:09:47.529795 [info ] [MainThread]: Using profiles.yml file at /usr/app/dbt/profiles.yml
+[0m13:09:47.532456 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt/capstone_bi/dbt_project.yml
+[0m13:09:47.556475 [info ] [MainThread]: adapter type: duckdb
+[0m13:09:47.565125 [info ] [MainThread]: adapter version: 1.9.6
+[0m13:09:50.154804 [info ] [MainThread]: Configuration:
+[0m13:09:50.158655 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:09:50.164783 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:09:50.176987 [info ] [MainThread]: Required dependencies:
+[0m13:09:50.179819 [debug] [MainThread]: Executing "git --help"
+[0m13:09:50.352131 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m13:09:50.361170 [info ] [MainThread]: Connection:
+[0m13:09:50.365051 [info ] [MainThread]:   database: capstone
+[0m13:09:50.365408 [info ] [MainThread]:   schema: main
+[0m13:09:50.372854 [info ] [MainThread]:   path: /shared/duckdb/capstone.duckdb
+[0m13:09:50.373336 [info ] [MainThread]:   config_options: None
+[0m13:09:50.381129 [info ] [MainThread]:   extensions: None
+[0m13:09:50.385719 [info ] [MainThread]:   settings: {}
+[0m13:09:50.387099 [info ] [MainThread]:   external_root: .
+[0m13:09:50.387469 [info ] [MainThread]:   use_credential_provider: None
+[0m13:09:50.404910 [info ] [MainThread]:   attach: None
+[0m13:09:50.416021 [info ] [MainThread]:   filesystems: None
+[0m13:09:50.428179 [info ] [MainThread]:   remote: None
+[0m13:09:50.431168 [info ] [MainThread]:   plugins: None
+[0m13:09:50.441316 [info ] [MainThread]:   disable_transactions: False
+[0m13:09:50.449718 [info ] [MainThread]: Registered adapter: duckdb=1.9.6
+[0m13:09:52.463418 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m13:09:53.269134 [debug] [MainThread]: Using duckdb connection "debug"
+[0m13:09:53.270299 [debug] [MainThread]: On debug: select 1 as id
+[0m13:09:53.292686 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:09:56.288253 [debug] [MainThread]: SQL status: OK in 3.007 seconds
+[0m13:09:56.326705 [debug] [MainThread]: On debug: Close
+[0m13:09:56.327464 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:09:56.362507 [info ] [MainThread]: [31m1 check failed:[0m
+[0m13:09:56.363032 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+
+[0m13:09:56.389337 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 11.020031, "process_in_blocks": "186936", "process_kernel_time": 0.770737, "process_mem_max_rss": "141364", "process_out_blocks": "3248", "process_user_time": 3.178456}
+[0m13:09:56.408467 [debug] [MainThread]: Command `dbt debug` failed at 13:09:56.408198 after 11.04 seconds
+[0m13:09:56.413102 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:09:56.427765 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d50949fe10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d50939c350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74d5097f5d90>]}
+[0m13:09:56.449057 [debug] [MainThread]: Flushing usage events
+[0m13:09:57.448884 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:52:04.859836 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dcefb33cd90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dcefb335650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dcefb4d8e10>]}
+
+
+============================== 15:52:05.009586 | ac29bbea-b3a2-41fb-85b7-0bf2f25a1489 ==============================
+[0m15:52:05.009586 [info ] [MainThread]: Running with dbt=1.11.7
+[0m15:52:05.016701 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'log_path': '/usr/app/dbt/capstone_bi/logs', 'quiet': 'False', 'static_parser': 'True', 'debug': 'False', 'version_check': 'True', 'fail_fast': 'False', 'profiles_dir': '/usr/app/dbt', 'write_json': 'True', 'empty': 'None', 'warn_error': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'no_print': 'None', 'printer_width': '80', 'invocation_command': 'dbt debug --profiles-dir /usr/app/dbt', 'use_experimental_parser': 'False', 'introspect': 'True', 'indirect_selection': 'eager', 'partial_parse': 'True', 'cache_selected_only': 'False'}
+[0m15:52:05.086777 [info ] [MainThread]: dbt version: 1.11.7
+[0m15:52:05.093227 [info ] [MainThread]: python version: 3.11.15
+[0m15:52:05.094231 [info ] [MainThread]: python path: /usr/local/bin/python3.11
+[0m15:52:05.094583 [info ] [MainThread]: os info: Linux-6.8.0-1044-azure-x86_64-with-glibc2.41
+[0m15:52:09.674985 [info ] [MainThread]: Using profiles dir at /usr/app/dbt
+[0m15:52:09.676620 [info ] [MainThread]: Using profiles.yml file at /usr/app/dbt/profiles.yml
+[0m15:52:09.678780 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt/capstone_bi/dbt_project.yml
+[0m15:52:09.683593 [info ] [MainThread]: adapter type: duckdb
+[0m15:52:09.685749 [info ] [MainThread]: adapter version: 1.9.6
+[0m15:52:09.967964 [info ] [MainThread]: Configuration:
+[0m15:52:09.968540 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m15:52:09.969003 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m15:52:09.969399 [info ] [MainThread]: Required dependencies:
+[0m15:52:09.969833 [debug] [MainThread]: Executing "git --help"
+[0m15:52:09.972226 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m15:52:09.973081 [info ] [MainThread]: Connection:
+[0m15:52:09.973877 [info ] [MainThread]:   database: capstone
+[0m15:52:09.974716 [info ] [MainThread]:   schema: main
+[0m15:52:09.975470 [info ] [MainThread]:   path: /shared/duckdb/capstone.duckdb
+[0m15:52:09.976256 [info ] [MainThread]:   config_options: None
+[0m15:52:09.976964 [info ] [MainThread]:   extensions: None
+[0m15:52:09.977700 [info ] [MainThread]:   settings: {}
+[0m15:52:09.978383 [info ] [MainThread]:   external_root: .
+[0m15:52:09.979062 [info ] [MainThread]:   use_credential_provider: None
+[0m15:52:09.979755 [info ] [MainThread]:   attach: None
+[0m15:52:09.980391 [info ] [MainThread]:   filesystems: None
+[0m15:52:09.981030 [info ] [MainThread]:   remote: None
+[0m15:52:09.981790 [info ] [MainThread]:   plugins: None
+[0m15:52:09.984559 [info ] [MainThread]:   disable_transactions: False
+[0m15:52:09.985872 [info ] [MainThread]: Registered adapter: duckdb=1.9.6
+[0m15:52:10.337631 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m15:52:12.180570 [debug] [MainThread]: Using duckdb connection "debug"
+[0m15:52:12.186309 [debug] [MainThread]: On debug: select 1 as id
+[0m15:52:12.186593 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m15:52:16.060738 [debug] [MainThread]: SQL status: OK in 3.874 seconds
+[0m15:52:16.062055 [debug] [MainThread]: On debug: Close
+[0m15:52:16.062522 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m15:52:16.062918 [info ] [MainThread]: [31m1 check failed:[0m
+[0m15:52:16.063210 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+
+[0m15:52:16.076548 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 11.898836, "process_in_blocks": "183120", "process_kernel_time": 0.661793, "process_mem_max_rss": "141348", "process_out_blocks": "32", "process_user_time": 2.507502}
+[0m15:52:16.077491 [debug] [MainThread]: Command `dbt debug` failed at 15:52:16.077358 after 11.90 seconds
+[0m15:52:16.078119 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m15:52:16.078532 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dcefb4d96d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dcefb16bc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dceffd4d5d0>]}
+[0m15:52:16.079023 [debug] [MainThread]: Flushing usage events
+[0m15:52:16.445416 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,86 @@
+services:
+  kestra:
+    image: kestra/kestra:latest
+    container_name: kestra
+    user: "root"                # Permisos para abrir sockets y usar red
+    privileged: true            # Evita el BindException en redes bridge
+    # El entrypoint instala python3 antes de lanzar el servidor de Kestra
+    entrypoint: 
+      - /bin/sh
+      - -c
+      - |
+        apt-get update && apt-get install -y python3 python3-pip python3-venv  # <--- Agregado aquí
+        /app/kestra server standalone
+    ports:
+      - "18080:18080"
+    environment:
+      MICRONAUT_SERVER_PORT: 18080
+      KESTRA_CONFIGURATION: |
+        kestra:
+          server:
+            basic-auth:
+              enabled: true
+              username: "admin@kestra.io"
+              password: "Admin1234"
+          repository:
+            type: h2
+          queue:
+            type: h2
+          storage:
+            type: local
+            local:
+              base-path: "/app/storage"
+    volumes:
+      - ./flows:/app/flows
+      - ./scripts:/app/scripts
+      - ./storage:/app/storage
+      - /workspaces/Capstone_ProjectDE1/M2_Orchestration/kestra/data:/app/data                   # <--- AGREGÁ ESTA LÍNEA
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    networks:
+      - kestra_net
+
+  redpanda:
+    image: redpandadata/redpanda:v25.3.9
+    container_name: redpanda
+    command:
+      - redpanda
+      - start
+      - --smp
+      - '1'
+      - --reserve-memory
+      - 0M
+      - --overprovisioned
+      - --node-id
+      - '1'
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr
+      - PLAINTEXT://redpanda:29092,OUTSIDE://localhost:9092
+      - --pandaproxy-addr
+      - PLAINTEXT://0.0.0.0:28082,OUTSIDE://0.0.0.0:8082
+      - --advertise-pandaproxy-addr
+      - PLAINTEXT://redpanda:28082,OUTSIDE://localhost:8082
+      - --rpc-addr
+      - 0.0.0.0:33145
+      - --advertise-rpc-addr
+      - redpanda:33145
+    ports:
+      - "8082:8082"
+      - "9092:9092"
+      - "28082:28082"
+      - "29092:29092"
+    healthcheck:
+      test: ["CMD", "rpk", "cluster", "info", "--brokers=localhost:9092"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - kestra_net
+
+networks:
+  kestra_net:
+    driver: bridge

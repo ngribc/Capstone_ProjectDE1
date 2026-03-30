@@ -1,0 +1,23 @@
+[project]
+name = "capstone-project-de"
+version = "0.1.0"
+description = "End-to-End Data Engineering Pipeline (Batch & Streaming)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyspark>=4.0.0",
+    "pandas",
+    "pyarrow",
+    "fastparquet",
+    "duckdb",
+    "dbt-duckdb",
+    "sqlalchemy",
+    "psycopg2-binary",
+    "kafka-python",
+    "requests",
+    "tqdm",
+    "click",
+    "jupyter",
+    "fastapi",
+    "uvicorn"
+]

@@ -1,0 +1,76 @@
+id: m5_batch_pipeline
+namespace: de.project
+description: "Pipeline mensual automático: Spark -> BigQuery -> DuckDB"
+
+labels:
+  env: prod
+  team: data-engineering
+  module: M5_Batch
+
+triggers:
+  - id: end_of_month_trigger
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "30 23 28-31 * *" # Se ajusta automáticamente al último día del mes
+    backfill:
+      start: 2026-01-01T00:00:00Z
+
+tasks:
+  - id: spark_transform
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - uv pip install pyspark --system
+    script: |
+      from pyspark.sql import SparkSession
+      from pyspark.sql.functions import col, to_timestamp
+
+      spark = SparkSession.builder.appName("M5_Batch_Transform").getOrCreate()
+      
+      # Lectura del archivo crudo
+      df = spark.read.option("header", True).csv("/app/data/raw/customer_service_tickets.csv")
+      
+      # Limpieza: Nombres de columnas y tipos
+      df_clean = df.select([col(c).alias(c.lower().replace(" ", "_")) for c in df.columns])
+      if "created_at" in df_clean.columns:
+          df_clean = df_clean.withColumn("created_at", to_timestamp("created_at"))
+      
+      # Guardado en Lake local (Parquet)
+      df_clean.write.mode("overwrite").parquet("/app/data/lake/customer_service_tickets_clean")
+      
+      # Export temporal para BigQuery (CSV limpio)
+      df_clean.toPandas().to_csv("/tmp/tickets_to_bq.csv", index=False)
+      print("Spark Transform: OK")
+
+  - id: load_to_bigquery
+    type: io.kestra.plugin.gcp.bigquery.Load
+    from: "/tmp/tickets_to_bq.csv"
+    destinationTable: "tu-proyecto-id.retail_analytics.customer_service_tickets"
+    format: CSV
+    autodetect: true
+    writeDisposition: WRITE_TRUNCATE # Sobreescribe cada mes con la foto completa
+    serviceAccount: "{{ secret('GCP_SERVICE_ACCOUNT') }}"
+
+  - id: update_duckdb_warehouse
+    type: io.kestra.plugin.jdbc.duckdb.Queries
+    url: "jdbc:duckdb:/app/storage/warehouse.db"
+    queries:
+      - |
+        CREATE OR REPLACE TABLE dim_customer_service_tickets AS 
+        SELECT * FROM read_parquet('/app/data/lake/customer_service_tickets_clean/*.parquet');
+      - SELECT COUNT(*) FROM dim_customer_service_tickets;
+
+  - id: dbt_refresh_stats
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    projectDir: ./my_dbt_project
+    beforeCommands:
+      - uv pip install dbt-duckdb --system
+    commands:
+      - dbt run --select models/m5_stats # Ejecuta solo las estadísticas mensuales
+    profiles: |
+      my_dbt_project:
+        outputs:
+          dev:
+            type: duckdb
+            path: /app/storage/warehouse.db
+        target: dev

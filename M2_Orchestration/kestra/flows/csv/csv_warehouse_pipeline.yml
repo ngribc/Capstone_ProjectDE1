@@ -1,0 +1,48 @@
+id: csv_warehouse_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  layer: warehouse
+
+description: |
+  Construye el modelo dimensional (dim + fact) en DuckDB a partir de los parquets.
+  Idempotente: re-ejecutar no genera duplicados gracias a DROP + CREATE.
+
+tasks:
+
+  - id: build_dim
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      DROP TABLE IF EXISTS dim_product;
+      CREATE TABLE dim_product AS
+      SELECT DISTINCT
+          id::INTEGER       AS product_id,
+          title             AS product_name,
+          LOWER(category)   AS category,
+          CURRENT_TIMESTAMP AS loaded_at
+      FROM read_parquet('/tmp/products_parquet/*.parquet')
+      WHERE id IS NOT NULL;
+
+  - id: build_fact
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      DROP TABLE IF EXISTS fact_sales;
+      CREATE TABLE fact_sales AS
+      SELECT
+          id::INTEGER           AS product_id,
+          price::DOUBLE         AS price_usd,
+          CURRENT_TIMESTAMP     AS event_time,
+          DATE_TRUNC('day', CURRENT_TIMESTAMP) AS sale_date
+      FROM read_parquet('/tmp/products_parquet/*.parquet')
+      WHERE price IS NOT NULL AND price > 0;
+
+  - id: validate_referential_integrity
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    # Detecta huérfanos: ventas sin dimensión correspondiente
+    sql: |
+      SELECT COUNT(*) AS orphan_facts
+      FROM fact_sales f
+      LEFT JOIN dim_product d ON f.product_id = d.product_id
+      WHERE d.product_id IS NULL;

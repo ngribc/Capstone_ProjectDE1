@@ -1,0 +1,15 @@
+capstone_bi:
+  target: prod
+  outputs:
+    prod:
+      type: duckdb
+      # Archivo DuckDB compartido con Kestra (mismo path que usan los tasks JDBC)
+      path: /tmp/capstone.duckdb
+      threads: 4
+      # dbt-duckdb lee/escribe el mismo archivo que Kestra usa con el plugin JDBC.
+      # Esto es lo que conecta Kestra ↔ dbt sin ningún servidor adicional.
+
+    dev:
+      type: duckdb
+      path: /tmp/capstone_dev.duckdb
+      threads: 2

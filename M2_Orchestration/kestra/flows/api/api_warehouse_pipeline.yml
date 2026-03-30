@@ -1,0 +1,50 @@
+id: api_warehouse_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  layer: warehouse
+
+description: |
+  Crea tablas dimensionales y de hechos en DuckDB a partir de los parquets.
+  Usa Process runner para asegurar acceso a archivos temporales del host/contenedor.
+
+tasks:
+
+  - id: create_dim_product
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    url: "jdbc:duckdb:/app/storage/warehouse.db" # Persiste la DB en el volumen
+    sql: |
+      -- DROP + CREATE garantiza idempotencia
+      DROP TABLE IF EXISTS dim_product;
+      CREATE TABLE dim_product AS
+      SELECT DISTINCT
+          id::INTEGER          AS product_id,
+          title                AS product_name,
+          LOWER(category)      AS category,
+          CURRENT_TIMESTAMP    AS loaded_at
+      FROM read_parquet('/tmp/products_parquet/*.parquet')
+      WHERE id IS NOT NULL;
+
+  - id: create_fact_products
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    url: "jdbc:duckdb:/app/storage/warehouse.db"
+    sql: |
+      DROP TABLE IF EXISTS fact_products;
+      CREATE TABLE fact_products AS
+      SELECT
+          id::INTEGER           AS product_id,
+          price::DOUBLE         AS price_usd,
+          CURRENT_TIMESTAMP     AS event_time,
+          DATE_TRUNC('day', CURRENT_TIMESTAMP) AS event_date
+      FROM read_parquet('/tmp/products_parquet/*.parquet')
+      WHERE price > 0;
+
+  - id: validate_counts
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    url: "jdbc:duckdb:/app/storage/warehouse.db"
+    sql: |
+      SELECT 
+          (SELECT COUNT(*) FROM dim_product) AS dim_count,
+          (SELECT COUNT(*) FROM fact_products) AS fact_count;

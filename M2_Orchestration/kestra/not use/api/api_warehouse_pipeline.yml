@@ -1,0 +1,18 @@
+id: api_warehouse_pipeline
+namespace: de.project
+
+tasks:
+
+  - id: create_dim_product
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      CREATE TABLE IF NOT EXISTS dim_product AS
+      SELECT DISTINCT id, title, category
+      FROM read_parquet('/tmp/products_parquet/*.parquet');
+
+  - id: create_fact
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      CREATE TABLE IF NOT EXISTS fact_products AS
+      SELECT id, price, CURRENT_TIMESTAMP AS event_time
+      FROM read_parquet('/tmp/products_parquet/*.parquet');

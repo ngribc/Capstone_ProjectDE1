@@ -1,0 +1,35 @@
+id: csv_full_pipeline
+namespace: de.project
+labels:
+  env: dev
+  type: orchestrator
+triggers:
+  - id: monthly
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 22 28-31 * *"
+tasks:
+  - id: streaming
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: streaming_pipeline
+    wait: true
+    transmitFailed: true
+  - id: batch
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: csv_batch_pipeline
+    wait: true
+    transmitFailed: true
+  - id: warehouse
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: warehouse_pipeline
+    wait: true
+    transmitFailed: true
+  - id: done
+    type: io.kestra.plugin.core.log.Log
+    message: "Pipeline completo ✅ | {{ execution.id }}"
+errors:
+  - id: on_failure
+    type: io.kestra.plugin.core.log.Log
+    message: "❌ Falló en {{ task.id }} | {{ execution.id }}"

@@ -1,0 +1,6 @@
+kestra:
+  repository:
+    type: postgres
+    url: jdbc:postgresql://postgres_18_retail:5432/retail_db
+    username: root
+    password: root

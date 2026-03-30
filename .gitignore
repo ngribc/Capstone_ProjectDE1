@@ -6,3 +6,71 @@ M3_DataWarehouse/api_integration/utils_retail/
 *.json.
 # Archivos específicos
 .github/instructions/codacy.instructions.md
+.venv/
+__pycache__/
+*.pyc
+M5_Batch/data/
+.DS_Store
+# Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate*
+terraform/terraform.tfvars
+**/.terraform/
+*.tfstate*
+
+# Secrets
+.env
+
+# DuckDB
+duckdb/*.duckdb
+duckdb/*.wal
+
+# dbt
+dbt/capstone_bi/target/
+dbt/capstone_bi/logs/
+dbt/capstone_bi/dbt_packages/
+
+# Kestra state
+storage/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+/tmp/
+
+# Jupyter
+**/.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+*.pyc
+docs/_build/
+pyspark.egg-info
+pyspark_client.egg-info
+pyspark_connect.egg-info
+build/
+dist/
+./setup.py
+./setup.cfg
+*.pyc
+docs/_build/
+pyspark.egg-info
+build/
+dist/
+
+ny_taxi_data/
+*.csv
+*.parquet
+*.gz
+complete_setup/zoomcamp_de/ny_taxi_data/
+
+# Spark y JDK (Binarios pesados)
+M5_Batch/spark/
+*.tar.gz
+*.jar
+*.zip
+**/lib/modules

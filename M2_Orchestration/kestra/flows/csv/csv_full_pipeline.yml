@@ -1,0 +1,46 @@
+id: csv_full_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  type: orchestrator
+
+description: |
+  Orquestador del pipeline CSV completo.
+  Orden: streaming → batch → warehouse (secuencial).
+
+tasks:
+  - id: streaming
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: streaming_pipeline
+    wait: true
+    transmitFailed: true
+
+  - id: batch
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: batch_pipeline
+    wait: true
+    transmitFailed: true
+
+  - id: warehouse
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: warehouse_pipeline
+    wait: true
+    transmitFailed: true
+
+  - id: done
+    type: io.kestra.plugin.core.log.Log
+    message: "Pipeline CSV completo ✅ | Execution: {{ execution.id }}"
+
+errors:
+  - id: notify_failure
+    type: io.kestra.plugin.core.log.Log
+    level: ERROR
+    message: |
+      ❌ Pipeline falló en la tarea: {{ task.id }}
+      ID de Ejecución: {{ execution.id }}
+      Por favor, revisa los logs del subflow fallido.

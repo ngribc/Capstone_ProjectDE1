@@ -1,0 +1,57 @@
+id: csv_batch_pipeline
+namespace: de.project
+labels:
+  env: dev
+  type: batch
+triggers:
+  - id: monthly
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "30 23 28-31 * *"
+tasks:
+  - id: debug_files
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - echo "=== $(date) ===" && ls -lh /shared/data/ || echo "No data dir"
+
+  - id: transform_csv
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - apt-get update -qq && apt-get install -y -qq python3-venv
+      - python3 -m venv /tmp/venv_batch
+      - /tmp/venv_batch/bin/pip install pandas --quiet
+    script: |
+      import sys
+      sys.path.insert(0, '/tmp/venv_batch/lib/python3.11/site-packages')
+      import pandas as pd
+      from datetime import datetime, timezone
+      INPUT  = "/shared/data/customer_support_tickets.csv"
+      OUTPUT = "/tmp/clean_tickets.csv"
+      snapshot_month = datetime.now(timezone.utc).strftime("%Y-%m")
+      try:
+          df = pd.read_csv(INPUT)
+      except FileNotFoundError:
+          print(f"[ERROR] {INPUT} no encontrado", file=sys.stderr); sys.exit(1)
+      df.columns = df.columns.str.lower().str.strip().str.replace(' ', '_')
+      df = df.drop_duplicates().dropna(how='all')
+      str_cols = df.select_dtypes(include='object').columns
+      df[str_cols] = df[str_cols].apply(lambda c: c.str.strip())
+      df["snapshot_month"] = snapshot_month
+      if df.empty:
+          print("[ERROR] DataFrame vacío", file=sys.stderr); sys.exit(1)
+      df.to_csv(OUTPUT, index=False)
+      print(f"[OK] snapshot={snapshot_month} | rows={len(df)}")
+
+  - id: load_duckdb
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    url: jdbc:duckdb:/shared/duckdb/capstone.duckdb
+    sql: |
+      CREATE TABLE IF NOT EXISTS bronze_tickets (snapshot_month VARCHAR);
+      DELETE FROM bronze_tickets WHERE snapshot_month = strftime(CURRENT_TIMESTAMP, '%Y-%m');
+      INSERT INTO bronze_tickets
+      SELECT *, strftime(CURRENT_TIMESTAMP, '%Y-%m') AS snapshot_month
+      FROM read_csv_auto('/tmp/clean_tickets.csv', header=true, null_padding=true);
+      SELECT snapshot_month, COUNT(*) AS n FROM bronze_tickets GROUP BY 1;

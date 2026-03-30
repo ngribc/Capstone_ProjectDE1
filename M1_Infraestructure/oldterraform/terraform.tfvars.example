@@ -1,0 +1,6 @@
+project_name            = "zoomcamp"
+environment             = "dev"
+kestra_password         = "Admin1234"
+superset_secret_key     = "cambia_esto_32_chars_minimo!!!!!"
+superset_admin_password = "zoomcamp1234"
+jupyter_token           = "zoomcamp"

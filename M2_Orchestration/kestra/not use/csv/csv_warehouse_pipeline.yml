@@ -1,0 +1,15 @@
+id: warehouse_pipeline
+namespace: de.project
+
+tasks:
+  - id: build_dim
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      CREATE TABLE IF NOT EXISTS dim_product AS
+      SELECT * FROM read_parquet('/tmp/products_parquet/*.parquet');
+
+  - id: build_fact
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      CREATE TABLE IF NOT EXISTS fact_sales AS
+      SELECT id, price FROM read_parquet('/tmp/products_parquet/*.parquet');

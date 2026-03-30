@@ -1,0 +1,27 @@
+id: tickets_pipeline
+namespace: zoomcamp
+
+tasks:
+  - id: extract_csv
+    type: io.kestra.plugin.scripts.python.Script
+    script: |
+      import pandas as pd
+      df = pd.read_csv("customer_support_tickets.csv")
+      df.to_parquet("data/bronze/tickets.parquet")
+
+  - id: transform_silver
+    type: io.kestra.plugin.scripts.python.Script
+    script: |
+      import pandas as pd
+      df = pd.read_parquet("data/bronze/tickets.parquet")
+
+      df.columns = df.columns.str.lower().str.replace(" ", "_")
+      df = df.drop_duplicates()
+
+      df.to_parquet("data/silver/tickets.parquet")
+
+  - id: run_dbt
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    commands:
+      - dbt run
+      - dbt test

@@ -1,8 +1,8 @@
 {
-  "dataset_id": "retail_voice_analytics",
+  "dataset_id": "_analytics",
   "location": "US",
   "tables": [
-    {"name": "fact_calls", "partition_by": "call_timestamp"},
+    {"name": "fact_", "partition_by": "_timestamp"},
     {"name": "dim_customers", "cluster_by": "customer_id"}
   ]
 }

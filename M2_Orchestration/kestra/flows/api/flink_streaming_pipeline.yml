@@ -1,0 +1,31 @@
+id: streaming_pipeline
+namespace: de.project
+
+tasks:
+  - id: run_producer
+    type: io.kestra.plugin.scripts.python.Script
+    beforeCommands:
+      - uv pip install kafka-python requests --system
+    script: |
+      import requests, json, sys
+      from kafka import KafkaProducer
+      # ... (Tu código de KafkaProducer aquí usando 'redpanda:29092') ...
+
+  - id: run_flink_consumer
+    type: io.kestra.plugin.scripts.python.Script
+    beforeCommands:
+      - uv pip install kafka-python pyarrow pandas --system
+    script: |
+      # Aquí pegamos el contenido de tu flink_job.py
+      import json, os, sys
+      from kafka import KafkaConsumer
+      import pyarrow as pa
+      import pyarrow.parquet as pq
+      # ... (Lógica de consumo y escritura en /tmp/products_parquet) ...
+
+  - id: sync_to_duckdb
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    url: "jdbc:duckdb:/app/storage/warehouse.db"
+    sql: |
+      CREATE TABLE IF NOT EXISTS analytics_products AS 
+      SELECT * FROM read_parquet('/tmp/products_parquet/*/*.parquet');

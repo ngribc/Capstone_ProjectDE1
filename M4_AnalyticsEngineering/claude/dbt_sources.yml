@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: "Tablas cargadas por Kestra desde Parquet (productos) y CSV (tickets)"
+    schema: main   # DuckDB schema por defecto donde Kestra escribe
+
+    tables:
+      - name: bronze_products
+        description: "Productos crudos desde FakeStore API via Kafka → Parquet → DuckDB"
+        columns:
+          - name: id
+            tests: [not_null]
+          - name: title
+            tests: [not_null]
+          - name: price
+            tests: [not_null]
+          - name: category
+            tests: [not_null]
+          - name: snapshot_month
+            tests: [not_null]
+
+      - name: bronze_tickets
+        description: "Tickets de soporte desde CSV → DuckDB"
+        columns:
+          - name: snapshot_month
+            tests: [not_null]

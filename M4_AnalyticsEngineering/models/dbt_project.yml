@@ -1,8 +1,8 @@
-name: 'retail_voice_analysis'
+name: 'customer_service_tickets'
 version: '1.0.0'
 config-version: 2
 
-profile: 'retail_voice'
+profile: 'customer_service'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]

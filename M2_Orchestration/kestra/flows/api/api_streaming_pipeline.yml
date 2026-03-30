@@ -1,0 +1,94 @@
+id: api_streaming_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  source: api
+
+description: |
+  Extrae productos de FakeStore API y los envía a Redpanda/Kafka.
+  SCHEDULE: corre los días 28-31 de cada mes a las 23:00 UTC,
+  cubriendo siempre el último día real de cualquier mes.
+
+# ── TRIGGER MENSUAL ──────────────────────────────────────────────
+triggers:
+  - id: monthly_end_of_month
+    type: io.kestra.plugin.core.trigger.Schedule
+    # "0 23 28-31 * *"
+    # → minuto 0, hora 23 UTC, días 28 al 31, todos los meses.
+    # Los días que no existen en el mes (ej: 29-31 en febrero)
+    # simplemente no se disparan. El día 28 es el mínimo común
+    # a todos los meses → siempre hay al menos 1 disparo por mes.
+    # Si querés ejecutar SOLO una vez por mes, usá día 1 del mes siguiente:
+    #   cron: "0 23 1 * *"   ← primer día de cada mes a las 23:00
+    cron: "0 23 28-31 * *"
+# ─────────────────────────────────────────────────────────────────
+
+tasks:
+
+  - id: extract_api
+    type: io.kestra.plugin.core.http.Request
+    uri: https://fakestoreapi.com/products
+    method: GET
+    timeout: PT30S
+
+  - id: send_to_kafka
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - apt-get update && apt-get install -y python3-venv --quiet
+      - python3 -m venv venv
+      - . venv/bin/activate
+      - pip install kafka-python --quiet
+    retry:
+      type: exponential
+      interval: PT5S
+      maxInterval: PT60S
+      maxAttempt: 2
+      delayFactor: 2.0
+    script: |
+      import json
+      import sys
+      from datetime import datetime, timezone
+      from kafka import KafkaProducer
+      from kafka.errors import KafkaError
+
+      BOOTSTRAP_SERVERS = 'redpanda:29092'
+      TOPIC = 'products_stream'
+      snapshot_month = datetime.now(timezone.utc).strftime("%Y-%m")
+
+      try:
+          producer = KafkaProducer(
+              bootstrap_servers=BOOTSTRAP_SERVERS,
+              value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+              acks='all',
+              retries=3,
+              request_timeout_ms=30000
+          )
+      except Exception as e:
+          print(f"[ERROR] No se pudo conectar a Kafka en {BOOTSTRAP_SERVERS}: {e}", file=sys.stderr)
+          sys.exit(1)
+
+      raw = """{{ outputs.extract_api.body }}"""
+      data = json.loads(raw)
+
+      sent, failed = 0, 0
+      for product in data:
+          # Agrega columna de partición mensual a cada mensaje
+          product["snapshot_month"] = snapshot_month
+          future = producer.send(TOPIC, product)
+          try:
+              future.get(timeout=10)
+              sent += 1
+          except KafkaError as e:
+              print(f"[WARN] Fallo enviando id={product.get('id')}: {e}", file=sys.stderr)
+              failed += 1
+
+      producer.flush()
+      producer.close()
+      print(f"[OK] snapshot_month={snapshot_month} | Enviados: {sent} | Fallidos: {failed}")
+
+      if failed > 0:
+          sys.exit(1)

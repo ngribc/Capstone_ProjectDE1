@@ -1,5 +1,0 @@
-name: customer_support_pipeline
-
-connection:
-  type: duckdb
-  path: warehouse.duckdb

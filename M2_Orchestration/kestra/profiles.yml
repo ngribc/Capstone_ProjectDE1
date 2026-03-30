@@ -1,0 +1,10 @@
+my_dbt_project: # Este nombre debe coincidir con el 'profile' en tu dbt_project.yml
+  outputs:
+    dev:
+      type: duckdb
+      path: "/app/storage/warehouse.db" # Ruta que definiste en tu variable de entorno
+      extensions:
+        - parquet
+        - httpfs
+      threads: 4
+  target: dev

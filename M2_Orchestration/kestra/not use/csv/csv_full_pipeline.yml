@@ -1,0 +1,22 @@
+id: full_pipeline
+namespace: de.project
+
+tasks:
+  - id: streaming
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: streaming_pipeline
+
+  - id: batch
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: batch_pipeline
+
+  - id: warehouse
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: warehouse_pipeline
+
+  - id: done
+    type: io.kestra.plugin.core.log.Log
+    message: "Pipeline completo 🚀"

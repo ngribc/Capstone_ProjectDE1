@@ -1,4 +1,4 @@
-# DASHBOARD en **Metabase**
+# DASHBOARD en **Superset**
 
 ## Dashboard final debería tener:
 

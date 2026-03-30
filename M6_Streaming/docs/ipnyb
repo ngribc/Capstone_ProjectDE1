@@ -1,0 +1,10 @@
+spark-worker:
+  image: apache/spark:3.5.8-scala2.12-java17-python3-ubuntu
+  container_name: spark-worker
+  depends_on:
+    - spark-master
+  environment:
+    - SPARK_NO_DAEMONIZE=true
+  command: /opt/spark/sbin/start-worker.sh spark://spark-master:7077
+  volumes:
+    - ./notebooks:/workspace

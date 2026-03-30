@@ -1,0 +1,47 @@
+id: fakestore_pipeline
+namespace: zoomcamp
+
+tasks:
+
+  # 1. EXTRAER DATOS DE API
+  - id: extract_api
+    type: io.kestra.plugin.core.http.Request
+    uri: https://fakestoreapi.com/products
+    method: GET
+
+  # 2. GUARDAR RAW JSON
+  - id: save_raw
+    type: io.kestra.plugin.core.storage.LocalFiles
+    outputs:
+      products.json: "{{ outputs.extract_api.body }}"
+
+  # 3. TRANSFORMAR A CSV
+  - id: transform_to_csv
+    type: io.kestra.plugin.scripts.python.Script
+    beforeCommands:
+      - pip install pandas
+    script: |
+      import pandas as pd
+      import json
+
+      with open("products.json") as f:
+          data = json.load(f)
+
+      df = pd.json_normalize(data)
+
+      df.to_csv("products.csv", index=False)
+
+    inputFiles:
+      products.json: "{{ outputs.save_raw.files['products.json'] }}"
+
+  # 4. CARGAR A DUCKDB (OLAP)
+  - id: load_duckdb
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      CREATE TABLE IF NOT EXISTS dim_product AS 
+      SELECT * FROM read_csv_auto('products.csv');
+
+  # 5. LOG FINAL
+  - id: done
+    type: io.kestra.plugin.core.log.Log
+    message: "Pipeline completado 🚀"

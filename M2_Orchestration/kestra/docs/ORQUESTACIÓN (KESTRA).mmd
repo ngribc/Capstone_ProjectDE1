@@ -1,0 +1,17 @@
+flowchart TD
+
+A[Kestra Scheduler] --> B[Run Producer]
+
+B --> C[Kafka Stream Active]
+
+A --> D[Run Flink Job]
+
+D --> E[Streaming Processing]
+
+A --> F[Load to OLAP]
+
+F --> G[DuckDB / BigQuery]
+
+A --> H[Run dbt Models]
+
+H --> I[STAR Schema Ready]
