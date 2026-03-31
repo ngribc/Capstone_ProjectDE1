@@ -1,6 +1,4 @@
 # docker maestro
-version: '3.8'
-
 services:
   # M1 — POSTGRES (Base de datos relacional)
   db:
@@ -68,7 +66,7 @@ services:
       - ./flows:/app/flows
       - ./scripts:/app/scripts
       - ./storage:/app/storage
-      - ./dbt:/app/dbt
+      - ./M4_AnalyticsEngineering/dbt:/app/dbt
       - ./duckdb:/shared/duckdb
       - ./data:/shared/data
       - /workspaces/Capstone_ProjectDE1/M2_Orchestration/kestra/data:/app/data
@@ -125,11 +123,11 @@ services:
   # M4 — DBT
   dbt:
     build:
-      context: ./dbt
+      context: ./M4_AnalyticsEngineering/dbt
       dockerfile: Dockerfile
     container_name: dbt
     volumes:
-      - ./dbt:/usr/app/dbt
+      - ./M4_AnalyticsEngineering/dbt:/usr/app/dbt
       - ./duckdb:/shared/duckdb
       - ./data:/shared/data
     working_dir: /usr/app/dbt/capstone_bi
@@ -234,10 +232,6 @@ networks:
     driver: bridge
   streaming-network:
     driver: bridge
-
-
-
-
 
 volumes:
   superset_home:

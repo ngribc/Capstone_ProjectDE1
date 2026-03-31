@@ -100,9 +100,6 @@ check:
 	@command -v terraform   >/dev/null 2>&1 && echo "✅ terraform:  $$(terraform version | head -1)" || echo "⚠️  terraform not found (optional)"
 	@command -v git         >/dev/null 2>&1 && echo "✅ git:        $$(git --version)" || echo "❌ git not found"
 	@test -f .env           && echo "✅ .env found" || echo "⚠️  .env missing — run: cp .env.example .env"
-	@test -f ./data/customer_support_tickets.csv \
-	    && echo "✅ CSV data found" \
-	    || echo "⚠️  data/customer_support_tickets.csv missing — copy your CSV to ./data/"
 
 # =============================================================================
 # FOLDER SETUP
