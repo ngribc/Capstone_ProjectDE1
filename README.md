@@ -455,7 +455,7 @@ make down              # Stop everything
 | Jupyter | http://localhost:8888 | token: zoomcamp |
 | Superset | http://localhost:8088 | admin / zoomcamp1234 |
 | Spark UI | http://localhost:8080 | — |
-| Redpanda | localhost:9092 (Kafka) | — |
+| Redpanda | localhost:29092 (Kafka) | — |
 
 Data Flow
 
