@@ -374,14 +374,14 @@ Capstone_ProjectDE1/
 ├── .env.example                      # Template to copy
 ├── .gitignore
 │
-├── terraform/                        # M0: Infrastructure as Code
+│
+├── M1_Infraestructure/               # Postgres + pgAdmin (standalone module)
+│ ├── terraform/                        # M0: Infrastructure as Code
 │   ├── main.tf                       # Docker network + volumes + .env generation
 │   ├── variables.tf                  # All configurable params (ports, passwords)
 │   ├── outputs.tf                    # URLs, resource names after apply
 │   └── terraform.tfvars.example      # Copy to terraform.tfvars
-│
-├── M1_Infraestructure/               # Postgres + pgAdmin (standalone module)
-│
+|
 ├── M2_Orchestration/kestra/
 │   └── flows/                        # Kestra flow YMLs
 │       ├── streaming_pipeline.yml    # API → Kafka → Parquet (cron: end of month)
