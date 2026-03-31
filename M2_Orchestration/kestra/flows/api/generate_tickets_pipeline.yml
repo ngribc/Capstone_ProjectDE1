@@ -1,0 +1,157 @@
+id: generate_tickets_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  type: data-generation
+
+description: |
+  Genera customer_support_tickets.csv sintético a partir de FakeStore API.
+  Elimina la dependencia de un CSV externo — los datos se crean desde la misma
+  fuente que el pipeline de streaming (FakeStore productos).
+
+  FK real: cada ticket tiene Product ID 1-20 que une exactamente con dim_product.
+
+  CUÁNDO CORRER:
+    - Una vez antes del primer batch pipeline
+    - O mensualmente para acumular tickets nuevos (cron: fin de mes)
+
+triggers:
+  - id: monthly_generate
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 21 28-31 * *"   # 1h antes del pipeline completo (que corre a las 22:00)
+
+tasks:
+
+  - id: generate_tickets
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - apt-get update -qq && apt-get install -y -qq python3-venv
+      - python3 -m venv /tmp/venv_gen
+      - /tmp/venv_gen/bin/pip install requests --quiet
+    script: |
+      import sys
+      sys.path.insert(0, '/tmp/venv_gen/lib/python3.11/site-packages')
+
+      import random, csv, json, os, urllib.request
+      from datetime import datetime, timedelta, timezone
+
+      # ── Config ──────────────────────────────────────────────────────────────
+      API_URL     = "https://fakestoreapi.com/products"
+      OUTPUT_PATH = "/shared/data/customer_support_tickets.csv"
+      N_ROWS      = 500
+      SEED        = 42
+
+      random.seed(SEED)
+
+      # ── Fetch real products from FakeStore ──────────────────────────────────
+      with urllib.request.urlopen(API_URL, timeout=15) as r:
+          products = json.loads(r.read().decode())
+      print(f"[OK] {len(products)} products fetched from FakeStore")
+
+      # ── Issue types per category (realistic e-commerce problems) ────────────
+      ISSUES = {
+          "electronics":      ["Device not turning on","Battery drains too fast",
+                               "Screen flickering","Overheating","Connectivity problem",
+                               "Missing accessories","Dead on arrival"],
+          "jewelery":         ["Item arrived damaged","Wrong size delivered",
+                               "Color different from photo","Clasp broken",
+                               "Missing certificate","Tarnished finish"],
+          "men's clothing":   ["Wrong size delivered","Fabric quality issue",
+                               "Color fading after wash","Stitching coming apart",
+                               "Item not as described","Missing item"],
+          "women's clothing": ["Wrong size delivered","Fabric quality issue",
+                               "Color different from photo","Zipper broken",
+                               "Item not as described","Return request"],
+      }
+      DEFAULT_ISSUES = ["Item not as described","Delivery delay","Wrong item","Damaged packaging"]
+
+      RESOLUTIONS = [
+          "Full refund issued","Replacement sent","Partial refund applied",
+          "Exchange processed","Technical support provided",
+          "Escalated to warehouse team","Issue resolved via phone",
+          "Closed - no response",
+      ]
+      STATUSES  = ["Open","Pending","Closed","Resolved","Escalated"]
+      CHANNELS  = ["Email","Chat","Phone","Social Media","Self-Service Portal"]
+      NAMES     = ["James Smith","Mary Johnson","John Williams","Patricia Brown",
+                   "Robert Garcia","Jennifer Miller","David Wilson","Susan Moore",
+                   "Lucas Torres","Sofia Martinez","Diego Lopez","Camila Rivera",
+                   "Carlos Perez","Maria Gonzalez","Luis Hernandez","Laura Flores"]
+
+      snapshot_month = datetime.now(timezone.utc).strftime("%Y-%m")
+
+      def rand_date():
+          base = datetime.now(timezone.utc) - timedelta(days=random.randint(0, 365))
+          return base.strftime("%Y-%m-%d")
+
+      def res_time(status):
+          if status in ("Closed","Resolved"):    return round(random.uniform(1,72),1)
+          elif status == "Escalated":            return round(random.uniform(24,168),1)
+          else:                                  return round(random.uniform(0,24),1)
+
+      # ── Generate tickets ────────────────────────────────────────────────────
+      # Weighting: cheaper products get more tickets (more volume, more issues)
+      weights = [1 / (p["price"] ** 0.3) for p in products]
+
+      rows = []
+      for i in range(1, N_ROWS + 1):
+          p          = random.choices(products, weights=weights, k=1)[0]
+          category   = p.get("category","unknown")
+          issue      = random.choice(ISSUES.get(category, DEFAULT_ISSUES))
+          resolution = random.choice(RESOLUTIONS)
+          status     = random.choice(STATUSES)
+          order_id   = random.randint(10000, 99999)
+
+          rows.append({
+              "Ticket ID":                    f"TKT-{i:06d}",
+              "Customer Name":                random.choice(NAMES),
+              "Customer Age":                 random.randint(18, 72),
+              "Customer Gender":              random.choice(["Male","Female","Non-binary"]),
+              "Product Purchased":            p["title"],
+              "Product ID":                   p["id"],        # FK real → FakeStore id
+              "Category":                     category,
+              "Price USD":                    p["price"],
+              "Date of Purchase":             rand_date(),
+              "Ticket Type":                  issue,
+              "Ticket Subject":               f"{issue} - Order #{order_id}",
+              "Ticket Description":           f"Customer reported: {issue} for product '{p['title'][:40]}'.",
+              "Ticket Status":                status,
+              "Resolution":                   resolution,
+              "Resolution Time (hrs)":        res_time(status),
+              "Customer Satisfaction Rating": random.randint(1, 5),
+              "Channel":                      random.choice(CHANNELS),
+              "Order ID":                     order_id,
+              "snapshot_month":               snapshot_month,
+          })
+
+      # ── Write CSV ───────────────────────────────────────────────────────────
+      os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+      with open(OUTPUT_PATH, "w", newline="", encoding="utf-8") as f:
+          writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+          writer.writeheader()
+          writer.writerows(rows)
+
+      size_kb = os.path.getsize(OUTPUT_PATH) / 1024
+      print(f"[OK] Written: {OUTPUT_PATH}")
+      print(f"     Rows: {len(rows)} | Size: {size_kb:.1f} KB | snapshot: {snapshot_month}")
+
+      # ── Stats ───────────────────────────────────────────────────────────────
+      from collections import Counter
+      cats = Counter(r["Category"] for r in rows)
+      print("\n── Tickets by category ──")
+      for cat, n in cats.most_common():
+          print(f"  {cat:<25} {n:>4} tickets")
+
+  - id: verify_output
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - echo "=== CSV generated ==="
+      - ls -lh /shared/data/customer_support_tickets.csv
+      - echo "First 3 rows:"
+      - head -4 /shared/data/customer_support_tickets.csv

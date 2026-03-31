@@ -1,0 +1,56 @@
+id: csv_full_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  type: orchestrator
+
+description: |
+  Pipeline completo — 4 pasos en secuencia:
+    1. generate_tickets  → crea CSV desde FakeStore API
+    2. streaming         → API → Kafka → PyFlink → Parquet
+    3. csv_batch         → CSV → DuckDB bronze_tickets
+    4. warehouse         → DuckDB + dbt Star Schema
+
+triggers:
+  - id: monthly
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 21 28-31 * *"
+
+tasks:
+  - id: generate_tickets
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: generate_tickets_pipeline
+    wait: true
+    transmitFailed: true
+
+  - id: streaming
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: streaming_pipeline
+    wait: true
+    transmitFailed: true
+
+  - id: batch
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: csv_batch_pipeline
+    wait: true
+    transmitFailed: true
+
+  - id: warehouse
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: de.project
+    flowId: warehouse_pipeline
+    wait: true
+    transmitFailed: true
+
+  - id: done
+    type: io.kestra.plugin.core.log.Log
+    message: "✅ Pipeline completo | {{ execution.id }}"
+
+errors:
+  - id: on_failure
+    type: io.kestra.plugin.core.log.Log
+    message: "❌ Falló en {{ task.id }} | {{ execution.id }}"

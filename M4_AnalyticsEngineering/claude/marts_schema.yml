@@ -1,0 +1,146 @@
+version: 2
+
+models:
+
+  # ===========================================================================
+  # dim_product
+  # ===========================================================================
+  - name: dim_product
+    description: >
+      Gold table — product dimension.
+      One row per product (SCD Type 1 — latest wins).
+    columns:
+      - name: product_id
+        description: "PK — FakeStore product id 1-20"
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        tests: [not_null]
+
+      - name: price_usd
+        tests:
+          - not_null
+          - positive_value
+
+      - name: category
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - "electronics"
+                - "jewelery"
+                - "men's clothing"
+                - "women's clothing"
+
+      - name: price_segment
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["economy","mid-range","premium"]
+
+      - name: last_seen_month
+        tests: [not_null]
+
+  # ===========================================================================
+  # dim_category
+  # ===========================================================================
+  - name: dim_category
+    description: >
+      Gold table — category dimension derived from stg_products.
+      One row per unique category (4 rows for FakeStore).
+    columns:
+      - name: category_id
+        description: "Surrogate key — ROW_NUMBER() over category"
+        tests:
+          - not_null
+          - unique
+
+      - name: category_name
+        tests:
+          - not_null
+          - unique
+          - accepted_values:
+              values:
+                - "electronics"
+                - "jewelery"
+                - "men's clothing"
+                - "women's clothing"
+
+      - name: category_slug
+        tests: [not_null]
+
+      - name: total_products
+        tests:
+          - not_null
+          - positive_value
+
+      - name: avg_price_usd
+        tests:
+          - not_null
+          - positive_value
+
+  # ===========================================================================
+  # fact_sales_support
+  # ===========================================================================
+  - name: fact_sales_support
+    description: >
+      Gold table — central fact table. One row per support ticket,
+      enriched with product and category context.
+      Granularity: ticket_id.
+    columns:
+      - name: ticket_id
+        description: "Natural key from CSV e.g. TKT-000001"
+        tests: [not_null]
+
+      - name: product_id
+        description: "FK → dim_product"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_id
+
+      - name: category_id
+        description: "FK → dim_category"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_category')
+              field: category_id
+
+      - name: purchase_date
+        tests: [not_null]
+
+      - name: price_usd
+        tests:
+          - not_null
+          - positive_value
+
+      - name: price_segment
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["economy","mid-range","premium"]
+
+      - name: ticket_status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Open","Pending","Closed","Resolved","Escalated"]
+
+      - name: satisfaction_score
+        tests:
+          - not_null
+          - satisfaction_between_1_and_5
+
+      - name: is_resolved
+        description: "1 if Closed/Resolved, 0 otherwise"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: snapshot_month
+        tests: [not_null]

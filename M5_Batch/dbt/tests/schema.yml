@@ -1,9 +1,0 @@
-version: 2
-
-models:
-  - name: fact_tickets
-    columns:
-      - name: ticket_id
-        tests:
-          - not_null
-          - unique

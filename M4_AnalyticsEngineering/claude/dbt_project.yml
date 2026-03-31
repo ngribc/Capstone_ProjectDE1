@@ -6,16 +6,27 @@ profile: 'capstone_bi'
 
 model-paths: ["models"]
 seed-paths:  ["seeds"]
-test-paths:  ["tests"]
+test-paths:  ["tests"]          # dbt looks here for both singular AND generic tests
+docs-paths:  ["docs"]
 
 target-path: "target"
-clean-targets: ["target", "dbt_packages"]
+clean-targets: ["target"]
 
+# ── Global test config ────────────────────────────────────────────────────────
+tests:
+  +store_failures: true          # Save failing rows to target/compiled/ for inspection
+  +severity: error               # All tests are errors by default (not warnings)
+
+# ── Model config ──────────────────────────────────────────────────────────────
 models:
   capstone_bi:
     staging:
-      +schema:      silver          # DuckDB schema: capstone_bi_silver
-      +materialized: view           # staging como views → sin costo de storage
+      +schema:       silver
+      +materialized: view
+      +tests:
+        +severity: warn          # Staging tests are warnings (data may still be raw)
     marts:
-      +schema:      gold            # DuckDB schema: capstone_bi_gold
-      +materialized: table          # marts como tablas físicas → performance OLAP
+      +schema:       gold
+      +materialized: table
+      +tests:
+        +severity: error         # Mart tests are hard errors (Gold must be clean)
