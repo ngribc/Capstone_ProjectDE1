@@ -102,32 +102,18 @@ A --> E[dbt]
 ## 🛠️ Stack
 
 - Kafka
-- PyFlink
-- DuckDB / BigQuery
-- dbt
 - Kestra
-- Pandas
+- DuckDB /- BigQuery (Optional) -
+- dbt
+- PyFlink
 - Superset
-
----
-
-## 🚀 Cómo correr
-
-```bash
-docker-compose up -d
-python producer.py
-python flink_job.py
-duckdb < duckdb_load.sql
-dbt run
-```
-
 ---
 
 ## 📈 Futuro
 
 - Data Quality
 - SCD Type 2
-- Cloud deployment
+- Cloud Deployment
 - Dashboard BI
 
 # Capstone Project DE1 — FakeStore API × Customer Support Tickets
