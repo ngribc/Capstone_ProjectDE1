@@ -455,11 +455,11 @@ make down              # Stop everything
 | Jupyter | http://localhost:8888 | token: zoomcamp |
 | Superset | http://localhost:8088 | admin / zoomcamp1234 |
 | Spark UI | http://localhost:8080 | — |
-| Redpanda | localhost:29092 (Kafka) | — |
+| Redpanda | http://localhost:29092 | — |
 
 Data Flow
 
-1. **Ingestión:** **Un contenedor de streaming extrae datos de la Fake Store API y los envía al tópico de Kafka** `service_ticket_data`.
+1. **Ingestión:** **Un contenedor de streaming extrae datos de la Fake Store API y los envía al tópico de Kafka**.
 2. **Procesamiento Batch/Stream:** **Pipeline orquestado por** **Kestra** **que consume datos de Kafka, los almacena como datos** **Bronze** **(raw) en** **Google Cloud Storage (GCS)** **y en una base de datos**  **PostgreSQL** **.**
 3. **Transformación (Silver):** **Apache Spark** **procesa los datos de GCS, aplica esquemas OLAP (Star Schema) y los guarda nuevamente en GCS como datos** **Silver** **(transformados).**
 4. **Exportación a BigQuery:** **Un pipeline carga los datos "Silver" desde GCS hacia** **BigQuery** **para facilitar el análisis a gran escala.**
@@ -472,8 +472,9 @@ Tech Stack Used
 * **Kestra:** **Orquestadores para la ejecución de flujos de trabajo y pipelines.**
 * **Apache Spark:** **Motor de computación distribuida para procesamiento de datos a gran escala.**
 * **dbt (Data Build Tool):** **Transformación de datos SQL para convertir datos crudos en insights.**
-* **PostgreSQL:** **Base de datos relacional para almacenamiento operativo y metadatos.**
 * **Superset:** **Herramienta de BI para creación de visualizaciones y dashboards.**
+* (Optional)
+* **PostgreSQL:** **Base de datos relacional para almacenamiento operativo y metadatos.**
 * **Google BigQuery & GCS:** **Infraestructura de almacenamiento y Data Warehouse en la nube (GCP).**
 * **Terraform:** **Infraestructura como Código (IaC) para el aprovisionamiento de recursos.**
 
