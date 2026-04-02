@@ -1,0 +1,253 @@
+id: elt_dummyjson_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  type: elt
+  source: dummyjson
+
+description: |
+  ELT completo usando DummyJSON (reemplazo de FakeStore API).
+  
+  Fuentes:
+    - https://dummyjson.com/products?limit=0  → 194 productos, 35 categorías
+    - https://dummyjson.com/users?limit=0     → 208 usuarios (clientes)
+    - https://dummyjson.com/carts?limit=0     → 50 carritos (órdenes)
+    - tickets CSV generado desde los productos reales
+  
+  Ventajas vs FakeStore:
+    + 194 productos (vs 20)
+    + 35 categorías (vs 4)
+    + rating, stock, brand, discountPercentage, reviews por producto
+    + usuarios y carritos reales para joins
+    + Sin caídas (FakeStore está down)
+
+triggers:
+  - id: monthly
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 22 28-31 * *"
+
+tasks:
+
+  - id: extract_load_transform
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    beforeCommands:
+      - apt-get update -qq && apt-get install -y -qq python3-venv
+      - python3 -m venv /tmp/venv_elt
+      - /tmp/venv_elt/bin/pip install requests duckdb pyarrow pandas --quiet
+    script: |
+      import sys
+      sys.path.insert(0, '/tmp/venv_elt/lib/python3.11/site-packages')
+
+      import requests, json, duckdb, random, csv, os
+      from datetime import datetime, timedelta, timezone
+      from pathlib import Path
+
+      BASE_URL    = "https://dummyjson.com"
+      DUCKDB_PATH = "/shared/duckdb/capstone.duckdb"
+      CSV_PATH    = "/shared/data/customer_support_tickets.csv"
+      SNAPSHOT    = datetime.now(timezone.utc).strftime("%Y-%m")
+      random.seed(42)
+
+      def get(endpoint):
+          r = requests.get(f"{BASE_URL}{endpoint}", timeout=30)
+          r.raise_for_status()
+          return r.json()
+
+      # ── EXTRACT ───────────────────────────────────────────────────────────
+      print("[E] Fetching DummyJSON products (194)...")
+      products = get("/products?limit=0")["products"]
+      print(f"[E] {len(products)} products | categories: {len(set(p['category'] for p in products))}")
+
+      print("[E] Fetching DummyJSON users (208)...")
+      users = get("/users?limit=0")["users"]
+      print(f"[E] {len(users)} users")
+
+      print("[E] Fetching DummyJSON carts (50)...")
+      carts = get("/carts?limit=0")["carts"]
+      print(f"[E] {len(carts)} carts")
+
+      # ── GENERATE TICKETS CSV ──────────────────────────────────────────────
+      print("[E] Generating 1000 customer support tickets...")
+      ISSUES_BY_CAT = {
+          "beauty":           ["Product caused skin irritation","Wrong shade delivered","Leaking packaging","Item expired"],
+          "fragrances":       ["Scent different from description","Bottle damaged","Allergic reaction","Fake product concern"],
+          "furniture":        ["Item arrived damaged","Missing assembly parts","Wrong color","Delivery delay"],
+          "groceries":        ["Item expired on arrival","Wrong item sent","Damaged packaging","Missing items in order"],
+          "home-decoration":  ["Item broken in transit","Color mismatch","Wrong size","Quality not as expected"],
+          "kitchen-accessories":["Item not working","Wrong item","Damaged on arrival","Missing accessories"],
+          "laptops":          ["Battery not charging","Screen flickering","Overheating","Dead on arrival","Missing charger"],
+          "mens-shirts":      ["Wrong size","Color fading","Stitching issue","Item not as described"],
+          "mens-shoes":       ["Wrong size","Sole detaching","Color different","Delivery delay"],
+          "mens-watches":     ["Not keeping time","Strap broke","Screen cracked","Counterfeit concern"],
+          "mobile-accessories":["Not compatible","Item broken","Wrong item","Poor quality"],
+          "motorcycle":       ["Wrong part delivered","Part doesn't fit","Damaged in transit","Missing hardware"],
+          "skin-care":        ["Caused irritation","Expired product","Packaging damaged","Counterfeit concern"],
+          "smartphones":      ["Screen cracked","Battery drains fast","Overheating","Not turning on","Missing accessories"],
+          "sports-accessories":["Wrong size","Broke on first use","Color mismatch","Missing items"],
+          "sunglasses":       ["Frame broke","Wrong color","Lens scratched","UV protection concern"],
+          "tablets":          ["Screen not responding","Battery issue","Wrong model","Dead on arrival"],
+          "tops":             ["Wrong size","Color fading","Fabric quality","Item not as described"],
+          "vehicle":          ["Wrong part","Fitment issue","Damaged packaging","Missing hardware"],
+          "womens-bags":      ["Strap broke","Wrong color","Zipper broken","Item not as described"],
+          "womens-dresses":   ["Wrong size","Color different","Fabric quality","Return request"],
+          "womens-jewellery": ["Item tarnished","Clasp broken","Wrong size","Counterfeit concern"],
+          "womens-shoes":     ["Wrong size","Heel broke","Color different","Return request"],
+          "womens-watches":   ["Not keeping time","Strap broke","Wrong color","Counterfeit concern"],
+      }
+      DEFAULT_ISSUES = ["Item not as described","Delivery delay","Wrong item","Damaged","Missing item"]
+      RESOLUTIONS    = ["Full refund issued","Replacement sent","Exchange processed",
+                        "Partial refund applied","Technical support provided","Closed - no response"]
+      STATUSES       = ["Open","Pending","Closed","Resolved","Escalated"]
+      CHANNELS       = ["Email","Chat","Phone","Social Media","Self-Service Portal"]
+      NAMES          = ["James Smith","Mary Johnson","John Williams","Patricia Brown",
+                        "Robert Garcia","Jennifer Miller","David Wilson","Susan Moore",
+                        "Lucas Torres","Sofia Martinez","Diego Lopez","Camila Rivera",
+                        "Carlos Perez","Maria Gonzalez","Elena Flores","Andre Dubois"]
+
+      # Weight: cheaper products get proportionally more tickets
+      weights = [1 / (p.get("price", 10) ** 0.3) for p in products]
+      rows = []
+      for i in range(1, 1001):
+          p      = random.choices(products, weights=weights, k=1)[0]
+          cat    = p.get("category", "unknown")
+          issue  = random.choice(ISSUES_BY_CAT.get(cat, DEFAULT_ISSUES))
+          status = random.choice(STATUSES)
+          user   = random.choice(users)
+          base   = datetime.now(timezone.utc) - timedelta(days=random.randint(0, 365))
+          rows.append({
+              "Ticket ID":                    f"TKT-{i:06d}",
+              "Customer Name":                f"{user['firstName']} {user['lastName']}",
+              "Customer Age":                 user.get("age", 30),
+              "Customer Gender":              user.get("gender", "unknown"),
+              "Product Purchased":            p["title"],
+              "Product ID":                   p["id"],         # real FK → DummyJSON id
+              "Category":                     cat,
+              "Brand":                        p.get("brand",""),
+              "Price USD":                    p.get("price", 0),
+              "Discount Pct":                 p.get("discountPercentage", 0),
+              "Product Rating":               p.get("rating", 0),
+              "Date of Purchase":             base.strftime("%Y-%m-%d"),
+              "Ticket Type":                  issue,
+              "Ticket Status":                status,
+              "Resolution":                   random.choice(RESOLUTIONS),
+              "Resolution Time (hrs)":        round(random.uniform(1, 72), 1),
+              "Customer Satisfaction Rating": random.randint(1, 5),
+              "Channel":                      random.choice(CHANNELS),
+              "snapshot_month":               SNAPSHOT,
+          })
+
+      os.makedirs(os.path.dirname(CSV_PATH), exist_ok=True)
+      with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
+          writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+          writer.writeheader()
+          writer.writerows(rows)
+      print(f"[E] {len(rows)} tickets → {CSV_PATH}")
+
+      # ── LOAD: DuckDB bronze ───────────────────────────────────────────────
+      print("[L] Loading bronze tables to DuckDB...")
+      os.makedirs(os.path.dirname(DUCKDB_PATH), exist_ok=True)
+      con = duckdb.connect(DUCKDB_PATH)
+
+      # bronze_products — flattened (reviews averaged)
+      con.execute("DROP TABLE IF EXISTS bronze_products")
+      import pandas as pd
+      rows_p = []
+      for p in products:
+          reviews = p.get("reviews", [])
+          avg_review = sum(r["rating"] for r in reviews) / len(reviews) if reviews else None
+          rows_p.append({
+              "id":                   p["id"],
+              "title":                p["title"],
+              "price":                p.get("price"),
+              "discount_percentage":  p.get("discountPercentage"),
+              "rating":               p.get("rating"),
+              "stock":                p.get("stock"),
+              "brand":                p.get("brand",""),
+              "category":             p.get("category",""),
+              "availability_status":  p.get("availabilityStatus",""),
+              "warranty":             p.get("warrantyInformation",""),
+              "return_policy":        p.get("returnPolicy",""),
+              "avg_review_rating":    avg_review,
+              "review_count":         len(reviews),
+              "snapshot_month":       SNAPSHOT,
+          })
+      df_p = pd.DataFrame(rows_p)
+      con.execute("CREATE TABLE bronze_products AS SELECT * FROM df_p")
+      print(f"[L] bronze_products: {len(df_p)} rows")
+
+      # bronze_users
+      con.execute("DROP TABLE IF EXISTS bronze_users")
+      rows_u = [{
+          "id":         u["id"],
+          "first_name": u.get("firstName",""),
+          "last_name":  u.get("lastName",""),
+          "age":        u.get("age"),
+          "gender":     u.get("gender",""),
+          "email":      u.get("email",""),
+          "city":       u.get("address",{}).get("city",""),
+          "country":    u.get("address",{}).get("country",""),
+          "snapshot_month": SNAPSHOT,
+      } for u in users]
+      df_u = pd.DataFrame(rows_u)
+      con.execute("CREATE TABLE bronze_users AS SELECT * FROM df_u")
+      print(f"[L] bronze_users: {len(df_u)} rows")
+
+      # bronze_carts (1 row per cart item)
+      con.execute("DROP TABLE IF EXISTS bronze_carts")
+      rows_c = []
+      for cart in carts:
+          for item in cart.get("products", []):
+              rows_c.append({
+                  "cart_id":      cart["id"],
+                  "user_id":      cart["userId"],
+                  "product_id":   item["id"],
+                  "quantity":     item["quantity"],
+                  "price":        item["price"],
+                  "total":        item["total"],
+                  "discount_pct": item.get("discountPercentage", 0),
+                  "snapshot_month": SNAPSHOT,
+              })
+      df_c = pd.DataFrame(rows_c)
+      con.execute("CREATE TABLE bronze_carts AS SELECT * FROM df_c")
+      print(f"[L] bronze_carts: {len(df_c)} rows (cart line items)")
+
+      # bronze_tickets
+      con.execute(f"""
+          DROP TABLE IF EXISTS bronze_tickets;
+          CREATE TABLE bronze_tickets AS
+          SELECT * FROM read_csv_auto('{CSV_PATH}', header=true, null_padding=true)
+      """)
+      ct = con.execute("SELECT COUNT(*) FROM bronze_tickets").fetchone()[0]
+      print(f"[L] bronze_tickets: {ct} rows")
+
+      con.close()
+      print(f"[L] ✅ DuckDB ready: {DUCKDB_PATH}")
+
+  # ── TRANSFORM: dbt ────────────────────────────────────────────────────────
+  - id: dbt_transform
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - cd /app/dbt/capstone_bi
+      # 1. Forzamos que dbt use el profile correcto
+      - export DBT_PROFILES_DIR=/app/dbt
+      # 2. Limpiamos cache previa para evitar errores de compilación
+      - dbt clean
+      # 3. Verificamos que dbt "vea" las tablas de Python (Si falla acá, el YAML de sources está mal)
+      - dbt list --resource-type source
+      # 4. Corremos la transformación
+      - dbt run --target prod
+      # 5. Corremos los tests
+      - dbt test --target prod
+    env:
+      # Pasamos la ruta de la DB como variable por si el profile la usa
+      DUCKDB_PATH: /shared/duckdb/capstone.duckdb
+
+errors:
+  - id: on_failure
+    type: io.kestra.plugin.core.log.Log
+    message: "❌ ELT falló en {{ task.id }} | {{ execution.id }}"

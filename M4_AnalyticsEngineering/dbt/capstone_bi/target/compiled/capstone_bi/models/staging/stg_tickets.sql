@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+
 
 SELECT
     "Ticket ID"::VARCHAR             AS ticket_id,
@@ -12,5 +12,5 @@ SELECT
     snapshot_month,
     CURRENT_TIMESTAMP                AS dbt_updated_at
 -- Cambiá 'tickets' por 'bronze_tickets'
-FROM {{ source('bronze', 'bronze_tickets') }} 
+FROM "capstone"."main"."bronze_tickets" 
 WHERE "Ticket ID" IS NOT NULL

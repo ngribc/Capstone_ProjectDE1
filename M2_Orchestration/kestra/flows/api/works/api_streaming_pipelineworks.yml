@@ -1,0 +1,78 @@
+id: api_streaming_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  source: api
+
+description: |
+  Extrae productos de FakeStore API y los envía a Redpanda/Kafka.
+  Corre sin Docker runner para resolver hostname 'redpanda' en la red docker-compose.
+
+tasks:
+
+  - id: extract_api
+    type: io.kestra.plugin.core.http.Request
+    uri: https://fakestoreapi.com/products
+    method: GET
+    timeout: PT30S
+
+  - id: send_to_kafka
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process  # <--- ESTO ES LA CLAVE
+    beforeCommands:
+          # 1. Asegurar que venv esté disponible (solo la primera vez es lento)
+          - apt-get update && apt-get install -y python3-venv --quiet
+          # 2. Crear y activar entorno virtual (esto quita el Warning de ROOT)
+          - python3 -m venv venv
+          - . venv/bin/activate
+          # 3. Instalar la librería dentro del entorno virtual
+          - pip install kafka-python --quiet
+    retry:
+      type: exponential
+      interval: PT5S
+      maxInterval: PT60S
+      maxAttempt: 2
+      delayFactor: 2.0        # FIX: 'multiplier' no existe en Kestra → campo correcto es 'delayFactor'
+    script: |
+      import json
+      import sys
+      from kafka import KafkaProducer
+      from kafka.errors import KafkaError
+
+      BOOTSTRAP_SERVERS = 'redpanda:29092'
+      TOPIC = 'products_stream'
+
+      try:
+          producer = KafkaProducer(
+              bootstrap_servers=BOOTSTRAP_SERVERS,
+              value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+              acks='all',
+              retries=3,
+              request_timeout_ms=30000
+          )
+      except Exception as e:
+          print(f"[ERROR] No se pudo conectar a Kafka en {BOOTSTRAP_SERVERS}: {e}", file=sys.stderr)
+          sys.exit(1)
+
+      raw = """{{ outputs.extract_api.body }}"""
+      data = json.loads(raw)
+
+      sent, failed = 0, 0
+      for product in data:
+          future = producer.send(TOPIC, product)
+          try:
+              future.get(timeout=10)
+              sent += 1
+          except KafkaError as e:
+              print(f"[WARN] Fallo enviando producto id={product.get('id')}: {e}", file=sys.stderr)
+              failed += 1
+
+      producer.flush()
+      producer.close()
+      print(f"[OK] Enviados: {sent} | Fallidos: {failed} | Topic: {TOPIC}")
+
+      if failed > 0:
+          sys.exit(1)

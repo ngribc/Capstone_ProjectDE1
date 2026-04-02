@@ -1,0 +1,75 @@
+id: api_streaming_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  source: api
+
+description: |
+  Extrae productos de FakeStore API y los envía a Redpanda/Kafka.
+  FIX: El script corre en el proceso de Kestra (sin Docker runner separado)
+  para poder resolver el hostname 'redpanda' dentro de la red docker-compose.
+
+tasks:
+
+  - id: extract_api
+    type: io.kestra.plugin.core.http.Request
+    uri: https://fakestoreapi.com/products
+    method: GET
+    timeout: PT30S  # Timeout explícito para no colgar indefinidamente
+
+  - id: send_to_kafka
+    # FIX PRINCIPAL: Removido taskRunner Docker → el script corre en el
+    # proceso Kestra que SÍ está en la red docker-compose y puede resolver
+    # 'redpanda:29092'. Con Docker runner separado, el contenedor nuevo
+    # queda fuera de esa red y falla con "No such file or directory".
+    type: io.kestra.plugin.scripts.python.Script
+    beforeCommands:
+      - pip install kafka-python --quiet
+    retry:
+      type: exponential          # Exponential es mejor que constant: evita thundering herd
+      interval: PT5S
+      maxInterval: PT60S
+      maxAttempt: 5
+      multiplier: 2.0
+    script: |
+      import json
+      import sys
+      from kafka import KafkaProducer
+      from kafka.errors import KafkaError
+
+      BOOTSTRAP_SERVERS = 'redpanda:29092'
+      TOPIC = 'products_stream'
+
+      try:
+          producer = KafkaProducer(
+              bootstrap_servers=BOOTSTRAP_SERVERS,
+              value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+              acks='all',              # Espera confirmación de todos los brokers
+              retries=3,               # Reintentos a nivel de Kafka producer
+              request_timeout_ms=30000
+          )
+      except Exception as e:
+          print(f"[ERROR] No se pudo conectar a Kafka en {BOOTSTRAP_SERVERS}: {e}", file=sys.stderr)
+          sys.exit(1)
+
+      raw = """{{ outputs.extract_api.body }}"""
+      data = json.loads(raw)
+
+      sent, failed = 0, 0
+      for product in data:
+          future = producer.send(TOPIC, product)
+          try:
+              future.get(timeout=10)  # Bloquea hasta confirmar entrega
+              sent += 1
+          except KafkaError as e:
+              print(f"[WARN] Fallo enviando producto id={product.get('id')}: {e}", file=sys.stderr)
+              failed += 1
+
+      producer.flush()
+      producer.close()
+      print(f"[OK] Enviados: {sent} | Fallidos: {failed} | Topic: {TOPIC}")
+
+      if failed > 0:
+          sys.exit(1)  # Fuerza reintento del task si hubo fallos parciales

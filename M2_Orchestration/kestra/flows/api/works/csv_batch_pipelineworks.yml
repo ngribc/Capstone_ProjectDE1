@@ -1,0 +1,77 @@
+id: csv_batch_pipeline
+namespace: de.project
+
+labels:
+  env: dev
+  team: data-engineering
+  type: batch
+
+description: |
+  Lee el CSV de tickets de soporte, lo limpia y lo carga en DuckDB.
+  Aplica validaciones de calidad básicas antes de la carga.
+
+tasks:
+  - id: debug_files
+    type: io.kestra.plugin.scripts.shell.Commands
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - echo "Listando contenido de /app/data:"
+      - ls -R /app/data
+      - echo "Ruta actual:"
+      - pwd
+
+  - id: transform_csv
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process  # <--- ESTO ES LA CLAVE
+    beforeCommands:
+          # 1. Asegurar que venv esté disponible (solo la primera vez es lento)
+          - apt-get update && apt-get install -y python3-venv --quiet
+          # 2. Crear y activar entorno virtual (esto quita el Warning de ROOT)
+          - python3 -m venv venv
+          - . venv/bin/activate
+          # 3. Instalar la librería dentro del entorno virtual
+          - pip install kafka-python --quiet
+    script: |
+      import pandas as pd
+      import sys
+
+      INPUT_PATH  = "/app/data/customer_support_tickets.csv"
+      OUTPUT_PATH = "/tmp/clean_tickets.csv"
+
+      try:
+          df = pd.read_csv(INPUT_PATH)
+      except FileNotFoundError:
+          print(f"[ERROR] Archivo no encontrado: {INPUT_PATH}", file=sys.stderr)
+          sys.exit(1)
+
+      # --- Limpieza ---
+      df.columns = df.columns.str.lower().str.strip().str.replace(' ', '_')
+      df = df.drop_duplicates()
+      df = df.dropna(how='all')          # Elimina filas completamente vacías
+
+      # Normaliza strings en columnas de texto
+      str_cols = df.select_dtypes(include='object').columns
+      df[str_cols] = df[str_cols].apply(lambda c: c.str.strip())
+
+      # --- Validación básica ---
+      if df.empty:
+          print("[ERROR] DataFrame vacío después de limpieza", file=sys.stderr)
+          sys.exit(1)
+
+      df.to_csv(OUTPUT_PATH, index=False)
+      print(f"[OK] Filas procesadas: {len(df)} | Columnas: {list(df.columns)}")
+
+  - id: load_duckdb
+    type: io.kestra.plugin.jdbc.duckdb.Query
+    sql: |
+      DROP TABLE IF EXISTS dim_ticket;
+      CREATE TABLE dim_ticket AS
+      SELECT
+          *,
+          CURRENT_TIMESTAMP AS loaded_at
+      FROM read_csv_auto('/tmp/clean_tickets.csv', header=true, null_padding=true);
+
+      -- Log conteo post-carga
+      SELECT COUNT(*) AS total_tickets FROM dim_ticket;

@@ -24,6 +24,14 @@ from datetime import datetime, timedelta, timezone
 
 # ── Config ────────────────────────────────────────────────────────────────────
 API_URL    = "https://fakestoreapi.com/products"
+# Creamos un "Header" para que parezca que entramos desde Chrome
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+
+req = urllib.request.Request(API_URL, headers=headers)
+
+with urllib.request.urlopen(req, timeout=15) as r:
+    # ... resto de tu lógica para leer el json ...
+    print(r.read().decode())
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "customer_support_tickets.csv")
 
