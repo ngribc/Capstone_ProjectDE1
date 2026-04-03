@@ -1,8 +1,0 @@
-version: 2
-
-sources:
-  - name: raw
-    tables:
-      - name: customer_support_tickets
-        path: ../seeds/customer_support_tickets.csv
-        format: csv

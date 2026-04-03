@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+
 
 WITH metrics AS (
     SELECT 
@@ -7,7 +7,7 @@ WITH metrics AS (
         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
         -- KPI: ROI (Rentabilidad)
         (revenue - cac) / NULLIF(cac, 0) as roi
-    FROM {{ ref('stg_tickets') }}
+    FROM "capstone"."main_silver"."stg_tickets"
 )
 SELECT 
     category,

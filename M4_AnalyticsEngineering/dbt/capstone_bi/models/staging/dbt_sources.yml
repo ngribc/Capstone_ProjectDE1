@@ -25,3 +25,5 @@ sources:
         columns:
           - name: snapshot_month
             tests: [not_null]
+            
+      - name: bronze_users # <--- AGREGÁ ESTA LÍNEA

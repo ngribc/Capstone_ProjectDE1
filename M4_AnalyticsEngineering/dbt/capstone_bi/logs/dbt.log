@@ -2936,3 +2936,3007 @@ alter view "capstone"."main_silver"."stg_tickets__dbt_tmp" rename to "stg_ticket
 [0m16:54:28.309689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1dac592b00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1dab615d80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a1dac5452a0>]}
 [0m16:54:28.310619 [debug] [MainThread]: Flushing usage events
 [0m16:54:28.418944 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:16:43.997359 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de40532ead0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de4043783d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de404378370>]}
+
+
+============================== 17:16:44.010731 | 6216a0be-b62a-440e-a19d-61ee2f854a29 ==============================
+[0m17:16:44.010731 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:16:44.011519 [debug] [MainThread]: running dbt with arguments {'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'fail_fast': 'False', 'indirect_selection': 'eager', 'introspect': 'True', 'log_cache_events': 'False', 'invocation_command': 'dbt clean', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'target_path': 'None', 'printer_width': '80', 'use_colors': 'True', 'write_json': 'True', 'debug': 'False', 'static_parser': 'True', 'warn_error': 'None', 'quiet': 'False', 'profiles_dir': '/app/dbt', 'log_path': '/app/dbt/capstone_bi/logs', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'no_print': 'None'}
+[0m17:16:44.205898 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6216a0be-b62a-440e-a19d-61ee2f854a29', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de404105150>]}
+[0m17:16:44.253297 [debug] [MainThread]: Resource report: {"command_name": "clean", "command_success": true, "command_wall_clock_time": 0.34088662, "process_in_blocks": "47856", "process_kernel_time": 0.237283, "process_mem_max_rss": "99836", "process_out_blocks": "8", "process_user_time": 1.793465}
+[0m17:16:44.254505 [debug] [MainThread]: Command `dbt clean` succeeded at 17:16:44.254313 after 0.34 seconds
+[0m17:16:44.255574 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de40532ead0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de404107910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7de404105150>]}
+[0m17:16:44.256311 [debug] [MainThread]: Flushing usage events
+[0m17:16:44.369923 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:16:47.270928 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce6d96a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce5dde830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce5dde7d0>]}
+
+
+============================== 17:16:47.274131 | e710aebb-7648-4758-b09e-1beea3215253 ==============================
+[0m17:16:47.274131 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:16:47.274806 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'log_path': '/app/dbt/capstone_bi/logs', 'log_cache_events': 'False', 'warn_error': 'None', 'write_json': 'True', 'version_check': 'True', 'static_parser': 'True', 'quiet': 'False', 'partial_parse': 'True', 'introspect': 'True', 'cache_selected_only': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt list --resource-type source', 'profiles_dir': '/app/dbt', 'printer_width': '80', 'log_format': 'default', 'target_path': 'None', 'indirect_selection': 'eager', 'debug': 'False'}
+[0m17:16:47.611302 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e710aebb-7648-4758-b09e-1beea3215253', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce5d46e30>]}
+[0m17:16:47.690529 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e710aebb-7648-4758-b09e-1beea3215253', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce5ddd9c0>]}
+[0m17:16:47.696576 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:16:47.959981 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m17:16:47.961491 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m17:16:47.962307 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'e710aebb-7648-4758-b09e-1beea3215253', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce0ea92d0>]}
+[0m17:16:50.429325 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.capstone_bi.dim_users' (models/marts/others/dim_users.sql) depends on a node named 'stg_users' which was not found
+[0m17:16:50.431002 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": false, "command_wall_clock_time": 3.2336926, "process_in_blocks": "4504", "process_kernel_time": 0.294114, "process_mem_max_rss": "145808", "process_out_blocks": "0", "process_user_time": 4.463944}
+[0m17:16:50.431948 [debug] [MainThread]: Command `dbt list` failed at 17:16:50.431782 after 3.23 seconds
+[0m17:16:50.432579 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce6d96a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce88d8cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754ce88f70d0>]}
+[0m17:16:50.433209 [debug] [MainThread]: Flushing usage events
+[0m17:16:50.531233 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:18:43.843797 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a45b3d72a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a45b2dbc370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a45b2dbc310>]}
+
+
+============================== 17:18:43.859234 | 104ade44-4f87-4404-bde3-f39e8483942a ==============================
+[0m17:18:43.859234 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:18:43.860227 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'cache_selected_only': 'False', 'write_json': 'True', 'log_path': '/app/dbt/capstone_bi/logs', 'profiles_dir': '/app/dbt', 'log_cache_events': 'False', 'no_print': 'None', 'warn_error': 'None', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'partial_parse': 'True', 'fail_fast': 'False', 'indirect_selection': 'eager', 'empty': 'None', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt clean', 'debug': 'False', 'introspect': 'True', 'use_experimental_parser': 'False'}
+[0m17:18:44.035164 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '104ade44-4f87-4404-bde3-f39e8483942a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a45b2d6d840>]}
+[0m17:18:44.054555 [debug] [MainThread]: Resource report: {"command_name": "clean", "command_success": true, "command_wall_clock_time": 0.28983065, "process_in_blocks": "32424", "process_kernel_time": 0.206035, "process_mem_max_rss": "100008", "process_out_blocks": "8", "process_user_time": 1.767154}
+[0m17:18:44.055304 [debug] [MainThread]: Command `dbt clean` succeeded at 17:18:44.055141 after 0.29 seconds
+[0m17:18:44.056332 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a45b3d72a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a45b2d6e890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a45b2b4b700>]}
+[0m17:18:44.056946 [debug] [MainThread]: Flushing usage events
+[0m17:18:44.224998 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:18:46.148436 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712826e06b00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712825e387f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712825e38790>]}
+
+
+============================== 17:18:46.151703 | dbda6e5f-be5b-481f-859e-dd8f9f95ae8c ==============================
+[0m17:18:46.151703 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:18:46.152741 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'use_colors': 'True', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'log_path': '/app/dbt/capstone_bi/logs', 'indirect_selection': 'eager', 'version_check': 'True', 'printer_width': '80', 'log_format': 'default', 'quiet': 'False', 'profiles_dir': '/app/dbt', 'introspect': 'True', 'write_json': 'True', 'invocation_command': 'dbt list --resource-type source', 'no_print': 'None', 'use_experimental_parser': 'False', 'static_parser': 'True', 'warn_error': 'None', 'fail_fast': 'False'}
+[0m17:18:46.544644 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dbda6e5f-be5b-481f-859e-dd8f9f95ae8c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712825d96e90>]}
+[0m17:18:46.617035 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dbda6e5f-be5b-481f-859e-dd8f9f95ae8c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71282663b910>]}
+[0m17:18:46.622160 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:18:46.787576 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m17:18:46.788381 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m17:18:46.788798 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'dbda6e5f-be5b-481f-859e-dd8f9f95ae8c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712820f97be0>]}
+[0m17:18:49.475583 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.capstone_bi.stg_users' (models/staging/stg_users.sql) depends on a source named 'bronze.bronze_users' which was not found
+[0m17:18:49.477085 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": false, "command_wall_clock_time": 3.4074092, "process_in_blocks": "3648", "process_kernel_time": 0.25946, "process_mem_max_rss": "149112", "process_out_blocks": "8", "process_user_time": 4.194605}
+[0m17:18:49.478395 [debug] [MainThread]: Command `dbt list` failed at 17:18:49.478002 after 3.41 seconds
+[0m17:18:49.479147 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x712826e06b00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71282055ce80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71282055f0d0>]}
+[0m17:18:49.479861 [debug] [MainThread]: Flushing usage events
+[0m17:18:49.592445 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:20:04.754436 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7085b983a9b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7085b8865450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7085b88653f0>]}
+
+
+============================== 17:20:04.763474 | 96f28a05-c7fd-436d-92ee-03f8edfca8a1 ==============================
+[0m17:20:04.763474 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:20:04.764198 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'profiles_dir': '/app/dbt', 'cache_selected_only': 'False', 'quiet': 'False', 'empty': 'None', 'fail_fast': 'False', 'no_print': 'None', 'write_json': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt clean', 'printer_width': '80', 'version_check': 'True', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'log_path': '/app/dbt/capstone_bi/logs', 'use_colors': 'True', 'log_format': 'default', 'debug': 'False', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'warn_error': 'None'}
+[0m17:20:04.987654 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '96f28a05-c7fd-436d-92ee-03f8edfca8a1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7085bb424910>]}
+[0m17:20:05.018090 [debug] [MainThread]: Resource report: {"command_name": "clean", "command_success": true, "command_wall_clock_time": 0.3411706, "process_in_blocks": "27184", "process_kernel_time": 0.195479, "process_mem_max_rss": "99712", "process_out_blocks": "8", "process_user_time": 1.693496}
+[0m17:20:05.023797 [debug] [MainThread]: Command `dbt clean` succeeded at 17:20:05.023526 after 0.35 seconds
+[0m17:20:05.030900 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7085b983a9b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7085b85ecbe0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7085b85ed600>]}
+[0m17:20:05.031664 [debug] [MainThread]: Flushing usage events
+[0m17:20:05.290263 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:20:07.379815 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x718546282ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7185452a68c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7185452a6860>]}
+
+
+============================== 17:20:07.382862 | f6f06555-3866-4306-ad7e-c43544b049b3 ==============================
+[0m17:20:07.382862 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:20:07.383546 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'log_format': 'default', 'profiles_dir': '/app/dbt', 'debug': 'False', 'write_json': 'True', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'cache_selected_only': 'False', 'log_path': '/app/dbt/capstone_bi/logs', 'static_parser': 'True', 'printer_width': '80', 'invocation_command': 'dbt list --resource-type source', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'empty': 'None', 'log_cache_events': 'False', 'target_path': 'None', 'partial_parse': 'True', 'fail_fast': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'use_colors': 'True'}
+[0m17:20:07.761924 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f6f06555-3866-4306-ad7e-c43544b049b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71854520ee90>]}
+[0m17:20:07.839618 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f6f06555-3866-4306-ad7e-c43544b049b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71854520f5e0>]}
+[0m17:20:07.844916 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:20:07.998292 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m17:20:07.999162 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m17:20:07.999655 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'f6f06555-3866-4306-ad7e-c43544b049b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x718540395cc0>]}
+[0m17:20:10.448803 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.capstone_bi.ttr_threshold_test' (tests/ttr_threshold_test.sql) depends on a node named 'fct_business_performance' in package '' which was not found
+[0m17:20:10.449534 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.capstone_bi.assert_positive_roi' (tests/assert_positive_roi.sql) depends on a node named 'fct_business_performance' in package '' which was not found
+[0m17:20:10.626562 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f6f06555-3866-4306-ad7e-c43544b049b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71853f904f40>]}
+[0m17:20:10.797702 [debug] [MainThread]: Wrote artifact WritableManifest to /app/dbt/capstone_bi/target/manifest.json
+[0m17:20:10.807191 [debug] [MainThread]: Wrote artifact SemanticManifest to /app/dbt/capstone_bi/target/semantic_manifest.json
+[0m17:20:10.846959 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f6f06555-3866-4306-ad7e-c43544b049b3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71853f904280>]}
+[0m17:20:10.848263 [info ] [MainThread]: source:capstone_bi.bronze.bronze_products
+[0m17:20:10.848932 [info ] [MainThread]: source:capstone_bi.bronze.bronze_tickets
+[0m17:20:10.849490 [info ] [MainThread]: source:capstone_bi.bronze.bronze_users
+[0m17:20:10.850726 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": true, "command_wall_clock_time": 3.567378, "process_in_blocks": "2760", "process_kernel_time": 0.274444, "process_mem_max_rss": "147860", "process_out_blocks": "2312", "process_user_time": 4.491812}
+[0m17:20:10.851284 [debug] [MainThread]: Command `dbt list` succeeded at 17:20:10.851166 after 3.57 seconds
+[0m17:20:10.851722 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x718546282ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71854520ee90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71853f8b4df0>]}
+[0m17:20:10.852133 [debug] [MainThread]: Flushing usage events
+[0m17:20:10.961195 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:20:13.136144 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e8906aa70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e88090430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e880903d0>]}
+
+
+============================== 17:20:13.139877 | 64e200c2-f2c1-4ab4-913e-235239aa00db ==============================
+[0m17:20:13.139877 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:20:13.140573 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/app/dbt', 'empty': 'False', 'use_colors': 'True', 'no_print': 'None', 'log_format': 'default', 'indirect_selection': 'eager', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt run --target prod', 'introspect': 'True', 'partial_parse': 'True', 'printer_width': '80', 'quiet': 'False', 'log_path': '/app/dbt/capstone_bi/logs', 'version_check': 'True', 'warn_error': 'None', 'fail_fast': 'False', 'static_parser': 'True', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None'}
+[0m17:20:13.410948 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e8ac55ae0>]}
+[0m17:20:13.492626 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e880c2e00>]}
+[0m17:20:13.494650 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:20:13.641708 [debug] [MainThread]: checksum: 6b6e0ebcaf85ad01fb66001734c8a9de1fddab0bc26fac0e88d715ed9207abc1, vars: {}, profile: , target: prod, version: 1.11.7
+[0m17:20:13.877936 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m17:20:13.878730 [debug] [MainThread]: previous checksum: 6b6e0ebcaf85ad01fb66001734c8a9de1fddab0bc26fac0e88d715ed9207abc1, current checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775
+[0m17:20:13.879204 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e888e33a0>]}
+[0m17:20:15.938713 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.capstone_bi.ttr_threshold_test' (tests/ttr_threshold_test.sql) depends on a node named 'fct_business_performance' in package '' which was not found
+[0m17:20:15.939417 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.capstone_bi.assert_positive_roi' (tests/assert_positive_roi.sql) depends on a node named 'fct_business_performance' in package '' which was not found
+[0m17:20:16.131721 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e8258bfa0>]}
+[0m17:20:16.333164 [debug] [MainThread]: Wrote artifact WritableManifest to /app/dbt/capstone_bi/target/manifest.json
+[0m17:20:16.335783 [debug] [MainThread]: Wrote artifact SemanticManifest to /app/dbt/capstone_bi/target/semantic_manifest.json
+[0m17:20:16.353665 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e825c5780>]}
+[0m17:20:16.354306 [info ] [MainThread]: Found 15 models, 1 seed, 15 data tests, 3 sources, 475 macros
+[0m17:20:16.354739 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e82588bb0>]}
+[0m17:20:16.357107 [info ] [MainThread]: 
+[0m17:20:16.357565 [info ] [MainThread]: Concurrency: 4 threads (target='prod')
+[0m17:20:16.358035 [info ] [MainThread]: 
+[0m17:20:16.358777 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:20:16.365457 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_capstone'
+[0m17:20:16.366300 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_capstone'
+[0m17:20:16.491977 [debug] [ThreadPool]: Using duckdb connection "list_capstone"
+[0m17:20:16.492565 [debug] [ThreadPool]: Using duckdb connection "list_capstone"
+[0m17:20:16.492961 [debug] [ThreadPool]: On list_capstone: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"capstone"'
+    
+  
+  
+[0m17:20:16.493363 [debug] [ThreadPool]: On list_capstone: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"capstone"'
+    
+  
+  
+[0m17:20:16.494129 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:20:16.493776 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:20:16.536016 [debug] [ThreadPool]: SQL status: OK in 0.041 seconds
+[0m17:20:16.537805 [debug] [ThreadPool]: SQL status: OK in 0.044 seconds
+[0m17:20:16.541528 [debug] [ThreadPool]: On list_capstone: Close
+[0m17:20:16.546336 [debug] [ThreadPool]: On list_capstone: Close
+[0m17:20:16.549031 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_capstone, now create_capstone_main_gold)
+[0m17:20:16.549514 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_capstone, now create_capstone_main_silver)
+[0m17:20:16.550073 [debug] [ThreadPool]: Creating schema "database: "capstone"
+schema: "main_gold"
+"
+[0m17:20:16.550600 [debug] [ThreadPool]: Creating schema "database: "capstone"
+schema: "main_silver"
+"
+[0m17:20:16.558090 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_gold"
+[0m17:20:16.561137 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_silver"
+[0m17:20:16.561914 [debug] [ThreadPool]: On create_capstone_main_gold: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "create_capstone_main_gold"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='capstone'
+        and type='sqlite'
+    
+  
+[0m17:20:16.562317 [debug] [ThreadPool]: On create_capstone_main_silver: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "create_capstone_main_silver"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='capstone'
+        and type='sqlite'
+    
+  
+[0m17:20:16.562751 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:20:16.563116 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:20:16.566920 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m17:20:16.567548 [debug] [ThreadPool]: SQL status: OK in 0.005 seconds
+[0m17:20:16.568969 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_silver"
+[0m17:20:16.570152 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_gold"
+[0m17:20:16.570490 [debug] [ThreadPool]: On create_capstone_main_silver: BEGIN
+[0m17:20:16.570857 [debug] [ThreadPool]: On create_capstone_main_gold: BEGIN
+[0m17:20:16.571626 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:20:16.571997 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_silver"
+[0m17:20:16.572413 [debug] [ThreadPool]: On create_capstone_main_silver: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "create_capstone_main_silver"} */
+
+    
+    
+        create schema if not exists "capstone"."main_silver"
+    
+[0m17:20:16.572824 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:20:16.573419 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:20:16.573845 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_gold"
+[0m17:20:16.574727 [debug] [ThreadPool]: On create_capstone_main_silver: COMMIT
+[0m17:20:16.575175 [debug] [ThreadPool]: On create_capstone_main_gold: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "create_capstone_main_gold"} */
+
+    
+    
+        create schema if not exists "capstone"."main_gold"
+    
+[0m17:20:16.575584 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_silver"
+[0m17:20:16.576143 [debug] [ThreadPool]: On create_capstone_main_silver: COMMIT
+[0m17:20:16.576645 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:20:16.577640 [debug] [ThreadPool]: On create_capstone_main_gold: COMMIT
+[0m17:20:16.578329 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_gold"
+[0m17:20:16.577940 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:20:16.579216 [debug] [ThreadPool]: On create_capstone_main_silver: Close
+[0m17:20:16.578782 [debug] [ThreadPool]: On create_capstone_main_gold: COMMIT
+[0m17:20:16.580667 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:20:16.581107 [debug] [ThreadPool]: On create_capstone_main_gold: Close
+[0m17:20:16.584550 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_capstone_main_gold, now list_capstone_main_gold)
+[0m17:20:16.594267 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main_gold"
+[0m17:20:16.595092 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_capstone_main_silver, now list_capstone_main_silver)
+[0m17:20:16.596662 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_capstone_main'
+[0m17:20:16.598653 [debug] [ThreadPool]: On list_capstone_main_gold: BEGIN
+[0m17:20:16.612503 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:20:16.613516 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:20:16.614010 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main_gold"
+[0m17:20:16.608227 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main_silver"
+[0m17:20:16.615044 [debug] [ThreadPool]: On list_capstone_main_silver: BEGIN
+[0m17:20:16.615471 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:20:16.616361 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:20:16.616807 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main_silver"
+[0m17:20:16.611894 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main"
+[0m17:20:16.617780 [debug] [ThreadPool]: On list_capstone_main: BEGIN
+[0m17:20:16.618183 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:20:16.618990 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:20:16.614578 [debug] [ThreadPool]: On list_capstone_main_gold: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone_main_gold"} */
+select
+      'capstone' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_gold'
+    and lower(table_catalog) = 'capstone'
+  
+[0m17:20:16.617268 [debug] [ThreadPool]: On list_capstone_main_silver: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone_main_silver"} */
+select
+      'capstone' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'capstone'
+  
+[0m17:20:16.619434 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main"
+[0m17:20:16.623382 [debug] [ThreadPool]: On list_capstone_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone_main"} */
+select
+      'capstone' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'capstone'
+  
+[0m17:20:16.689895 [debug] [ThreadPool]: SQL status: OK in 0.070 seconds
+[0m17:20:16.690479 [debug] [ThreadPool]: SQL status: OK in 0.067 seconds
+[0m17:20:16.690930 [debug] [ThreadPool]: SQL status: OK in 0.069 seconds
+[0m17:20:16.692168 [debug] [ThreadPool]: On list_capstone_main_gold: ROLLBACK
+[0m17:20:16.693451 [debug] [ThreadPool]: On list_capstone_main: ROLLBACK
+[0m17:20:16.694598 [debug] [ThreadPool]: On list_capstone_main_silver: ROLLBACK
+[0m17:20:16.695551 [debug] [ThreadPool]: Failed to rollback 'list_capstone_main_gold'
+[0m17:20:16.696883 [debug] [ThreadPool]: On list_capstone_main_gold: Close
+[0m17:20:16.696075 [debug] [ThreadPool]: Failed to rollback 'list_capstone_main_silver'
+[0m17:20:16.696411 [debug] [ThreadPool]: Failed to rollback 'list_capstone_main'
+[0m17:20:16.697721 [debug] [ThreadPool]: On list_capstone_main_silver: Close
+[0m17:20:16.698106 [debug] [ThreadPool]: On list_capstone_main: Close
+[0m17:20:16.700515 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e87f65ae0>]}
+[0m17:20:16.701227 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:20:16.701622 [debug] [MainThread]: On master: BEGIN
+[0m17:20:16.701972 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:20:16.702814 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:20:16.703179 [debug] [MainThread]: On master: COMMIT
+[0m17:20:16.703569 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:20:16.703913 [debug] [MainThread]: On master: COMMIT
+[0m17:20:16.704469 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:20:16.704820 [debug] [MainThread]: On master: Close
+[0m17:20:16.708329 [debug] [Thread-1 (]: Began running node model.capstone_bi.stg_products
+[0m17:20:16.709176 [info ] [Thread-1 (]: 1 of 15 START sql view model main_silver.stg_products .......................... [RUN]
+[0m17:20:16.709872 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_capstone_main, now model.capstone_bi.stg_products)
+[0m17:20:16.710461 [debug] [Thread-1 (]: Began compiling node model.capstone_bi.stg_products
+[0m17:20:16.710939 [debug] [Thread-2 (]: Began running node model.capstone_bi.stg_tickets
+[0m17:20:16.717268 [info ] [Thread-2 (]: 2 of 15 START sql view model main_silver.stg_tickets ........................... [RUN]
+[0m17:20:16.717994 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_capstone_main_silver, now model.capstone_bi.stg_tickets)
+[0m17:20:16.725721 [debug] [Thread-2 (]: Began compiling node model.capstone_bi.stg_tickets
+[0m17:20:16.711389 [debug] [Thread-3 (]: Began running node model.capstone_bi.stg_users
+[0m17:20:16.732956 [debug] [Thread-1 (]: Writing injected SQL for node "model.capstone_bi.stg_products"
+[0m17:20:16.734107 [debug] [Thread-2 (]: Writing injected SQL for node "model.capstone_bi.stg_tickets"
+[0m17:20:16.734811 [info ] [Thread-3 (]: 3 of 15 START sql view model main_silver.stg_users ............................. [RUN]
+[0m17:20:16.736760 [debug] [Thread-1 (]: Began executing node model.capstone_bi.stg_products
+[0m17:20:16.737455 [debug] [Thread-2 (]: Began executing node model.capstone_bi.stg_tickets
+[0m17:20:16.737947 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_capstone_main_gold, now model.capstone_bi.stg_users)
+[0m17:20:16.864985 [debug] [Thread-3 (]: Began compiling node model.capstone_bi.stg_users
+[0m17:20:16.872015 [debug] [Thread-2 (]: Writing runtime sql for node "model.capstone_bi.stg_tickets"
+[0m17:20:16.870507 [debug] [Thread-1 (]: Writing runtime sql for node "model.capstone_bi.stg_products"
+[0m17:20:16.875368 [debug] [Thread-3 (]: Writing injected SQL for node "model.capstone_bi.stg_users"
+[0m17:20:16.876542 [debug] [Thread-3 (]: Began executing node model.capstone_bi.stg_users
+[0m17:20:16.880885 [debug] [Thread-3 (]: Writing runtime sql for node "model.capstone_bi.stg_users"
+[0m17:20:16.886416 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:20:16.887183 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: BEGIN
+[0m17:20:16.887739 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:20:16.888727 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:20:16.889198 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:20:16.889789 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_tickets"} */
+
+  
+  create view "capstone"."main_silver"."stg_tickets__dbt_tmp" as (
+    
+
+SELECT
+    "Ticket ID"::VARCHAR             AS ticket_id,
+    "Product ID"::INTEGER            AS product_id,
+    TRIM("Product Purchased")        AS product_name_raw,
+    "Date of Purchase"::DATE         AS purchase_date,
+    TRIM(LOWER("Ticket Type"))       AS issue_type,
+    TRIM("Ticket Status")            AS ticket_status,
+    "Customer Satisfaction Rating"::DOUBLE AS satisfaction_score,
+    "Resolution Time (hrs)"::DOUBLE  AS resolution_time_hrs,
+    snapshot_month,
+    CURRENT_TIMESTAMP                AS dbt_updated_at
+-- Cambiá 'tickets' por 'bronze_tickets'
+FROM "capstone"."main"."bronze_tickets" 
+WHERE "Ticket ID" IS NOT NULL
+  );
+
+[0m17:20:16.895056 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.stg_products"
+[0m17:20:16.896031 [debug] [Thread-1 (]: On model.capstone_bi.stg_products: BEGIN
+[0m17:20:16.896809 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.stg_users"
+[0m17:20:16.897284 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:20:16.897735 [debug] [Thread-2 (]: SQL status: OK in 0.007 seconds
+[0m17:20:16.898290 [debug] [Thread-3 (]: On model.capstone_bi.stg_users: BEGIN
+[0m17:20:16.904394 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m17:20:16.904773 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:20:16.906722 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:20:16.907218 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.stg_products"
+[0m17:20:16.907994 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_tickets"} */
+alter view "capstone"."main_silver"."stg_tickets" rename to "stg_tickets__dbt_backup"
+[0m17:20:16.910186 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m17:20:16.909052 [debug] [Thread-1 (]: On model.capstone_bi.stg_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_products"} */
+
+  
+  create view "capstone"."main_silver"."stg_products__dbt_tmp" as (
+    
+
+SELECT
+    id::INTEGER                    AS product_id,
+    TRIM(title)                    AS product_name,
+    price::DOUBLE                  AS price_usd,
+    TRIM(LOWER(category))          AS category,
+    TRIM(description)              AS description,
+    -- thumbnail es el campo que trae DummyJSON por defecto
+    thumbnail                      AS image_url, 
+    -- snapshot_month viene del script de Python
+    CAST(snapshot_month AS VARCHAR) AS snapshot_month,
+    CURRENT_TIMESTAMP              AS dbt_updated_at
+-- Cambiá 'products' por 'bronze_products'
+FROM "capstone"."main"."bronze_products" 
+WHERE id IS NOT NULL AND price > 0
+  );
+
+[0m17:20:16.908533 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m17:20:16.918201 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.stg_users"
+[0m17:20:16.920680 [debug] [Thread-3 (]: On model.capstone_bi.stg_users: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_users"} */
+
+  
+  create view "capstone"."main_silver"."stg_users__dbt_tmp" as (
+    SELECT
+    id AS user_id,
+    username,
+    email,
+    firstName AS first_name,
+    lastName AS last_name
+FROM "capstone"."main"."bronze_users"
+  );
+
+[0m17:20:16.919690 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:20:16.921771 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_tickets"} */
+alter view "capstone"."main_silver"."stg_tickets__dbt_tmp" rename to "stg_tickets"
+[0m17:20:16.923023 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:20:16.948640 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: COMMIT
+[0m17:20:16.952077 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:20:16.953658 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: COMMIT
+[0m17:20:16.965710 [debug] [Thread-2 (]: SQL status: OK in 0.011 seconds
+[0m17:20:16.976060 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:20:16.976987 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_tickets"} */
+
+      drop view if exists "capstone"."main_silver"."stg_tickets__dbt_backup" cascade
+    
+[0m17:20:16.981269 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m17:20:16.985268 [debug] [Thread-3 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "username" not found in FROM clause!
+Candidate bindings: "first_name", "last_name", "gender", "snapshot_month", "email"
+
+LINE 7:     username,
+            ^
+[0m17:20:16.985830 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Binder Error: Column "description" referenced that exists in the SELECT clause - but this column cannot be referenced before it is defined
+[0m17:20:16.988769 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: Close
+[0m17:20:16.989303 [debug] [Thread-3 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_users"} */
+
+  
+  create view "capstone"."main_silver"."stg_users__dbt_tmp" as (
+    SELECT
+    id AS user_id,
+    username,
+    email,
+    firstName AS first_name,
+    lastName AS last_name
+FROM "capstone"."main"."bronze_users"
+  );
+
+[0m17:20:16.989852 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_products"} */
+
+  
+  create view "capstone"."main_silver"."stg_products__dbt_tmp" as (
+    
+
+SELECT
+    id::INTEGER                    AS product_id,
+    TRIM(title)                    AS product_name,
+    price::DOUBLE                  AS price_usd,
+    TRIM(LOWER(category))          AS category,
+    TRIM(description)              AS description,
+    -- thumbnail es el campo que trae DummyJSON por defecto
+    thumbnail                      AS image_url, 
+    -- snapshot_month viene del script de Python
+    CAST(snapshot_month AS VARCHAR) AS snapshot_month,
+    CURRENT_TIMESTAMP              AS dbt_updated_at
+-- Cambiá 'products' por 'bronze_products'
+FROM "capstone"."main"."bronze_products" 
+WHERE id IS NOT NULL AND price > 0
+  );
+
+[0m17:20:16.991961 [debug] [Thread-3 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:16.992512 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:16.992967 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e8ac3d2a0>]}
+[0m17:20:16.993370 [debug] [Thread-3 (]: On model.capstone_bi.stg_users: ROLLBACK
+[0m17:20:16.993822 [debug] [Thread-1 (]: On model.capstone_bi.stg_products: ROLLBACK
+[0m17:20:16.994621 [info ] [Thread-2 (]: 2 of 15 OK created sql view model main_silver.stg_tickets ...................... [[32mOK[0m in 0.27s]
+[0m17:20:16.996618 [debug] [Thread-2 (]: Finished running node model.capstone_bi.stg_tickets
+[0m17:20:16.999016 [debug] [Thread-4 (]: Began running node model.capstone_bi.dim_agents
+[0m17:20:16.999769 [debug] [Thread-2 (]: Began running node model.capstone_bi.dim_customers
+[0m17:20:17.000989 [debug] [Thread-3 (]: Failed to rollback 'model.capstone_bi.stg_users'
+[0m17:20:17.001615 [debug] [Thread-1 (]: Failed to rollback 'model.capstone_bi.stg_products'
+[0m17:20:17.003736 [debug] [Thread-1 (]: On model.capstone_bi.stg_products: Close
+[0m17:20:17.000486 [info ] [Thread-4 (]: 4 of 15 START sql table model main_gold.dim_agents ............................. [RUN]
+[0m17:20:17.004977 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.capstone_bi.dim_agents'
+[0m17:20:17.002992 [debug] [Thread-3 (]: On model.capstone_bi.stg_users: Close
+[0m17:20:17.002282 [info ] [Thread-2 (]: 5 of 15 START sql table model main_gold.dim_customers .......................... [RUN]
+[0m17:20:17.006885 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.capstone_bi.stg_tickets, now model.capstone_bi.dim_customers)
+[0m17:20:17.005580 [debug] [Thread-4 (]: Began compiling node model.capstone_bi.dim_agents
+[0m17:20:17.007583 [debug] [Thread-2 (]: Began compiling node model.capstone_bi.dim_customers
+[0m17:20:17.013393 [debug] [Thread-4 (]: Writing injected SQL for node "model.capstone_bi.dim_agents"
+[0m17:20:17.019829 [debug] [Thread-4 (]: Began executing node model.capstone_bi.dim_agents
+[0m17:20:17.018104 [debug] [Thread-2 (]: Writing injected SQL for node "model.capstone_bi.dim_customers"
+[0m17:20:17.027286 [debug] [Thread-2 (]: Began executing node model.capstone_bi.dim_customers
+[0m17:20:17.072174 [debug] [Thread-2 (]: Writing runtime sql for node "model.capstone_bi.dim_customers"
+[0m17:20:17.073441 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.dim_customers"
+[0m17:20:17.074912 [debug] [Thread-2 (]: On model.capstone_bi.dim_customers: BEGIN
+[0m17:20:17.074269 [debug] [Thread-4 (]: Writing runtime sql for node "model.capstone_bi.dim_agents"
+[0m17:20:17.075464 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:20:17.076391 [debug] [Thread-4 (]: Using duckdb connection "model.capstone_bi.dim_agents"
+[0m17:20:17.078216 [debug] [Thread-4 (]: On model.capstone_bi.dim_agents: BEGIN
+[0m17:20:17.078773 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m17:20:17.079883 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m17:20:17.081049 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.dim_customers"
+[0m17:20:17.082692 [debug] [Thread-1 (]: Runtime Error in model stg_products (models/staging/stg_products.sql)
+  Binder Error: Column "description" referenced that exists in the SELECT clause - but this column cannot be referenced before it is defined
+[0m17:20:17.083551 [debug] [Thread-3 (]: Runtime Error in model stg_users (models/staging/stg_users.sql)
+  Binder Error: Referenced column "username" not found in FROM clause!
+  Candidate bindings: "first_name", "last_name", "gender", "snapshot_month", "email"
+  
+  LINE 7:     username,
+              ^
+[0m17:20:17.084006 [debug] [Thread-2 (]: On model.capstone_bi.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_customers"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_customers__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_customers as (
+
+    select distinct
+        customer_id,
+        customer_name,
+        customer_email,
+        customer_age,
+        gender as customer_gender
+
+    from source
+    where customer_id is not null
+
+)
+
+select * from dim_customers
+    );
+  
+  
+[0m17:20:17.084633 [debug] [Thread-4 (]: SQL status: OK in 0.005 seconds
+[0m17:20:17.085689 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e82ec5090>]}
+[0m17:20:17.088728 [debug] [Thread-4 (]: Using duckdb connection "model.capstone_bi.dim_agents"
+[0m17:20:17.086683 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e82ec5840>]}
+[0m17:20:17.089867 [error] [Thread-1 (]: 1 of 15 ERROR creating sql view model main_silver.stg_products ................. [[31mERROR[0m in 0.38s]
+[0m17:20:17.090687 [debug] [Thread-4 (]: On model.capstone_bi.dim_agents: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_agents"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_agents__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_agents as (
+
+    select distinct
+        agent as agent_id,
+        agent_team,
+        agent_role
+
+    from source
+    where agent is not null
+
+)
+
+select * from dim_agents
+    );
+  
+  
+[0m17:20:17.091699 [debug] [Thread-2 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "customer_id" not found in FROM clause!
+Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+
+LINE 29:     where customer_id is not null
+                   ^
+[0m17:20:17.094991 [debug] [Thread-2 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_customers"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_customers__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_customers as (
+
+    select distinct
+        customer_id,
+        customer_name,
+        customer_email,
+        customer_age,
+        gender as customer_gender
+
+    from source
+    where customer_id is not null
+
+)
+
+select * from dim_customers
+    );
+  
+  
+[0m17:20:17.093663 [debug] [Thread-1 (]: Finished running node model.capstone_bi.stg_products
+[0m17:20:17.092513 [error] [Thread-3 (]: 3 of 15 ERROR creating sql view model main_silver.stg_users .................... [[31mERROR[0m in 0.35s]
+[0m17:20:17.096251 [debug] [Thread-2 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:17.099657 [debug] [Thread-2 (]: On model.capstone_bi.dim_customers: ROLLBACK
+[0m17:20:17.097798 [debug] [Thread-1 (]: Began running node model.capstone_bi.dim_date
+[0m17:20:17.098594 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.stg_products' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_products (models/staging/stg_products.sql)
+  Binder Error: Column "description" referenced that exists in the SELECT clause - but this column cannot be referenced before it is defined.
+[0m17:20:17.100815 [info ] [Thread-1 (]: 6 of 15 START sql table model main_gold.dim_date ............................... [RUN]
+[0m17:20:17.097111 [debug] [Thread-4 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "agent" not found in FROM clause!
+Candidate bindings: "ticket_id", "issue_type", "purchase_date"
+
+LINE 27:     where agent is not null
+                   ^
+[0m17:20:17.103631 [debug] [Thread-4 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_agents"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_agents__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_agents as (
+
+    select distinct
+        agent as agent_id,
+        agent_team,
+        agent_role
+
+    from source
+    where agent is not null
+
+)
+
+select * from dim_agents
+    );
+  
+  
+[0m17:20:17.099149 [debug] [Thread-3 (]: Finished running node model.capstone_bi.stg_users
+[0m17:20:17.104041 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.capstone_bi.stg_products, now model.capstone_bi.dim_date)
+[0m17:20:17.101640 [debug] [Thread-2 (]: Failed to rollback 'model.capstone_bi.dim_customers'
+[0m17:20:17.104493 [debug] [Thread-4 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:17.105076 [debug] [Thread-3 (]: Began running node model.capstone_bi.dim_products
+[0m17:20:17.105607 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.stg_users' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_users (models/staging/stg_users.sql)
+  Binder Error: Referenced column "username" not found in FROM clause!
+  Candidate bindings: "first_name", "last_name", "gender", "snapshot_month", "email"
+  
+  LINE 7:     username,
+              ^.
+[0m17:20:17.106053 [debug] [Thread-1 (]: Began compiling node model.capstone_bi.dim_date
+[0m17:20:17.106628 [debug] [Thread-2 (]: On model.capstone_bi.dim_customers: Close
+[0m17:20:17.115292 [debug] [Thread-2 (]: Runtime Error in model dim_customers (models/marts/others/dim_customers.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 29:     where customer_id is not null
+                     ^
+[0m17:20:17.116100 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e82ec4d30>]}
+[0m17:20:17.107079 [debug] [Thread-4 (]: On model.capstone_bi.dim_agents: ROLLBACK
+[0m17:20:17.107713 [info ] [Thread-3 (]: 7 of 15 START sql table model main_gold.dim_products ........................... [RUN]
+[0m17:20:17.113524 [debug] [Thread-1 (]: Writing injected SQL for node "model.capstone_bi.dim_date"
+[0m17:20:17.120094 [debug] [Thread-1 (]: Began executing node model.capstone_bi.dim_date
+[0m17:20:17.119236 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.capstone_bi.stg_users, now model.capstone_bi.dim_products)
+[0m17:20:17.117089 [error] [Thread-2 (]: 5 of 15 ERROR creating sql table model main_gold.dim_customers ................. [[31mERROR[0m in 0.11s]
+[0m17:20:17.126804 [debug] [Thread-2 (]: Finished running node model.capstone_bi.dim_customers
+[0m17:20:17.125934 [debug] [Thread-3 (]: Began compiling node model.capstone_bi.dim_products
+[0m17:20:17.125275 [debug] [Thread-1 (]: Writing runtime sql for node "model.capstone_bi.dim_date"
+[0m17:20:17.135317 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.dim_date"
+[0m17:20:17.127486 [debug] [Thread-2 (]: Began running node model.capstone_bi.fact_tickets
+[0m17:20:17.137395 [info ] [Thread-2 (]: 8 of 15 START sql table model main_gold.fact_tickets ........................... [RUN]
+[0m17:20:17.128247 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.dim_customers' to be skipped because of status 'error'.  Reason: Runtime Error in model dim_customers (models/marts/others/dim_customers.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 29:     where customer_id is not null
+                     ^.
+[0m17:20:17.118289 [debug] [Thread-4 (]: Failed to rollback 'model.capstone_bi.dim_agents'
+[0m17:20:17.139856 [debug] [Thread-4 (]: On model.capstone_bi.dim_agents: Close
+[0m17:20:17.135962 [debug] [Thread-1 (]: On model.capstone_bi.dim_date: BEGIN
+[0m17:20:17.138390 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.capstone_bi.dim_customers, now model.capstone_bi.fact_tickets)
+[0m17:20:17.136590 [debug] [Thread-3 (]: Writing injected SQL for node "model.capstone_bi.dim_products"
+[0m17:20:17.141277 [debug] [Thread-4 (]: Runtime Error in model dim_agents (models/marts/others/dim_agents.sql)
+  Binder Error: Referenced column "agent" not found in FROM clause!
+  Candidate bindings: "ticket_id", "issue_type", "purchase_date"
+  
+  LINE 27:     where agent is not null
+                     ^
+[0m17:20:17.141948 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:20:17.142449 [debug] [Thread-2 (]: Began compiling node model.capstone_bi.fact_tickets
+[0m17:20:17.143168 [debug] [Thread-3 (]: Began executing node model.capstone_bi.dim_products
+[0m17:20:17.143721 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e82514280>]}
+[0m17:20:17.148921 [debug] [Thread-2 (]: Writing injected SQL for node "model.capstone_bi.fact_tickets"
+[0m17:20:17.152994 [debug] [Thread-3 (]: Writing runtime sql for node "model.capstone_bi.dim_products"
+[0m17:20:17.153458 [debug] [Thread-1 (]: SQL status: OK in 0.011 seconds
+[0m17:20:17.154202 [error] [Thread-4 (]: 4 of 15 ERROR creating sql table model main_gold.dim_agents .................... [[31mERROR[0m in 0.14s]
+[0m17:20:17.154986 [debug] [Thread-2 (]: Began executing node model.capstone_bi.fact_tickets
+[0m17:20:17.155799 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.dim_date"
+[0m17:20:17.163048 [debug] [Thread-1 (]: On model.capstone_bi.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_date"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_date__dbt_tmp"
+  
+    as (
+      
+
+with dates as (
+
+    select
+        created_at as full_date
+    from "capstone"."main_silver"."stg_tickets"
+
+    union
+
+    select
+        resolved_at
+    from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_date as (
+
+    select distinct
+        full_date,
+
+        extract(year from full_date) as year,
+        extract(month from full_date) as month,
+        extract(day from full_date) as day,
+        extract(dow from full_date) as day_of_week,
+        extract(quarter from full_date) as quarter
+
+    from dates
+    where full_date is not null
+
+)
+
+select * from dim_date
+    );
+  
+  
+[0m17:20:17.156298 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.dim_products"
+[0m17:20:17.156930 [debug] [Thread-4 (]: Finished running node model.capstone_bi.dim_agents
+[0m17:20:17.162056 [debug] [Thread-2 (]: Writing runtime sql for node "model.capstone_bi.fact_tickets"
+[0m17:20:17.165754 [debug] [Thread-3 (]: On model.capstone_bi.dim_products: BEGIN
+[0m17:20:17.166422 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "created_at" not found in FROM clause!
+Candidate bindings: "purchase_date", "ticket_id", "product_name_raw", "dbt_updated_at", "resolution_time_hrs"
+
+LINE 16:         created_at as full_date
+                 ^
+[0m17:20:17.167302 [debug] [Thread-4 (]: Began running node model.capstone_bi.fct_business_performanceA
+[0m17:20:17.168331 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.dim_agents' to be skipped because of status 'error'.  Reason: Runtime Error in model dim_agents (models/marts/others/dim_agents.sql)
+  Binder Error: Referenced column "agent" not found in FROM clause!
+  Candidate bindings: "ticket_id", "issue_type", "purchase_date"
+  
+  LINE 27:     where agent is not null
+                     ^.
+[0m17:20:17.169254 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.fact_tickets"
+[0m17:20:17.169756 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:20:17.170259 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_date"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_date__dbt_tmp"
+  
+    as (
+      
+
+with dates as (
+
+    select
+        created_at as full_date
+    from "capstone"."main_silver"."stg_tickets"
+
+    union
+
+    select
+        resolved_at
+    from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_date as (
+
+    select distinct
+        full_date,
+
+        extract(year from full_date) as year,
+        extract(month from full_date) as month,
+        extract(day from full_date) as day,
+        extract(dow from full_date) as day_of_week,
+        extract(quarter from full_date) as quarter
+
+    from dates
+    where full_date is not null
+
+)
+
+select * from dim_date
+    );
+  
+  
+[0m17:20:17.171746 [debug] [Thread-2 (]: On model.capstone_bi.fact_tickets: BEGIN
+[0m17:20:17.170924 [info ] [Thread-4 (]: 9 of 15 START sql table model main_gold.fct_business_performanceA .............. [RUN]
+[0m17:20:17.172662 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:17.173140 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m17:20:17.173585 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:20:17.176381 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m17:20:17.175075 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.dim_products"
+[0m17:20:17.174148 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.capstone_bi.dim_agents, now model.capstone_bi.fct_business_performanceA)
+[0m17:20:17.178271 [debug] [Thread-4 (]: Began compiling node model.capstone_bi.fct_business_performanceA
+[0m17:20:17.174634 [debug] [Thread-1 (]: On model.capstone_bi.dim_date: ROLLBACK
+[0m17:20:17.177605 [debug] [Thread-3 (]: On model.capstone_bi.dim_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_products"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_products__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_products as (
+
+    select distinct
+        product_id,
+        product_name,
+        purchase_date
+
+    from source
+    where product_id is not null
+
+)
+
+select * from dim_products
+    );
+  
+  
+[0m17:20:17.176967 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.fact_tickets"
+[0m17:20:17.183683 [debug] [Thread-2 (]: On model.capstone_bi.fact_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fact_tickets"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fact_tickets__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+fact as (
+
+    select
+        ticket_id,
+
+        customer_id,
+        agent as agent_id,
+        product_id,
+
+        created_at,
+        resolved_at,
+
+        first_response_time,
+        time_to_resolution,
+        customer_satisfaction_rating,
+        status,
+        priority
+
+    from source
+
+)
+
+select * from fact
+    );
+  
+  
+[0m17:20:17.184812 [debug] [Thread-3 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "product_name" not found in FROM clause!
+Candidate bindings: "product_name_raw", "product_id", "resolution_time_hrs", "purchase_date", "dbt_updated_at"
+
+LINE 23:         product_name,
+                 ^
+[0m17:20:17.182537 [debug] [Thread-4 (]: Writing injected SQL for node "model.capstone_bi.fct_business_performanceA"
+[0m17:20:17.185488 [debug] [Thread-2 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "customer_id" not found in FROM clause!
+Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+
+LINE 24:         customer_id,
+                 ^
+[0m17:20:17.185923 [debug] [Thread-1 (]: Failed to rollback 'model.capstone_bi.dim_date'
+[0m17:20:17.186303 [debug] [Thread-3 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_products"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_products__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_products as (
+
+    select distinct
+        product_id,
+        product_name,
+        purchase_date
+
+    from source
+    where product_id is not null
+
+)
+
+select * from dim_products
+    );
+  
+  
+[0m17:20:17.187036 [debug] [Thread-2 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fact_tickets"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fact_tickets__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+fact as (
+
+    select
+        ticket_id,
+
+        customer_id,
+        agent as agent_id,
+        product_id,
+
+        created_at,
+        resolved_at,
+
+        first_response_time,
+        time_to_resolution,
+        customer_satisfaction_rating,
+        status,
+        priority
+
+    from source
+
+)
+
+select * from fact
+    );
+  
+  
+[0m17:20:17.187476 [debug] [Thread-4 (]: Began executing node model.capstone_bi.fct_business_performanceA
+[0m17:20:17.188033 [debug] [Thread-1 (]: On model.capstone_bi.dim_date: Close
+[0m17:20:17.188548 [debug] [Thread-3 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:17.189004 [debug] [Thread-2 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:17.192911 [debug] [Thread-4 (]: Writing runtime sql for node "model.capstone_bi.fct_business_performanceA"
+[0m17:20:17.193827 [debug] [Thread-3 (]: On model.capstone_bi.dim_products: ROLLBACK
+[0m17:20:17.194484 [debug] [Thread-2 (]: On model.capstone_bi.fact_tickets: ROLLBACK
+[0m17:20:17.195070 [debug] [Thread-1 (]: Runtime Error in model dim_date (models/marts/others/dim_date.sql)
+  Binder Error: Referenced column "created_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_name_raw", "dbt_updated_at", "resolution_time_hrs"
+  
+  LINE 16:         created_at as full_date
+                   ^
+[0m17:20:17.195855 [debug] [Thread-3 (]: Failed to rollback 'model.capstone_bi.dim_products'
+[0m17:20:17.198361 [debug] [Thread-3 (]: On model.capstone_bi.dim_products: Close
+[0m17:20:17.197159 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e82403130>]}
+[0m17:20:17.200857 [error] [Thread-1 (]: 6 of 15 ERROR creating sql table model main_gold.dim_date ...................... [[31mERROR[0m in 0.09s]
+[0m17:20:17.196542 [debug] [Thread-4 (]: Using duckdb connection "model.capstone_bi.fct_business_performanceA"
+[0m17:20:17.199889 [debug] [Thread-3 (]: Runtime Error in model dim_products (models/marts/others/dim_products.sql)
+  Binder Error: Referenced column "product_name" not found in FROM clause!
+  Candidate bindings: "product_name_raw", "product_id", "resolution_time_hrs", "purchase_date", "dbt_updated_at"
+  
+  LINE 23:         product_name,
+                   ^
+[0m17:20:17.197697 [debug] [Thread-2 (]: Failed to rollback 'model.capstone_bi.fact_tickets'
+[0m17:20:17.201671 [debug] [Thread-1 (]: Finished running node model.capstone_bi.dim_date
+[0m17:20:17.202376 [debug] [Thread-4 (]: On model.capstone_bi.fct_business_performanceA: BEGIN
+[0m17:20:17.203001 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e82c17d30>]}
+[0m17:20:17.206080 [error] [Thread-3 (]: 7 of 15 ERROR creating sql table model main_gold.dim_products .................. [[31mERROR[0m in 0.08s]
+[0m17:20:17.203602 [debug] [Thread-2 (]: On model.capstone_bi.fact_tickets: Close
+[0m17:20:17.208633 [debug] [Thread-2 (]: Runtime Error in model fact_tickets (models/marts/others/fact_tickets.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 24:         customer_id,
+                   ^
+[0m17:20:17.209447 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e82756a10>]}
+[0m17:20:17.210374 [error] [Thread-2 (]: 8 of 15 ERROR creating sql table model main_gold.fact_tickets .................. [[31mERROR[0m in 0.07s]
+[0m17:20:17.204123 [debug] [Thread-1 (]: Began running node model.capstone_bi.fct_business_performanceB
+[0m17:20:17.204653 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.dim_date' to be skipped because of status 'error'.  Reason: Runtime Error in model dim_date (models/marts/others/dim_date.sql)
+  Binder Error: Referenced column "created_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_name_raw", "dbt_updated_at", "resolution_time_hrs"
+  
+  LINE 16:         created_at as full_date
+                   ^.
+[0m17:20:17.205173 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:20:17.214284 [debug] [Thread-4 (]: SQL status: OK in 0.009 seconds
+[0m17:20:17.214829 [debug] [Thread-4 (]: Using duckdb connection "model.capstone_bi.fct_business_performanceA"
+[0m17:20:17.206932 [debug] [Thread-3 (]: Finished running node model.capstone_bi.dim_products
+[0m17:20:17.218293 [debug] [Thread-3 (]: Began running node model.capstone_bi.fct_tickets
+[0m17:20:17.212364 [info ] [Thread-1 (]: 10 of 15 START sql table model main_gold.fct_business_performanceB ............. [RUN]
+[0m17:20:17.211615 [debug] [Thread-2 (]: Finished running node model.capstone_bi.fact_tickets
+[0m17:20:17.217466 [debug] [Thread-4 (]: On model.capstone_bi.fct_business_performanceA: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_business_performanceA"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_business_performanceA__dbt_tmp"
+  
+    as (
+      
+
+WITH base_metrics AS (
+    SELECT 
+        ticket_id,
+        customer_id,
+        status,
+        created_at,
+        closed_at,
+        cost_of_acquisition, -- CAC
+        revenue_generated,    -- Para ROI
+        nps_score,           -- NPS
+        -- KPI: Ticket Resolution Time (TRT)
+        DATEDIFF('hour', created_at, closed_at) as resolution_time_hr
+    FROM "capstone"."main_silver"."stg_tickets"
+)
+
+SELECT 
+    customer_id,
+    -- KPI: ROI (Rentabilidad por ticket/cliente)
+    SUM(revenue_generated) / NULLIF(SUM(cost_of_acquisition), 0) as roi_ratio,
+    -- KPI: CAC Promedio
+    AVG(cost_of_acquisition) as avg_cac,
+    -- KPI: NPS Promedio (Satisfacción)
+    AVG(nps_score) as avg_nps,
+    -- KPI: Eficiencia Operativa
+    AVG(resolution_time_hr) as avg_trt
+FROM base_metrics
+GROUP BY 1
+    );
+  
+  
+[0m17:20:17.219017 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.dim_products' to be skipped because of status 'error'.  Reason: Runtime Error in model dim_products (models/marts/others/dim_products.sql)
+  Binder Error: Referenced column "product_name" not found in FROM clause!
+  Candidate bindings: "product_name_raw", "product_id", "resolution_time_hrs", "purchase_date", "dbt_updated_at"
+  
+  LINE 23:         product_name,
+                   ^.
+[0m17:20:17.222829 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.fact_tickets' to be skipped because of status 'error'.  Reason: Runtime Error in model fact_tickets (models/marts/others/fact_tickets.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 24:         customer_id,
+                   ^.
+[0m17:20:17.221078 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.capstone_bi.dim_date, now model.capstone_bi.fct_business_performanceB)
+[0m17:20:17.225916 [debug] [Thread-1 (]: Began compiling node model.capstone_bi.fct_business_performanceB
+[0m17:20:17.219946 [info ] [Thread-3 (]: 11 of 15 START sql table model main_gold.fct_tickets ........................... [RUN]
+[0m17:20:17.221771 [debug] [Thread-2 (]: Began running node model.capstone_bi.dim_category
+[0m17:20:17.224752 [debug] [Thread-4 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "customer_id" not found in FROM clause!
+Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+
+LINE 16:         customer_id,
+                 ^
+[0m17:20:17.234984 [debug] [Thread-4 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_business_performanceA"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_business_performanceA__dbt_tmp"
+  
+    as (
+      
+
+WITH base_metrics AS (
+    SELECT 
+        ticket_id,
+        customer_id,
+        status,
+        created_at,
+        closed_at,
+        cost_of_acquisition, -- CAC
+        revenue_generated,    -- Para ROI
+        nps_score,           -- NPS
+        -- KPI: Ticket Resolution Time (TRT)
+        DATEDIFF('hour', created_at, closed_at) as resolution_time_hr
+    FROM "capstone"."main_silver"."stg_tickets"
+)
+
+SELECT 
+    customer_id,
+    -- KPI: ROI (Rentabilidad por ticket/cliente)
+    SUM(revenue_generated) / NULLIF(SUM(cost_of_acquisition), 0) as roi_ratio,
+    -- KPI: CAC Promedio
+    AVG(cost_of_acquisition) as avg_cac,
+    -- KPI: NPS Promedio (Satisfacción)
+    AVG(nps_score) as avg_nps,
+    -- KPI: Eficiencia Operativa
+    AVG(resolution_time_hr) as avg_trt
+FROM base_metrics
+GROUP BY 1
+    );
+  
+  
+[0m17:20:17.233601 [info ] [Thread-2 (]: 12 of 15 SKIP relation main_gold.dim_category .................................. [[33mSKIP[0m]
+[0m17:20:17.231949 [debug] [Thread-1 (]: Writing injected SQL for node "model.capstone_bi.fct_business_performanceB"
+[0m17:20:17.235755 [debug] [Thread-4 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:17.237218 [debug] [Thread-1 (]: Began executing node model.capstone_bi.fct_business_performanceB
+[0m17:20:17.237584 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.capstone_bi.dim_products, now model.capstone_bi.fct_tickets)
+[0m17:20:17.236422 [debug] [Thread-2 (]: Finished running node model.capstone_bi.dim_category
+[0m17:20:17.238011 [debug] [Thread-4 (]: On model.capstone_bi.fct_business_performanceA: ROLLBACK
+[0m17:20:17.241881 [debug] [Thread-1 (]: Writing runtime sql for node "model.capstone_bi.fct_business_performanceB"
+[0m17:20:17.242426 [debug] [Thread-3 (]: Began compiling node model.capstone_bi.fct_tickets
+[0m17:20:17.242937 [debug] [Thread-2 (]: Began running node model.capstone_bi.dim_product
+[0m17:20:17.251792 [info ] [Thread-2 (]: 13 of 15 SKIP relation main_gold.dim_product ................................... [[33mSKIP[0m]
+[0m17:20:17.252653 [debug] [Thread-2 (]: Finished running node model.capstone_bi.dim_product
+[0m17:20:17.250426 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.fct_business_performanceB"
+[0m17:20:17.243672 [debug] [Thread-4 (]: Failed to rollback 'model.capstone_bi.fct_business_performanceA'
+[0m17:20:17.247843 [debug] [Thread-3 (]: Writing injected SQL for node "model.capstone_bi.fct_tickets"
+[0m17:20:17.254679 [debug] [Thread-2 (]: Began running node model.capstone_bi.dim_users
+[0m17:20:17.257443 [debug] [Thread-4 (]: On model.capstone_bi.fct_business_performanceA: Close
+[0m17:20:17.258624 [debug] [Thread-3 (]: Began executing node model.capstone_bi.fct_tickets
+[0m17:20:17.256184 [debug] [Thread-1 (]: On model.capstone_bi.fct_business_performanceB: BEGIN
+[0m17:20:17.276443 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:20:17.285332 [debug] [Thread-1 (]: SQL status: OK in 0.009 seconds
+[0m17:20:17.259596 [info ] [Thread-2 (]: 14 of 15 SKIP relation main_gold.dim_users ..................................... [[33mSKIP[0m]
+[0m17:20:17.288579 [debug] [Thread-2 (]: Finished running node model.capstone_bi.dim_users
+[0m17:20:17.283336 [debug] [Thread-3 (]: Writing runtime sql for node "model.capstone_bi.fct_tickets"
+[0m17:20:17.262948 [debug] [Thread-4 (]: Runtime Error in model fct_business_performanceA (models/marts/others/fct_business_performanceA.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 16:         customer_id,
+                   ^
+[0m17:20:17.290794 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e825c11b0>]}
+[0m17:20:17.287621 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.fct_business_performanceB"
+[0m17:20:17.292703 [debug] [Thread-1 (]: On model.capstone_bi.fct_business_performanceB: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_business_performanceB"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_business_performanceB__dbt_tmp"
+  
+    as (
+      
+
+WITH metrics AS (
+    SELECT 
+        *,
+        -- KPI: Ticket Resolution Time (TRT)
+        EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+        -- KPI: ROI (Rentabilidad)
+        (revenue - cac) / NULLIF(cac, 0) as roi
+    FROM "capstone"."main_silver"."stg_tickets"
+)
+SELECT 
+    category,
+    AVG(trt_hours) as avg_resolution_time,
+    AVG(cac) as avg_cac,
+    AVG(roi) as avg_roi,
+    AVG(nps_score) as nps_index,
+    COUNT(ticket_id) as total_tickets
+FROM metrics
+GROUP BY 1
+    );
+  
+  
+[0m17:20:17.289686 [debug] [Thread-2 (]: Began running node model.capstone_bi.fct_ticket_metrics
+[0m17:20:17.291815 [error] [Thread-4 (]: 9 of 15 ERROR creating sql table model main_gold.fct_business_performanceA ..... [[31mERROR[0m in 0.12s]
+[0m17:20:17.297310 [debug] [Thread-4 (]: Finished running node model.capstone_bi.fct_business_performanceA
+[0m17:20:17.293555 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.fct_tickets"
+[0m17:20:17.300330 [debug] [Thread-3 (]: On model.capstone_bi.fct_tickets: BEGIN
+[0m17:20:17.300874 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:20:17.301854 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m17:20:17.296228 [info ] [Thread-2 (]: 15 of 15 SKIP relation main_gold.fct_ticket_metrics ............................ [[33mSKIP[0m]
+[0m17:20:17.303044 [debug] [Thread-2 (]: Finished running node model.capstone_bi.fct_ticket_metrics
+[0m17:20:17.299826 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.fct_business_performanceA' to be skipped because of status 'error'.  Reason: Runtime Error in model fct_business_performanceA (models/marts/others/fct_business_performanceA.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 16:         customer_id,
+                   ^.
+[0m17:20:17.298899 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "closed_at" not found in FROM clause!
+Candidate bindings: "purchase_date", "product_name_raw", "ticket_id", "issue_type", "ticket_status"
+
+LINE 17:         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+                                     ^
+[0m17:20:17.303928 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_business_performanceB"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_business_performanceB__dbt_tmp"
+  
+    as (
+      
+
+WITH metrics AS (
+    SELECT 
+        *,
+        -- KPI: Ticket Resolution Time (TRT)
+        EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+        -- KPI: ROI (Rentabilidad)
+        (revenue - cac) / NULLIF(cac, 0) as roi
+    FROM "capstone"."main_silver"."stg_tickets"
+)
+SELECT 
+    category,
+    AVG(trt_hours) as avg_resolution_time,
+    AVG(cac) as avg_cac,
+    AVG(roi) as avg_roi,
+    AVG(nps_score) as nps_index,
+    COUNT(ticket_id) as total_tickets
+FROM metrics
+GROUP BY 1
+    );
+  
+  
+[0m17:20:17.304467 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:17.302414 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.fct_tickets"
+[0m17:20:17.305961 [debug] [Thread-3 (]: On model.capstone_bi.fct_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_tickets"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_tickets__dbt_tmp"
+  
+    as (
+      SELECT
+    ticket_id,
+    user_id,
+    created_at,
+    closed_at,
+    status,
+    -- KPI: TTR (Time to Resolution)
+    timestamp_diff(closed_at, created_at, MINUTE) as ttr_minutes,
+    -- KPI: FIRST RESPONSE TIME
+    timestamp_diff(first_interaction_at, created_at, MINUTE) as frt_minutes
+FROM "capstone"."main_silver"."stg_tickets"
+-- EFECTIVIZA KPI: Eficiencia operativa. 
+-- Si el TTR sube, necesitás más personal o mejor automatización.
+    );
+  
+  
+[0m17:20:17.305392 [debug] [Thread-1 (]: On model.capstone_bi.fct_business_performanceB: ROLLBACK
+[0m17:20:17.306864 [debug] [Thread-1 (]: Failed to rollback 'model.capstone_bi.fct_business_performanceB'
+[0m17:20:17.309295 [debug] [Thread-1 (]: On model.capstone_bi.fct_business_performanceB: Close
+[0m17:20:17.308610 [debug] [Thread-3 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "user_id" not found in FROM clause!
+Candidate bindings: "purchase_date", "ticket_id", "product_id", "issue_type", "resolution_time_hrs"
+
+LINE 13:     user_id,
+             ^
+[0m17:20:17.310599 [debug] [Thread-3 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_tickets"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_tickets__dbt_tmp"
+  
+    as (
+      SELECT
+    ticket_id,
+    user_id,
+    created_at,
+    closed_at,
+    status,
+    -- KPI: TTR (Time to Resolution)
+    timestamp_diff(closed_at, created_at, MINUTE) as ttr_minutes,
+    -- KPI: FIRST RESPONSE TIME
+    timestamp_diff(first_interaction_at, created_at, MINUTE) as frt_minutes
+FROM "capstone"."main_silver"."stg_tickets"
+-- EFECTIVIZA KPI: Eficiencia operativa. 
+-- Si el TTR sube, necesitás más personal o mejor automatización.
+    );
+  
+  
+[0m17:20:17.311166 [debug] [Thread-3 (]: DuckDB adapter: Rolling back transaction.
+[0m17:20:17.311680 [debug] [Thread-3 (]: On model.capstone_bi.fct_tickets: ROLLBACK
+[0m17:20:17.312399 [debug] [Thread-3 (]: Failed to rollback 'model.capstone_bi.fct_tickets'
+[0m17:20:17.313238 [debug] [Thread-1 (]: Runtime Error in model fct_business_performanceB (models/marts/others/fct_business_performanceB.sql)
+  Binder Error: Referenced column "closed_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "product_name_raw", "ticket_id", "issue_type", "ticket_status"
+  
+  LINE 17:         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+                                       ^
+[0m17:20:17.314687 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e8243b220>]}
+[0m17:20:17.313945 [debug] [Thread-3 (]: On model.capstone_bi.fct_tickets: Close
+[0m17:20:17.316332 [debug] [Thread-3 (]: Runtime Error in model fct_tickets (models/marts/others/fct_tickets.sql)
+  Binder Error: Referenced column "user_id" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_id", "issue_type", "resolution_time_hrs"
+  
+  LINE 13:     user_id,
+               ^
+[0m17:20:17.317166 [error] [Thread-1 (]: 10 of 15 ERROR creating sql table model main_gold.fct_business_performanceB .... [[31mERROR[0m in 0.09s]
+[0m17:20:17.318988 [debug] [Thread-1 (]: Finished running node model.capstone_bi.fct_business_performanceB
+[0m17:20:17.318117 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '64e200c2-f2c1-4ab4-913e-235239aa00db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e824382e0>]}
+[0m17:20:17.320784 [error] [Thread-3 (]: 11 of 15 ERROR creating sql table model main_gold.fct_tickets .................. [[31mERROR[0m in 0.09s]
+[0m17:20:17.319894 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.fct_business_performanceB' to be skipped because of status 'error'.  Reason: Runtime Error in model fct_business_performanceB (models/marts/others/fct_business_performanceB.sql)
+  Binder Error: Referenced column "closed_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "product_name_raw", "ticket_id", "issue_type", "ticket_status"
+  
+  LINE 17:         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+                                       ^.
+[0m17:20:17.323324 [debug] [Thread-3 (]: Finished running node model.capstone_bi.fct_tickets
+[0m17:20:17.324883 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.fct_tickets' to be skipped because of status 'error'.  Reason: Runtime Error in model fct_tickets (models/marts/others/fct_tickets.sql)
+  Binder Error: Referenced column "user_id" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_id", "issue_type", "resolution_time_hrs"
+  
+  LINE 13:     user_id,
+               ^.
+[0m17:20:17.327870 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:20:17.329129 [debug] [MainThread]: On master: BEGIN
+[0m17:20:17.332571 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:20:17.335654 [debug] [MainThread]: SQL status: OK in 0.003 seconds
+[0m17:20:17.336586 [debug] [MainThread]: On master: COMMIT
+[0m17:20:17.337159 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:20:17.337763 [debug] [MainThread]: On master: COMMIT
+[0m17:20:17.338632 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:20:17.339185 [debug] [MainThread]: On master: Close
+[0m17:20:17.339995 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:20:17.340588 [debug] [MainThread]: Connection 'model.capstone_bi.fact_tickets' was properly closed.
+[0m17:20:17.340978 [debug] [MainThread]: Connection 'model.capstone_bi.fct_tickets' was properly closed.
+[0m17:20:17.341489 [debug] [MainThread]: Connection 'model.capstone_bi.fct_business_performanceB' was properly closed.
+[0m17:20:17.342053 [debug] [MainThread]: Connection 'model.capstone_bi.fct_business_performanceA' was properly closed.
+[0m17:20:17.342831 [info ] [MainThread]: 
+[0m17:20:17.343896 [info ] [MainThread]: Finished running 1 incremental model, 11 table models, 3 view models in 0 hours 0 minutes and 0.98 seconds (0.98s).
+[0m17:20:17.351514 [debug] [MainThread]: Command end result
+[0m17:20:17.416916 [debug] [MainThread]: Wrote artifact WritableManifest to /app/dbt/capstone_bi/target/manifest.json
+[0m17:20:17.420382 [debug] [MainThread]: Wrote artifact SemanticManifest to /app/dbt/capstone_bi/target/semantic_manifest.json
+[0m17:20:17.432208 [debug] [MainThread]: Wrote artifact RunExecutionResult to /app/dbt/capstone_bi/target/run_results.json
+[0m17:20:17.432979 [info ] [MainThread]: 
+[0m17:20:17.433738 [info ] [MainThread]: [31mCompleted with 10 errors, 0 partial successes, and 0 warnings:[0m
+[0m17:20:17.434546 [info ] [MainThread]: 
+[0m17:20:17.435927 [error] [MainThread]: [31mFailure in model stg_products (models/staging/stg_products.sql)[0m
+[0m17:20:17.436919 [error] [MainThread]:   Runtime Error in model stg_products (models/staging/stg_products.sql)
+  Binder Error: Column "description" referenced that exists in the SELECT clause - but this column cannot be referenced before it is defined
+[0m17:20:17.437559 [info ] [MainThread]: 
+[0m17:20:17.438189 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/staging/stg_products.sql
+[0m17:20:17.439295 [info ] [MainThread]: 
+[0m17:20:17.440221 [error] [MainThread]: [31mFailure in model stg_users (models/staging/stg_users.sql)[0m
+[0m17:20:17.440939 [error] [MainThread]:   Runtime Error in model stg_users (models/staging/stg_users.sql)
+  Binder Error: Referenced column "username" not found in FROM clause!
+  Candidate bindings: "first_name", "last_name", "gender", "snapshot_month", "email"
+  
+  LINE 7:     username,
+              ^
+[0m17:20:17.442505 [info ] [MainThread]: 
+[0m17:20:17.443151 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/staging/stg_users.sql
+[0m17:20:17.443711 [info ] [MainThread]: 
+[0m17:20:17.444415 [error] [MainThread]: [31mFailure in model dim_customers (models/marts/others/dim_customers.sql)[0m
+[0m17:20:17.445461 [error] [MainThread]:   Runtime Error in model dim_customers (models/marts/others/dim_customers.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 29:     where customer_id is not null
+                     ^
+[0m17:20:17.446015 [info ] [MainThread]: 
+[0m17:20:17.446720 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/dim_customers.sql
+[0m17:20:17.455309 [info ] [MainThread]: 
+[0m17:20:17.457432 [error] [MainThread]: [31mFailure in model dim_agents (models/marts/others/dim_agents.sql)[0m
+[0m17:20:17.458187 [error] [MainThread]:   Runtime Error in model dim_agents (models/marts/others/dim_agents.sql)
+  Binder Error: Referenced column "agent" not found in FROM clause!
+  Candidate bindings: "ticket_id", "issue_type", "purchase_date"
+  
+  LINE 27:     where agent is not null
+                     ^
+[0m17:20:17.458751 [info ] [MainThread]: 
+[0m17:20:17.459414 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/dim_agents.sql
+[0m17:20:17.460611 [info ] [MainThread]: 
+[0m17:20:17.462691 [error] [MainThread]: [31mFailure in model dim_date (models/marts/others/dim_date.sql)[0m
+[0m17:20:17.463485 [error] [MainThread]:   Runtime Error in model dim_date (models/marts/others/dim_date.sql)
+  Binder Error: Referenced column "created_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_name_raw", "dbt_updated_at", "resolution_time_hrs"
+  
+  LINE 16:         created_at as full_date
+                   ^
+[0m17:20:17.464156 [info ] [MainThread]: 
+[0m17:20:17.465965 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/dim_date.sql
+[0m17:20:17.466647 [info ] [MainThread]: 
+[0m17:20:17.468306 [error] [MainThread]: [31mFailure in model dim_products (models/marts/others/dim_products.sql)[0m
+[0m17:20:17.470074 [error] [MainThread]:   Runtime Error in model dim_products (models/marts/others/dim_products.sql)
+  Binder Error: Referenced column "product_name" not found in FROM clause!
+  Candidate bindings: "product_name_raw", "product_id", "resolution_time_hrs", "purchase_date", "dbt_updated_at"
+  
+  LINE 23:         product_name,
+                   ^
+[0m17:20:17.470677 [info ] [MainThread]: 
+[0m17:20:17.471318 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/dim_products.sql
+[0m17:20:17.471934 [info ] [MainThread]: 
+[0m17:20:17.472629 [error] [MainThread]: [31mFailure in model fact_tickets (models/marts/others/fact_tickets.sql)[0m
+[0m17:20:17.473516 [error] [MainThread]:   Runtime Error in model fact_tickets (models/marts/others/fact_tickets.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 24:         customer_id,
+                   ^
+[0m17:20:17.474593 [info ] [MainThread]: 
+[0m17:20:17.477014 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/fact_tickets.sql
+[0m17:20:17.477658 [info ] [MainThread]: 
+[0m17:20:17.478579 [error] [MainThread]: [31mFailure in model fct_business_performanceA (models/marts/others/fct_business_performanceA.sql)[0m
+[0m17:20:17.479963 [error] [MainThread]:   Runtime Error in model fct_business_performanceA (models/marts/others/fct_business_performanceA.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 16:         customer_id,
+                   ^
+[0m17:20:17.481556 [info ] [MainThread]: 
+[0m17:20:17.482272 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/fct_business_performanceA.sql
+[0m17:20:17.483068 [info ] [MainThread]: 
+[0m17:20:17.488506 [error] [MainThread]: [31mFailure in model fct_business_performanceB (models/marts/others/fct_business_performanceB.sql)[0m
+[0m17:20:17.490143 [error] [MainThread]:   Runtime Error in model fct_business_performanceB (models/marts/others/fct_business_performanceB.sql)
+  Binder Error: Referenced column "closed_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "product_name_raw", "ticket_id", "issue_type", "ticket_status"
+  
+  LINE 17:         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+                                       ^
+[0m17:20:17.492627 [info ] [MainThread]: 
+[0m17:20:17.494581 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/fct_business_performanceB.sql
+[0m17:20:17.497702 [info ] [MainThread]: 
+[0m17:20:17.498534 [error] [MainThread]: [31mFailure in model fct_tickets (models/marts/others/fct_tickets.sql)[0m
+[0m17:20:17.501711 [error] [MainThread]:   Runtime Error in model fct_tickets (models/marts/others/fct_tickets.sql)
+  Binder Error: Referenced column "user_id" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_id", "issue_type", "resolution_time_hrs"
+  
+  LINE 13:     user_id,
+               ^
+[0m17:20:17.504536 [info ] [MainThread]: 
+[0m17:20:17.505199 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/fct_tickets.sql
+[0m17:20:17.508484 [info ] [MainThread]: 
+[0m17:20:17.509027 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=10 SKIP=4 NO-OP=0 TOTAL=15
+[0m17:20:17.511700 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 4.44811, "process_in_blocks": "8760", "process_kernel_time": 0.348356, "process_mem_max_rss": "165236", "process_out_blocks": "3832", "process_user_time": 5.33948}
+[0m17:20:17.513686 [debug] [MainThread]: Command `dbt run` failed at 17:20:17.513508 after 4.45 seconds
+[0m17:20:17.514296 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e8906aa70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e8ac55ae0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8e89017fd0>]}
+[0m17:20:17.516250 [debug] [MainThread]: Flushing usage events
+[0m17:20:17.670054 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:22:12.342898 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79729c622a40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79729b64d600>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79729b64d5a0>]}
+
+
+============================== 17:22:12.366282 | 912aca85-e4a9-474b-8334-5c8be856cee2 ==============================
+[0m17:22:12.366282 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:22:12.368260 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'target_path': 'None', 'use_colors': 'True', 'write_json': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_format': 'default', 'log_cache_events': 'False', 'quiet': 'False', 'profiles_dir': '/app/dbt', 'cache_selected_only': 'False', 'static_parser': 'True', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'empty': 'None', 'debug': 'False', 'invocation_command': 'dbt clean', 'log_path': '/app/dbt/capstone_bi/logs', 'no_print': 'None', 'warn_error': 'None', 'partial_parse': 'True'}
+[0m17:22:12.794883 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '912aca85-e4a9-474b-8334-5c8be856cee2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79729b64f2b0>]}
+[0m17:22:12.864070 [debug] [MainThread]: Resource report: {"command_name": "clean", "command_success": true, "command_wall_clock_time": 0.6644409, "process_in_blocks": "24752", "process_kernel_time": 0.236205, "process_mem_max_rss": "99984", "process_out_blocks": "8", "process_user_time": 1.917084}
+[0m17:22:12.865120 [debug] [MainThread]: Command `dbt clean` succeeded at 17:22:12.864943 after 0.67 seconds
+[0m17:22:12.865821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79729c622a40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79729b64ec50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79729b64f2b0>]}
+[0m17:22:12.866495 [debug] [MainThread]: Flushing usage events
+[0m17:22:13.040185 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:22:15.060015 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b954ead0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b858c790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b858c730>]}
+
+
+============================== 17:22:15.063607 | d68c2131-96c0-4a87-b6c3-9ebdb32f269d ==============================
+[0m17:22:15.063607 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:22:15.064335 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'printer_width': '80', 'target_path': 'None', 'log_path': '/app/dbt/capstone_bi/logs', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'profiles_dir': '/app/dbt', 'invocation_command': 'dbt list --resource-type source', 'log_cache_events': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'warn_error': 'None', 'static_parser': 'True', 'quiet': 'False', 'partial_parse': 'True', 'use_colors': 'True', 'fail_fast': 'False'}
+[0m17:22:15.373722 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd68c2131-96c0-4a87-b6c3-9ebdb32f269d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b84eae90>]}
+[0m17:22:15.453251 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd68c2131-96c0-4a87-b6c3-9ebdb32f269d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b84eb5e0>]}
+[0m17:22:15.458624 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:22:15.616597 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m17:22:15.617564 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m17:22:15.619103 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'd68c2131-96c0-4a87-b6c3-9ebdb32f269d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b368dcc0>]}
+[0m17:22:18.183756 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.capstone_bi.ttr_threshold_test' (tests/ttr_threshold_test.sql) depends on a node named 'fct_business_performance' in package '' which was not found
+[0m17:22:18.184818 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.capstone_bi.assert_positive_roi' (tests/assert_positive_roi.sql) depends on a node named 'fct_business_performance' in package '' which was not found
+[0m17:22:18.332436 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd68c2131-96c0-4a87-b6c3-9ebdb32f269d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b3256dd0>]}
+[0m17:22:18.493519 [debug] [MainThread]: Wrote artifact WritableManifest to /app/dbt/capstone_bi/target/manifest.json
+[0m17:22:18.496199 [debug] [MainThread]: Wrote artifact SemanticManifest to /app/dbt/capstone_bi/target/semantic_manifest.json
+[0m17:22:18.512164 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd68c2131-96c0-4a87-b6c3-9ebdb32f269d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b3155780>]}
+[0m17:22:18.513904 [info ] [MainThread]: source:capstone_bi.bronze.bronze_products
+[0m17:22:18.514567 [info ] [MainThread]: source:capstone_bi.bronze.bronze_tickets
+[0m17:22:18.514947 [info ] [MainThread]: source:capstone_bi.bronze.bronze_users
+[0m17:22:18.516818 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": true, "command_wall_clock_time": 3.5429223, "process_in_blocks": "3256", "process_kernel_time": 0.263198, "process_mem_max_rss": "151548", "process_out_blocks": "2312", "process_user_time": 4.569355}
+[0m17:22:18.517449 [debug] [MainThread]: Command `dbt list` succeeded at 17:22:18.517277 after 3.54 seconds
+[0m17:22:18.517939 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b954ead0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494b84eb5e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7494ba325270>]}
+[0m17:22:18.518454 [debug] [MainThread]: Flushing usage events
+[0m17:22:18.691587 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:22:20.717280 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99f8c2a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99e8e8460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99e8e8400>]}
+
+
+============================== 17:22:20.721468 | da800140-cb81-4b0b-a415-8d2b2986dbe2 ==============================
+[0m17:22:20.721468 [info ] [MainThread]: Running with dbt=1.11.7
+[0m17:22:20.722770 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'empty': 'False', 'quiet': 'False', 'use_colors': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --target prod', 'version_check': 'True', 'introspect': 'True', 'no_print': 'None', 'log_path': '/app/dbt/capstone_bi/logs', 'warn_error': 'None', 'printer_width': '80', 'write_json': 'True', 'indirect_selection': 'eager', 'partial_parse': 'True', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/app/dbt', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'fail_fast': 'False'}
+[0m17:22:21.073220 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99f16b670>]}
+[0m17:22:21.182225 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99e91ae30>]}
+[0m17:22:21.184274 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m17:22:21.357582 [debug] [MainThread]: checksum: 6b6e0ebcaf85ad01fb66001734c8a9de1fddab0bc26fac0e88d715ed9207abc1, vars: {}, profile: , target: prod, version: 1.11.7
+[0m17:22:21.570104 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m17:22:21.570981 [debug] [MainThread]: previous checksum: 6b6e0ebcaf85ad01fb66001734c8a9de1fddab0bc26fac0e88d715ed9207abc1, current checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775
+[0m17:22:21.571613 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99f13b3a0>]}
+[0m17:22:24.009435 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.capstone_bi.ttr_threshold_test' (tests/ttr_threshold_test.sql) depends on a node named 'fct_business_performance' in package '' which was not found
+[0m17:22:24.010672 [warn ] [MainThread]: [[33mWARNING[0m]: Test 'test.capstone_bi.assert_positive_roi' (tests/assert_positive_roi.sql) depends on a node named 'fct_business_performance' in package '' which was not found
+[0m17:22:24.149777 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd998ee0520>]}
+[0m17:22:24.321361 [debug] [MainThread]: Wrote artifact WritableManifest to /app/dbt/capstone_bi/target/manifest.json
+[0m17:22:24.323779 [debug] [MainThread]: Wrote artifact SemanticManifest to /app/dbt/capstone_bi/target/semantic_manifest.json
+[0m17:22:24.341238 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd998ebe860>]}
+[0m17:22:24.341949 [info ] [MainThread]: Found 15 models, 1 seed, 15 data tests, 3 sources, 475 macros
+[0m17:22:24.342380 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd998ebc430>]}
+[0m17:22:24.344745 [info ] [MainThread]: 
+[0m17:22:24.345182 [info ] [MainThread]: Concurrency: 4 threads (target='prod')
+[0m17:22:24.345689 [info ] [MainThread]: 
+[0m17:22:24.346454 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m17:22:24.353634 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_capstone'
+[0m17:22:24.354278 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_capstone'
+[0m17:22:24.436493 [debug] [ThreadPool]: Using duckdb connection "list_capstone"
+[0m17:22:24.437019 [debug] [ThreadPool]: On list_capstone: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"capstone"'
+    
+  
+  
+[0m17:22:24.437445 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:22:24.437871 [debug] [ThreadPool]: Using duckdb connection "list_capstone"
+[0m17:22:24.438455 [debug] [ThreadPool]: On list_capstone: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"capstone"'
+    
+  
+  
+[0m17:22:24.438868 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:22:24.467995 [debug] [ThreadPool]: SQL status: OK in 0.030 seconds
+[0m17:22:24.468632 [debug] [ThreadPool]: SQL status: OK in 0.030 seconds
+[0m17:22:24.470406 [debug] [ThreadPool]: On list_capstone: Close
+[0m17:22:24.472126 [debug] [ThreadPool]: On list_capstone: Close
+[0m17:22:24.474147 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_capstone, now create_capstone_main_gold)
+[0m17:22:24.474714 [debug] [ThreadPool]: Creating schema "database: "capstone"
+schema: "main_gold"
+"
+[0m17:22:24.480398 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_capstone, now create_capstone_main_silver)
+[0m17:22:24.482678 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_gold"
+[0m17:22:24.483258 [debug] [ThreadPool]: Creating schema "database: "capstone"
+schema: "main_silver"
+"
+[0m17:22:24.483695 [debug] [ThreadPool]: On create_capstone_main_gold: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "create_capstone_main_gold"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='capstone'
+        and type='sqlite'
+    
+  
+[0m17:22:24.486611 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_silver"
+[0m17:22:24.487006 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:22:24.487434 [debug] [ThreadPool]: On create_capstone_main_silver: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "create_capstone_main_silver"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='capstone'
+        and type='sqlite'
+    
+  
+[0m17:22:24.488242 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:22:24.489618 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:22:24.491537 [debug] [ThreadPool]: SQL status: OK in 0.005 seconds
+[0m17:22:24.493115 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_silver"
+[0m17:22:24.494760 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_gold"
+[0m17:22:24.495235 [debug] [ThreadPool]: On create_capstone_main_silver: BEGIN
+[0m17:22:24.495663 [debug] [ThreadPool]: On create_capstone_main_gold: BEGIN
+[0m17:22:24.496495 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:22:24.496935 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:22:24.497257 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_silver"
+[0m17:22:24.497654 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_gold"
+[0m17:22:24.498104 [debug] [ThreadPool]: On create_capstone_main_silver: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "create_capstone_main_silver"} */
+
+    
+    
+        create schema if not exists "capstone"."main_silver"
+    
+[0m17:22:24.498540 [debug] [ThreadPool]: On create_capstone_main_gold: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "create_capstone_main_gold"} */
+
+    
+    
+        create schema if not exists "capstone"."main_gold"
+    
+[0m17:22:24.499377 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:22:24.500644 [debug] [ThreadPool]: On create_capstone_main_silver: COMMIT
+[0m17:22:24.501092 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_silver"
+[0m17:22:24.501525 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m17:22:24.501826 [debug] [ThreadPool]: On create_capstone_main_silver: COMMIT
+[0m17:22:24.502682 [debug] [ThreadPool]: On create_capstone_main_gold: COMMIT
+[0m17:22:24.503268 [debug] [ThreadPool]: Using duckdb connection "create_capstone_main_gold"
+[0m17:22:24.503688 [debug] [ThreadPool]: On create_capstone_main_gold: COMMIT
+[0m17:22:24.504168 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:22:24.504561 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m17:22:24.504925 [debug] [ThreadPool]: On create_capstone_main_silver: Close
+[0m17:22:24.505284 [debug] [ThreadPool]: On create_capstone_main_gold: Close
+[0m17:22:24.508264 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_capstone_main_gold, now list_capstone_main_gold)
+[0m17:22:24.515997 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_capstone_main_silver, now list_capstone_main_silver)
+[0m17:22:24.516665 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_capstone_main'
+[0m17:22:24.524500 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main_gold"
+[0m17:22:24.522906 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main_silver"
+[0m17:22:24.529110 [debug] [ThreadPool]: On list_capstone_main_silver: BEGIN
+[0m17:22:24.529515 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:22:24.530457 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:22:24.528680 [debug] [ThreadPool]: On list_capstone_main_gold: BEGIN
+[0m17:22:24.528094 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main"
+[0m17:22:24.530939 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main_silver"
+[0m17:22:24.531327 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:22:24.531797 [debug] [ThreadPool]: On list_capstone_main: BEGIN
+[0m17:22:24.532265 [debug] [ThreadPool]: On list_capstone_main_silver: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone_main_silver"} */
+select
+      'capstone' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_silver'
+    and lower(table_catalog) = 'capstone'
+  
+[0m17:22:24.533033 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:22:24.534331 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m17:22:24.534814 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main"
+[0m17:22:24.535271 [debug] [ThreadPool]: On list_capstone_main: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone_main"} */
+select
+      'capstone' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'capstone'
+  
+[0m17:22:24.533480 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m17:22:24.536438 [debug] [ThreadPool]: Using duckdb connection "list_capstone_main_gold"
+[0m17:22:24.536923 [debug] [ThreadPool]: On list_capstone_main_gold: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "connection_name": "list_capstone_main_gold"} */
+select
+      'capstone' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main_gold'
+    and lower(table_catalog) = 'capstone'
+  
+[0m17:22:24.540181 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m17:22:24.540843 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m17:22:24.542511 [debug] [ThreadPool]: On list_capstone_main: ROLLBACK
+[0m17:22:24.543672 [debug] [ThreadPool]: On list_capstone_main_gold: ROLLBACK
+[0m17:22:24.543980 [debug] [ThreadPool]: SQL status: OK in 0.010 seconds
+[0m17:22:24.544945 [debug] [ThreadPool]: Failed to rollback 'list_capstone_main'
+[0m17:22:24.545494 [debug] [ThreadPool]: Failed to rollback 'list_capstone_main_gold'
+[0m17:22:24.546646 [debug] [ThreadPool]: On list_capstone_main_silver: ROLLBACK
+[0m17:22:24.546950 [debug] [ThreadPool]: On list_capstone_main: Close
+[0m17:22:24.547304 [debug] [ThreadPool]: On list_capstone_main_gold: Close
+[0m17:22:24.547807 [debug] [ThreadPool]: Failed to rollback 'list_capstone_main_silver'
+[0m17:22:24.549602 [debug] [ThreadPool]: On list_capstone_main_silver: Close
+[0m17:22:24.550611 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99e7bdb10>]}
+[0m17:22:24.551150 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:22:24.551534 [debug] [MainThread]: On master: BEGIN
+[0m17:22:24.551879 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:22:24.552683 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:22:24.553143 [debug] [MainThread]: On master: COMMIT
+[0m17:22:24.553588 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:22:24.553978 [debug] [MainThread]: On master: COMMIT
+[0m17:22:24.554545 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m17:22:24.554930 [debug] [MainThread]: On master: Close
+[0m17:22:24.558330 [debug] [Thread-1 (]: Began running node model.capstone_bi.stg_products
+[0m17:22:24.558787 [debug] [Thread-2 (]: Began running node model.capstone_bi.stg_tickets
+[0m17:22:24.559245 [debug] [Thread-3 (]: Began running node model.capstone_bi.stg_users
+[0m17:22:24.559790 [info ] [Thread-1 (]: 1 of 15 START sql view model main_silver.stg_products .......................... [RUN]
+[0m17:22:24.560564 [info ] [Thread-2 (]: 2 of 15 START sql view model main_silver.stg_tickets ........................... [RUN]
+[0m17:22:24.562538 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_capstone_main_gold, now model.capstone_bi.stg_tickets)
+[0m17:22:24.562050 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_capstone_main_silver, now model.capstone_bi.stg_products)
+[0m17:22:24.561308 [info ] [Thread-3 (]: 3 of 15 START sql view model main_silver.stg_users ............................. [RUN]
+[0m17:22:24.563933 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_capstone_main, now model.capstone_bi.stg_users)
+[0m17:22:24.563453 [debug] [Thread-1 (]: Began compiling node model.capstone_bi.stg_products
+[0m17:22:24.562968 [debug] [Thread-2 (]: Began compiling node model.capstone_bi.stg_tickets
+[0m17:22:24.564373 [debug] [Thread-3 (]: Began compiling node model.capstone_bi.stg_users
+[0m17:22:24.577199 [debug] [Thread-1 (]: Writing injected SQL for node "model.capstone_bi.stg_products"
+[0m17:22:24.581203 [debug] [Thread-2 (]: Writing injected SQL for node "model.capstone_bi.stg_tickets"
+[0m17:22:24.683760 [debug] [Thread-1 (]: Began executing node model.capstone_bi.stg_products
+[0m17:22:24.685527 [debug] [Thread-3 (]: Writing injected SQL for node "model.capstone_bi.stg_users"
+[0m17:22:24.691291 [debug] [Thread-2 (]: Began executing node model.capstone_bi.stg_tickets
+[0m17:22:24.722728 [debug] [Thread-3 (]: Began executing node model.capstone_bi.stg_users
+[0m17:22:24.730277 [debug] [Thread-1 (]: Writing runtime sql for node "model.capstone_bi.stg_products"
+[0m17:22:24.733802 [debug] [Thread-2 (]: Writing runtime sql for node "model.capstone_bi.stg_tickets"
+[0m17:22:24.737738 [debug] [Thread-3 (]: Writing runtime sql for node "model.capstone_bi.stg_users"
+[0m17:22:24.739395 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.stg_products"
+[0m17:22:24.739988 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.stg_users"
+[0m17:22:24.740368 [debug] [Thread-1 (]: On model.capstone_bi.stg_products: BEGIN
+[0m17:22:24.740764 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:22:24.742167 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: BEGIN
+[0m17:22:24.742658 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:22:24.741208 [debug] [Thread-3 (]: On model.capstone_bi.stg_users: BEGIN
+[0m17:22:24.741702 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:22:24.743554 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:22:24.744283 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m17:22:24.745401 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:22:24.744790 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m17:22:24.745896 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_tickets"} */
+
+  
+  create view "capstone"."main_silver"."stg_tickets__dbt_tmp" as (
+    
+
+SELECT
+    "Ticket ID"::VARCHAR             AS ticket_id,
+    "Product ID"::INTEGER            AS product_id,
+    TRIM("Product Purchased")        AS product_name_raw,
+    "Date of Purchase"::DATE         AS purchase_date,
+    TRIM(LOWER("Ticket Type"))       AS issue_type,
+    TRIM("Ticket Status")            AS ticket_status,
+    "Customer Satisfaction Rating"::DOUBLE AS satisfaction_score,
+    "Resolution Time (hrs)"::DOUBLE  AS resolution_time_hrs,
+    snapshot_month,
+    CURRENT_TIMESTAMP                AS dbt_updated_at
+-- Cambiá 'tickets' por 'bronze_tickets'
+FROM "capstone"."main"."bronze_tickets" 
+WHERE "Ticket ID" IS NOT NULL
+  );
+
+[0m17:22:24.746263 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m17:22:24.747564 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.stg_users"
+[0m17:22:24.746749 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.stg_products"
+[0m17:22:24.748143 [debug] [Thread-3 (]: On model.capstone_bi.stg_users: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_users"} */
+
+  
+  create view "capstone"."main_silver"."stg_users__dbt_tmp" as (
+    
+
+SELECT
+    id::INTEGER                    AS user_id,
+    username,
+    email,
+    "firstName"                    AS first_name, -- COMILLAS DOBLES
+    "lastName"                     AS last_name,  -- COMILLAS DOBLES
+    gender,
+    age,
+    snapshot_month,
+    CURRENT_TIMESTAMP              AS dbt_updated_at
+FROM "capstone"."main"."bronze_users"
+WHERE id IS NOT NULL
+  );
+
+[0m17:22:24.748628 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:22:24.749084 [debug] [Thread-1 (]: On model.capstone_bi.stg_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_products"} */
+
+  
+  create view "capstone"."main_silver"."stg_products__dbt_tmp" as (
+    
+
+SELECT
+    id::INTEGER                     AS product_id,
+    TRIM(title)                     AS product_name,
+    price::DOUBLE                   AS price_usd,
+    TRIM(LOWER(category))           AS category,
+    TRIM("description")             AS description, -- <--- LAS COMILLAS SON LA CLAVE
+    thumbnail                       AS image_url, 
+    CAST(snapshot_month AS VARCHAR) AS snapshot_month,
+    CURRENT_TIMESTAMP               AS dbt_updated_at
+FROM "capstone"."main"."bronze_products" 
+WHERE id IS NOT NULL AND price > 0
+  );
+
+[0m17:22:24.758396 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Binder Error: Column "description" referenced that exists in the SELECT clause - but this column cannot be referenced before it is defined
+[0m17:22:24.757254 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:22:24.750121 [debug] [Thread-3 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "username" not found in FROM clause!
+Candidate bindings: "first_name", "last_name", "gender", "snapshot_month", "email"
+
+LINE 9:     username,
+            ^
+[0m17:22:24.758877 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_products"} */
+
+  
+  create view "capstone"."main_silver"."stg_products__dbt_tmp" as (
+    
+
+SELECT
+    id::INTEGER                     AS product_id,
+    TRIM(title)                     AS product_name,
+    price::DOUBLE                   AS price_usd,
+    TRIM(LOWER(category))           AS category,
+    TRIM("description")             AS description, -- <--- LAS COMILLAS SON LA CLAVE
+    thumbnail                       AS image_url, 
+    CAST(snapshot_month AS VARCHAR) AS snapshot_month,
+    CURRENT_TIMESTAMP               AS dbt_updated_at
+FROM "capstone"."main"."bronze_products" 
+WHERE id IS NOT NULL AND price > 0
+  );
+
+[0m17:22:24.760432 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:24.759941 [debug] [Thread-3 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_users"} */
+
+  
+  create view "capstone"."main_silver"."stg_users__dbt_tmp" as (
+    
+
+SELECT
+    id::INTEGER                    AS user_id,
+    username,
+    email,
+    "firstName"                    AS first_name, -- COMILLAS DOBLES
+    "lastName"                     AS last_name,  -- COMILLAS DOBLES
+    gender,
+    age,
+    snapshot_month,
+    CURRENT_TIMESTAMP              AS dbt_updated_at
+FROM "capstone"."main"."bronze_users"
+WHERE id IS NOT NULL
+  );
+
+[0m17:22:24.759432 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_tickets"} */
+alter view "capstone"."main_silver"."stg_tickets" rename to "stg_tickets__dbt_backup"
+[0m17:22:24.760848 [debug] [Thread-1 (]: On model.capstone_bi.stg_products: ROLLBACK
+[0m17:22:24.761323 [debug] [Thread-3 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:24.762313 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m17:22:24.763032 [debug] [Thread-3 (]: On model.capstone_bi.stg_users: ROLLBACK
+[0m17:22:24.770010 [debug] [Thread-1 (]: Failed to rollback 'model.capstone_bi.stg_products'
+[0m17:22:24.770360 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:22:24.771001 [debug] [Thread-3 (]: Failed to rollback 'model.capstone_bi.stg_users'
+[0m17:22:24.772708 [debug] [Thread-3 (]: On model.capstone_bi.stg_users: Close
+[0m17:22:24.772074 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_tickets"} */
+alter view "capstone"."main_silver"."stg_tickets__dbt_tmp" rename to "stg_tickets"
+[0m17:22:24.771573 [debug] [Thread-1 (]: On model.capstone_bi.stg_products: Close
+[0m17:22:24.774420 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m17:22:24.793427 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: COMMIT
+[0m17:22:24.794578 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:22:24.795058 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: COMMIT
+[0m17:22:24.799820 [debug] [Thread-1 (]: Runtime Error in model stg_products (models/staging/stg_products.sql)
+  Binder Error: Column "description" referenced that exists in the SELECT clause - but this column cannot be referenced before it is defined
+[0m17:22:24.801263 [debug] [Thread-3 (]: Runtime Error in model stg_users (models/staging/stg_users.sql)
+  Binder Error: Referenced column "username" not found in FROM clause!
+  Candidate bindings: "first_name", "last_name", "gender", "snapshot_month", "email"
+  
+  LINE 9:     username,
+              ^
+[0m17:22:24.804923 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99fc31990>]}
+[0m17:22:24.805458 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd998df7370>]}
+[0m17:22:24.806983 [error] [Thread-3 (]: 3 of 15 ERROR creating sql view model main_silver.stg_users .................... [[31mERROR[0m in 0.24s]
+[0m17:22:24.807979 [debug] [Thread-3 (]: Finished running node model.capstone_bi.stg_users
+[0m17:22:24.809525 [error] [Thread-1 (]: 1 of 15 ERROR creating sql view model main_silver.stg_products ................. [[31mERROR[0m in 0.24s]
+[0m17:22:24.812326 [debug] [Thread-1 (]: Finished running node model.capstone_bi.stg_products
+[0m17:22:24.813244 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.stg_users' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_users (models/staging/stg_users.sql)
+  Binder Error: Referenced column "username" not found in FROM clause!
+  Candidate bindings: "first_name", "last_name", "gender", "snapshot_month", "email"
+  
+  LINE 9:     username,
+              ^.
+[0m17:22:24.816872 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.stg_products' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_products (models/staging/stg_products.sql)
+  Binder Error: Column "description" referenced that exists in the SELECT clause - but this column cannot be referenced before it is defined.
+[0m17:22:24.820515 [debug] [Thread-2 (]: SQL status: OK in 0.024 seconds
+[0m17:22:24.821121 [debug] [Thread-4 (]: Began running node model.capstone_bi.dim_category
+[0m17:22:24.826974 [debug] [Thread-3 (]: Began running node model.capstone_bi.dim_product
+[0m17:22:24.834047 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.stg_tickets"
+[0m17:22:24.834607 [debug] [Thread-1 (]: Began running node model.capstone_bi.dim_users
+[0m17:22:24.835186 [info ] [Thread-4 (]: 4 of 15 SKIP relation main_gold.dim_category ................................... [[33mSKIP[0m]
+[0m17:22:24.835806 [info ] [Thread-3 (]: 5 of 15 SKIP relation main_gold.dim_product .................................... [[33mSKIP[0m]
+[0m17:22:24.836640 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.stg_tickets"} */
+
+      drop view if exists "capstone"."main_silver"."stg_tickets__dbt_backup" cascade
+    
+[0m17:22:24.837142 [info ] [Thread-1 (]: 6 of 15 SKIP relation main_gold.dim_users ...................................... [[33mSKIP[0m]
+[0m17:22:24.839053 [debug] [Thread-1 (]: Finished running node model.capstone_bi.dim_users
+[0m17:22:24.838283 [debug] [Thread-3 (]: Finished running node model.capstone_bi.dim_product
+[0m17:22:24.837787 [debug] [Thread-4 (]: Finished running node model.capstone_bi.dim_category
+[0m17:22:24.841096 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m17:22:24.843867 [debug] [Thread-2 (]: On model.capstone_bi.stg_tickets: Close
+[0m17:22:24.844551 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd9a14952a0>]}
+[0m17:22:24.845241 [info ] [Thread-2 (]: 2 of 15 OK created sql view model main_silver.stg_tickets ...................... [[32mOK[0m in 0.28s]
+[0m17:22:24.846047 [debug] [Thread-2 (]: Finished running node model.capstone_bi.stg_tickets
+[0m17:22:24.847142 [debug] [Thread-1 (]: Began running node model.capstone_bi.dim_agents
+[0m17:22:24.847522 [debug] [Thread-4 (]: Began running node model.capstone_bi.dim_customers
+[0m17:22:24.848012 [debug] [Thread-3 (]: Began running node model.capstone_bi.dim_date
+[0m17:22:24.848499 [info ] [Thread-1 (]: 7 of 15 START sql table model main_gold.dim_agents ............................. [RUN]
+[0m17:22:24.852436 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.capstone_bi.stg_products, now model.capstone_bi.dim_agents)
+[0m17:22:24.853257 [debug] [Thread-1 (]: Began compiling node model.capstone_bi.dim_agents
+[0m17:22:24.850429 [info ] [Thread-3 (]: 9 of 15 START sql table model main_gold.dim_date ............................... [RUN]
+[0m17:22:24.859854 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.capstone_bi.stg_users, now model.capstone_bi.dim_date)
+[0m17:22:24.849595 [info ] [Thread-4 (]: 8 of 15 START sql table model main_gold.dim_customers .......................... [RUN]
+[0m17:22:24.861476 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.capstone_bi.dim_customers'
+[0m17:22:24.858882 [debug] [Thread-1 (]: Writing injected SQL for node "model.capstone_bi.dim_agents"
+[0m17:22:24.849135 [debug] [Thread-2 (]: Began running node model.capstone_bi.dim_products
+[0m17:22:24.863322 [info ] [Thread-2 (]: 10 of 15 START sql table model main_gold.dim_products .......................... [RUN]
+[0m17:22:24.860599 [debug] [Thread-3 (]: Began compiling node model.capstone_bi.dim_date
+[0m17:22:24.862175 [debug] [Thread-4 (]: Began compiling node model.capstone_bi.dim_customers
+[0m17:22:24.868272 [debug] [Thread-3 (]: Writing injected SQL for node "model.capstone_bi.dim_date"
+[0m17:22:24.868761 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.capstone_bi.stg_tickets, now model.capstone_bi.dim_products)
+[0m17:22:24.872201 [debug] [Thread-4 (]: Writing injected SQL for node "model.capstone_bi.dim_customers"
+[0m17:22:24.872929 [debug] [Thread-3 (]: Began executing node model.capstone_bi.dim_date
+[0m17:22:24.873418 [debug] [Thread-1 (]: Began executing node model.capstone_bi.dim_agents
+[0m17:22:24.873779 [debug] [Thread-2 (]: Began compiling node model.capstone_bi.dim_products
+[0m17:22:24.874326 [debug] [Thread-4 (]: Began executing node model.capstone_bi.dim_customers
+[0m17:22:24.909468 [debug] [Thread-2 (]: Writing injected SQL for node "model.capstone_bi.dim_products"
+[0m17:22:24.929795 [debug] [Thread-3 (]: Writing runtime sql for node "model.capstone_bi.dim_date"
+[0m17:22:24.935878 [debug] [Thread-1 (]: Writing runtime sql for node "model.capstone_bi.dim_agents"
+[0m17:22:24.939827 [debug] [Thread-4 (]: Writing runtime sql for node "model.capstone_bi.dim_customers"
+[0m17:22:24.940743 [debug] [Thread-2 (]: Began executing node model.capstone_bi.dim_products
+[0m17:22:24.941488 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.dim_date"
+[0m17:22:24.946716 [debug] [Thread-3 (]: On model.capstone_bi.dim_date: BEGIN
+[0m17:22:24.947186 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:22:24.942276 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.dim_agents"
+[0m17:22:24.945739 [debug] [Thread-2 (]: Writing runtime sql for node "model.capstone_bi.dim_products"
+[0m17:22:24.946153 [debug] [Thread-4 (]: Using duckdb connection "model.capstone_bi.dim_customers"
+[0m17:22:24.948107 [debug] [Thread-1 (]: On model.capstone_bi.dim_agents: BEGIN
+[0m17:22:24.948674 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m17:22:24.949370 [debug] [Thread-4 (]: On model.capstone_bi.dim_customers: BEGIN
+[0m17:22:24.949860 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:22:24.950253 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.dim_products"
+[0m17:22:24.950722 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.dim_date"
+[0m17:22:24.951154 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m17:22:24.951906 [debug] [Thread-2 (]: On model.capstone_bi.dim_products: BEGIN
+[0m17:22:24.952474 [debug] [Thread-3 (]: On model.capstone_bi.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_date"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_date__dbt_tmp"
+  
+    as (
+      
+
+with dates as (
+
+    select
+        created_at as full_date
+    from "capstone"."main_silver"."stg_tickets"
+
+    union
+
+    select
+        resolved_at
+    from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_date as (
+
+    select distinct
+        full_date,
+
+        extract(year from full_date) as year,
+        extract(month from full_date) as month,
+        extract(day from full_date) as day,
+        extract(dow from full_date) as day_of_week,
+        extract(quarter from full_date) as quarter
+
+    from dates
+    where full_date is not null
+
+)
+
+select * from dim_date
+    );
+  
+  
+[0m17:22:24.952886 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m17:22:24.953578 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m17:22:24.954018 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:22:24.954931 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.dim_agents"
+[0m17:22:24.955633 [debug] [Thread-4 (]: Using duckdb connection "model.capstone_bi.dim_customers"
+[0m17:22:24.956633 [debug] [Thread-1 (]: On model.capstone_bi.dim_agents: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_agents"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_agents__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_agents as (
+
+    select distinct
+        agent as agent_id,
+        agent_team,
+        agent_role
+
+    from source
+    where agent is not null
+
+)
+
+select * from dim_agents
+    );
+  
+  
+[0m17:22:24.957227 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m17:22:24.959192 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.dim_products"
+[0m17:22:24.958327 [debug] [Thread-4 (]: On model.capstone_bi.dim_customers: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_customers"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_customers__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_customers as (
+
+    select distinct
+        customer_id,
+        customer_name,
+        customer_email,
+        customer_age,
+        gender as customer_gender
+
+    from source
+    where customer_id is not null
+
+)
+
+select * from dim_customers
+    );
+  
+  
+[0m17:22:24.957829 [debug] [Thread-3 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "created_at" not found in FROM clause!
+Candidate bindings: "purchase_date", "ticket_id", "product_name_raw", "dbt_updated_at", "resolution_time_hrs"
+
+LINE 16:         created_at as full_date
+                 ^
+[0m17:22:24.959838 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "agent" not found in FROM clause!
+Candidate bindings: "ticket_id", "issue_type", "purchase_date"
+
+LINE 27:     where agent is not null
+                   ^
+[0m17:22:24.960215 [debug] [Thread-2 (]: On model.capstone_bi.dim_products: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_products"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_products__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_products as (
+
+    select distinct
+        product_id,
+        product_name,
+        purchase_date
+
+    from source
+    where product_id is not null
+
+)
+
+select * from dim_products
+    );
+  
+  
+[0m17:22:24.961125 [debug] [Thread-3 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_date"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_date__dbt_tmp"
+  
+    as (
+      
+
+with dates as (
+
+    select
+        created_at as full_date
+    from "capstone"."main_silver"."stg_tickets"
+
+    union
+
+    select
+        resolved_at
+    from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_date as (
+
+    select distinct
+        full_date,
+
+        extract(year from full_date) as year,
+        extract(month from full_date) as month,
+        extract(day from full_date) as day,
+        extract(dow from full_date) as day_of_week,
+        extract(quarter from full_date) as quarter
+
+    from dates
+    where full_date is not null
+
+)
+
+select * from dim_date
+    );
+  
+  
+[0m17:22:24.963124 [debug] [Thread-3 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:24.962411 [debug] [Thread-4 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "customer_id" not found in FROM clause!
+Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+
+LINE 29:     where customer_id is not null
+                   ^
+[0m17:22:24.961859 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_agents"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_agents__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_agents as (
+
+    select distinct
+        agent as agent_id,
+        agent_team,
+        agent_role
+
+    from source
+    where agent is not null
+
+)
+
+select * from dim_agents
+    );
+  
+  
+[0m17:22:24.963783 [debug] [Thread-3 (]: On model.capstone_bi.dim_date: ROLLBACK
+[0m17:22:24.964263 [debug] [Thread-2 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "product_name" not found in FROM clause!
+Candidate bindings: "product_name_raw", "product_id", "resolution_time_hrs", "purchase_date", "dbt_updated_at"
+
+LINE 23:         product_name,
+                 ^
+[0m17:22:24.964815 [debug] [Thread-4 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_customers"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_customers__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_customers as (
+
+    select distinct
+        customer_id,
+        customer_name,
+        customer_email,
+        customer_age,
+        gender as customer_gender
+
+    from source
+    where customer_id is not null
+
+)
+
+select * from dim_customers
+    );
+  
+  
+[0m17:22:24.966978 [debug] [Thread-4 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:24.965306 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:24.966532 [debug] [Thread-3 (]: Failed to rollback 'model.capstone_bi.dim_date'
+[0m17:22:24.967410 [debug] [Thread-4 (]: On model.capstone_bi.dim_customers: ROLLBACK
+[0m17:22:24.966049 [debug] [Thread-2 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.dim_products"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."dim_products__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+dim_products as (
+
+    select distinct
+        product_id,
+        product_name,
+        purchase_date
+
+    from source
+    where product_id is not null
+
+)
+
+select * from dim_products
+    );
+  
+  
+[0m17:22:24.967867 [debug] [Thread-1 (]: On model.capstone_bi.dim_agents: ROLLBACK
+[0m17:22:24.968449 [debug] [Thread-3 (]: On model.capstone_bi.dim_date: Close
+[0m17:22:24.969030 [debug] [Thread-4 (]: Failed to rollback 'model.capstone_bi.dim_customers'
+[0m17:22:24.969543 [debug] [Thread-2 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:24.970089 [debug] [Thread-1 (]: Failed to rollback 'model.capstone_bi.dim_agents'
+[0m17:22:24.971181 [debug] [Thread-4 (]: On model.capstone_bi.dim_customers: Close
+[0m17:22:24.971803 [debug] [Thread-3 (]: Runtime Error in model dim_date (models/marts/others/dim_date.sql)
+  Binder Error: Referenced column "created_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_name_raw", "dbt_updated_at", "resolution_time_hrs"
+  
+  LINE 16:         created_at as full_date
+                   ^
+[0m17:22:24.974934 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd998e52ef0>]}
+[0m17:22:24.972856 [debug] [Thread-1 (]: On model.capstone_bi.dim_agents: Close
+[0m17:22:24.974178 [debug] [Thread-4 (]: Runtime Error in model dim_customers (models/marts/others/dim_customers.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 29:     where customer_id is not null
+                     ^
+[0m17:22:24.972265 [debug] [Thread-2 (]: On model.capstone_bi.dim_products: ROLLBACK
+[0m17:22:24.976902 [debug] [Thread-1 (]: Runtime Error in model dim_agents (models/marts/others/dim_agents.sql)
+  Binder Error: Referenced column "agent" not found in FROM clause!
+  Candidate bindings: "ticket_id", "issue_type", "purchase_date"
+  
+  LINE 27:     where agent is not null
+                     ^
+[0m17:22:24.981707 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd999796950>]}
+[0m17:22:24.977578 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd9994837c0>]}
+[0m17:22:24.978383 [debug] [Thread-2 (]: Failed to rollback 'model.capstone_bi.dim_products'
+[0m17:22:24.975728 [error] [Thread-3 (]: 9 of 15 ERROR creating sql table model main_gold.dim_date ...................... [[31mERROR[0m in 0.12s]
+[0m17:22:24.984925 [debug] [Thread-3 (]: Finished running node model.capstone_bi.dim_date
+[0m17:22:24.982616 [error] [Thread-1 (]: 7 of 15 ERROR creating sql table model main_gold.dim_agents .................... [[31mERROR[0m in 0.13s]
+[0m17:22:24.984256 [debug] [Thread-2 (]: On model.capstone_bi.dim_products: Close
+[0m17:22:24.983396 [error] [Thread-4 (]: 8 of 15 ERROR creating sql table model main_gold.dim_customers ................. [[31mERROR[0m in 0.12s]
+[0m17:22:24.985421 [debug] [Thread-3 (]: Began running node model.capstone_bi.fact_tickets
+[0m17:22:24.985882 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.dim_date' to be skipped because of status 'error'.  Reason: Runtime Error in model dim_date (models/marts/others/dim_date.sql)
+  Binder Error: Referenced column "created_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_name_raw", "dbt_updated_at", "resolution_time_hrs"
+  
+  LINE 16:         created_at as full_date
+                   ^.
+[0m17:22:24.986518 [debug] [Thread-1 (]: Finished running node model.capstone_bi.dim_agents
+[0m17:22:24.987528 [debug] [Thread-4 (]: Finished running node model.capstone_bi.dim_customers
+[0m17:22:24.988154 [info ] [Thread-3 (]: 11 of 15 START sql table model main_gold.fact_tickets .......................... [RUN]
+[0m17:22:24.989096 [debug] [Thread-2 (]: Runtime Error in model dim_products (models/marts/others/dim_products.sql)
+  Binder Error: Referenced column "product_name" not found in FROM clause!
+  Candidate bindings: "product_name_raw", "product_id", "resolution_time_hrs", "purchase_date", "dbt_updated_at"
+  
+  LINE 23:         product_name,
+                   ^
+[0m17:22:24.989745 [debug] [Thread-1 (]: Began running node model.capstone_bi.fct_business_performanceA
+[0m17:22:24.990199 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.dim_agents' to be skipped because of status 'error'.  Reason: Runtime Error in model dim_agents (models/marts/others/dim_agents.sql)
+  Binder Error: Referenced column "agent" not found in FROM clause!
+  Candidate bindings: "ticket_id", "issue_type", "purchase_date"
+  
+  LINE 27:     where agent is not null
+                     ^.
+[0m17:22:24.990715 [debug] [Thread-4 (]: Began running node model.capstone_bi.fct_business_performanceB
+[0m17:22:24.991255 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.capstone_bi.dim_date, now model.capstone_bi.fact_tickets)
+[0m17:22:24.991843 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd9995e64a0>]}
+[0m17:22:24.992442 [info ] [Thread-1 (]: 12 of 15 START sql table model main_gold.fct_business_performanceA ............. [RUN]
+[0m17:22:24.993206 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.dim_customers' to be skipped because of status 'error'.  Reason: Runtime Error in model dim_customers (models/marts/others/dim_customers.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 29:     where customer_id is not null
+                     ^.
+[0m17:22:24.993812 [info ] [Thread-4 (]: 13 of 15 START sql table model main_gold.fct_business_performanceB ............. [RUN]
+[0m17:22:24.994449 [debug] [Thread-3 (]: Began compiling node model.capstone_bi.fact_tickets
+[0m17:22:24.995146 [error] [Thread-2 (]: 10 of 15 ERROR creating sql table model main_gold.dim_products ................. [[31mERROR[0m in 0.13s]
+[0m17:22:25.001928 [debug] [Thread-2 (]: Finished running node model.capstone_bi.dim_products
+[0m17:22:25.002598 [debug] [Thread-2 (]: Began running node model.capstone_bi.fct_tickets
+[0m17:22:24.995866 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.capstone_bi.dim_agents, now model.capstone_bi.fct_business_performanceA)
+[0m17:22:25.000877 [debug] [Thread-3 (]: Writing injected SQL for node "model.capstone_bi.fact_tickets"
+[0m17:22:25.007985 [debug] [Thread-3 (]: Began executing node model.capstone_bi.fact_tickets
+[0m17:22:25.005887 [debug] [Thread-1 (]: Began compiling node model.capstone_bi.fct_business_performanceA
+[0m17:22:25.003386 [info ] [Thread-2 (]: 14 of 15 START sql table model main_gold.fct_tickets ........................... [RUN]
+[0m17:22:25.005053 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.dim_products' to be skipped because of status 'error'.  Reason: Runtime Error in model dim_products (models/marts/others/dim_products.sql)
+  Binder Error: Referenced column "product_name" not found in FROM clause!
+  Candidate bindings: "product_name_raw", "product_id", "resolution_time_hrs", "purchase_date", "dbt_updated_at"
+  
+  LINE 23:         product_name,
+                   ^.
+[0m17:22:24.996762 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.capstone_bi.dim_customers, now model.capstone_bi.fct_business_performanceB)
+[0m17:22:25.023330 [debug] [Thread-3 (]: Writing runtime sql for node "model.capstone_bi.fact_tickets"
+[0m17:22:25.027142 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.fact_tickets"
+[0m17:22:25.027660 [debug] [Thread-3 (]: On model.capstone_bi.fact_tickets: BEGIN
+[0m17:22:25.024603 [debug] [Thread-1 (]: Writing injected SQL for node "model.capstone_bi.fct_business_performanceA"
+[0m17:22:25.028852 [debug] [Thread-1 (]: Began executing node model.capstone_bi.fct_business_performanceA
+[0m17:22:25.026328 [debug] [Thread-4 (]: Began compiling node model.capstone_bi.fct_business_performanceB
+[0m17:22:25.025700 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.capstone_bi.dim_products, now model.capstone_bi.fct_tickets)
+[0m17:22:25.028136 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m17:22:25.035324 [debug] [Thread-1 (]: Writing runtime sql for node "model.capstone_bi.fct_business_performanceA"
+[0m17:22:25.039656 [debug] [Thread-4 (]: Writing injected SQL for node "model.capstone_bi.fct_business_performanceB"
+[0m17:22:25.040254 [debug] [Thread-2 (]: Began compiling node model.capstone_bi.fct_tickets
+[0m17:22:25.041654 [debug] [Thread-3 (]: SQL status: OK in 0.014 seconds
+[0m17:22:25.042264 [debug] [Thread-4 (]: Began executing node model.capstone_bi.fct_business_performanceB
+[0m17:22:25.042812 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.fct_business_performanceA"
+[0m17:22:25.045835 [debug] [Thread-2 (]: Writing injected SQL for node "model.capstone_bi.fct_tickets"
+[0m17:22:25.046324 [debug] [Thread-3 (]: Using duckdb connection "model.capstone_bi.fact_tickets"
+[0m17:22:25.049750 [debug] [Thread-4 (]: Writing runtime sql for node "model.capstone_bi.fct_business_performanceB"
+[0m17:22:25.050250 [debug] [Thread-1 (]: On model.capstone_bi.fct_business_performanceA: BEGIN
+[0m17:22:25.050983 [debug] [Thread-3 (]: On model.capstone_bi.fact_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fact_tickets"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fact_tickets__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+fact as (
+
+    select
+        ticket_id,
+
+        customer_id,
+        agent as agent_id,
+        product_id,
+
+        created_at,
+        resolved_at,
+
+        first_response_time,
+        time_to_resolution,
+        customer_satisfaction_rating,
+        status,
+        priority
+
+    from source
+
+)
+
+select * from fact
+    );
+  
+  
+[0m17:22:25.051418 [debug] [Thread-2 (]: Began executing node model.capstone_bi.fct_tickets
+[0m17:22:25.052067 [debug] [Thread-4 (]: Using duckdb connection "model.capstone_bi.fct_business_performanceB"
+[0m17:22:25.052524 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:22:25.056723 [debug] [Thread-2 (]: Writing runtime sql for node "model.capstone_bi.fct_tickets"
+[0m17:22:25.057230 [debug] [Thread-3 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "customer_id" not found in FROM clause!
+Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+
+LINE 24:         customer_id,
+                 ^
+[0m17:22:25.057766 [debug] [Thread-4 (]: On model.capstone_bi.fct_business_performanceB: BEGIN
+[0m17:22:25.058879 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.fct_tickets"
+[0m17:22:25.059332 [debug] [Thread-3 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fact_tickets"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fact_tickets__dbt_tmp"
+  
+    as (
+      
+
+with source as (
+
+    select * from "capstone"."main_silver"."stg_tickets"
+
+),
+
+fact as (
+
+    select
+        ticket_id,
+
+        customer_id,
+        agent as agent_id,
+        product_id,
+
+        created_at,
+        resolved_at,
+
+        first_response_time,
+        time_to_resolution,
+        customer_satisfaction_rating,
+        status,
+        priority
+
+    from source
+
+)
+
+select * from fact
+    );
+  
+  
+[0m17:22:25.059780 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m17:22:25.060236 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m17:22:25.060716 [debug] [Thread-2 (]: On model.capstone_bi.fct_tickets: BEGIN
+[0m17:22:25.061165 [debug] [Thread-3 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:25.063280 [debug] [Thread-3 (]: On model.capstone_bi.fact_tickets: ROLLBACK
+[0m17:22:25.064142 [debug] [Thread-3 (]: Failed to rollback 'model.capstone_bi.fact_tickets'
+[0m17:22:25.062379 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m17:22:25.061655 [debug] [Thread-1 (]: Using duckdb connection "model.capstone_bi.fct_business_performanceA"
+[0m17:22:25.062873 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m17:22:25.064864 [debug] [Thread-3 (]: On model.capstone_bi.fact_tickets: Close
+[0m17:22:25.065785 [debug] [Thread-1 (]: On model.capstone_bi.fct_business_performanceA: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_business_performanceA"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_business_performanceA__dbt_tmp"
+  
+    as (
+      
+
+WITH base_metrics AS (
+    SELECT 
+        ticket_id,
+        customer_id,
+        status,
+        created_at,
+        closed_at,
+        cost_of_acquisition, -- CAC
+        revenue_generated,    -- Para ROI
+        nps_score,           -- NPS
+        -- KPI: Ticket Resolution Time (TRT)
+        DATEDIFF('hour', created_at, closed_at) as resolution_time_hr
+    FROM "capstone"."main_silver"."stg_tickets"
+)
+
+SELECT 
+    customer_id,
+    -- KPI: ROI (Rentabilidad por ticket/cliente)
+    SUM(revenue_generated) / NULLIF(SUM(cost_of_acquisition), 0) as roi_ratio,
+    -- KPI: CAC Promedio
+    AVG(cost_of_acquisition) as avg_cac,
+    -- KPI: NPS Promedio (Satisfacción)
+    AVG(nps_score) as avg_nps,
+    -- KPI: Eficiencia Operativa
+    AVG(resolution_time_hr) as avg_trt
+FROM base_metrics
+GROUP BY 1
+    );
+  
+  
+[0m17:22:25.066321 [debug] [Thread-4 (]: Using duckdb connection "model.capstone_bi.fct_business_performanceB"
+[0m17:22:25.066706 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m17:22:25.068420 [debug] [Thread-3 (]: Runtime Error in model fact_tickets (models/marts/others/fact_tickets.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 24:         customer_id,
+                   ^
+[0m17:22:25.069055 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "customer_id" not found in FROM clause!
+Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+
+LINE 16:         customer_id,
+                 ^
+[0m17:22:25.069482 [debug] [Thread-4 (]: On model.capstone_bi.fct_business_performanceB: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_business_performanceB"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_business_performanceB__dbt_tmp"
+  
+    as (
+      
+
+WITH metrics AS (
+    SELECT 
+        *,
+        -- KPI: Ticket Resolution Time (TRT)
+        EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+        -- KPI: ROI (Rentabilidad)
+        (revenue - cac) / NULLIF(cac, 0) as roi
+    FROM "capstone"."main_silver"."stg_tickets"
+)
+SELECT 
+    category,
+    AVG(trt_hours) as avg_resolution_time,
+    AVG(cac) as avg_cac,
+    AVG(roi) as avg_roi,
+    AVG(nps_score) as nps_index,
+    COUNT(ticket_id) as total_tickets
+FROM metrics
+GROUP BY 1
+    );
+  
+  
+[0m17:22:25.069948 [debug] [Thread-2 (]: Using duckdb connection "model.capstone_bi.fct_tickets"
+[0m17:22:25.071992 [debug] [Thread-2 (]: On model.capstone_bi.fct_tickets: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_tickets"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_tickets__dbt_tmp"
+  
+    as (
+      SELECT
+    ticket_id,
+    user_id,
+    created_at,
+    closed_at,
+    status,
+    -- KPI: TTR (Time to Resolution)
+    timestamp_diff(closed_at, created_at, MINUTE) as ttr_minutes,
+    -- KPI: FIRST RESPONSE TIME
+    timestamp_diff(first_interaction_at, created_at, MINUTE) as frt_minutes
+FROM "capstone"."main_silver"."stg_tickets"
+-- EFECTIVIZA KPI: Eficiencia operativa. 
+-- Si el TTR sube, necesitás más personal o mejor automatización.
+    );
+  
+  
+[0m17:22:25.070585 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd9994e47c0>]}
+[0m17:22:25.071088 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_business_performanceA"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_business_performanceA__dbt_tmp"
+  
+    as (
+      
+
+WITH base_metrics AS (
+    SELECT 
+        ticket_id,
+        customer_id,
+        status,
+        created_at,
+        closed_at,
+        cost_of_acquisition, -- CAC
+        revenue_generated,    -- Para ROI
+        nps_score,           -- NPS
+        -- KPI: Ticket Resolution Time (TRT)
+        DATEDIFF('hour', created_at, closed_at) as resolution_time_hr
+    FROM "capstone"."main_silver"."stg_tickets"
+)
+
+SELECT 
+    customer_id,
+    -- KPI: ROI (Rentabilidad por ticket/cliente)
+    SUM(revenue_generated) / NULLIF(SUM(cost_of_acquisition), 0) as roi_ratio,
+    -- KPI: CAC Promedio
+    AVG(cost_of_acquisition) as avg_cac,
+    -- KPI: NPS Promedio (Satisfacción)
+    AVG(nps_score) as avg_nps,
+    -- KPI: Eficiencia Operativa
+    AVG(resolution_time_hr) as avg_trt
+FROM base_metrics
+GROUP BY 1
+    );
+  
+  
+[0m17:22:25.073169 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:25.073746 [debug] [Thread-1 (]: On model.capstone_bi.fct_business_performanceA: ROLLBACK
+[0m17:22:25.074285 [debug] [Thread-4 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "closed_at" not found in FROM clause!
+Candidate bindings: "purchase_date", "product_name_raw", "ticket_id", "issue_type", "ticket_status"
+
+LINE 17:         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+                                     ^
+[0m17:22:25.074795 [debug] [Thread-2 (]: DuckDB adapter: duckdb error: Binder Error: Referenced column "user_id" not found in FROM clause!
+Candidate bindings: "purchase_date", "ticket_id", "product_id", "issue_type", "resolution_time_hrs"
+
+LINE 13:     user_id,
+             ^
+[0m17:22:25.075497 [error] [Thread-3 (]: 11 of 15 ERROR creating sql table model main_gold.fact_tickets ................. [[31mERROR[0m in 0.08s]
+[0m17:22:25.077943 [debug] [Thread-3 (]: Finished running node model.capstone_bi.fact_tickets
+[0m17:22:25.076221 [debug] [Thread-4 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_business_performanceB"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_business_performanceB__dbt_tmp"
+  
+    as (
+      
+
+WITH metrics AS (
+    SELECT 
+        *,
+        -- KPI: Ticket Resolution Time (TRT)
+        EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+        -- KPI: ROI (Rentabilidad)
+        (revenue - cac) / NULLIF(cac, 0) as roi
+    FROM "capstone"."main_silver"."stg_tickets"
+)
+SELECT 
+    category,
+    AVG(trt_hours) as avg_resolution_time,
+    AVG(cac) as avg_cac,
+    AVG(roi) as avg_roi,
+    AVG(nps_score) as nps_index,
+    COUNT(ticket_id) as total_tickets
+FROM metrics
+GROUP BY 1
+    );
+  
+  
+[0m17:22:25.077279 [debug] [Thread-2 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "capstone_bi", "target_name": "prod", "node_id": "model.capstone_bi.fct_tickets"} */
+
+  
+    
+    
+
+    create  table
+      "capstone"."main_gold"."fct_tickets__dbt_tmp"
+  
+    as (
+      SELECT
+    ticket_id,
+    user_id,
+    created_at,
+    closed_at,
+    status,
+    -- KPI: TTR (Time to Resolution)
+    timestamp_diff(closed_at, created_at, MINUTE) as ttr_minutes,
+    -- KPI: FIRST RESPONSE TIME
+    timestamp_diff(first_interaction_at, created_at, MINUTE) as frt_minutes
+FROM "capstone"."main_silver"."stg_tickets"
+-- EFECTIVIZA KPI: Eficiencia operativa. 
+-- Si el TTR sube, necesitás más personal o mejor automatización.
+    );
+  
+  
+[0m17:22:25.076893 [debug] [Thread-1 (]: Failed to rollback 'model.capstone_bi.fct_business_performanceA'
+[0m17:22:25.078434 [debug] [Thread-3 (]: Began running node model.capstone_bi.fct_ticket_metrics
+[0m17:22:25.078911 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.fact_tickets' to be skipped because of status 'error'.  Reason: Runtime Error in model fact_tickets (models/marts/others/fact_tickets.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 24:         customer_id,
+                   ^.
+[0m17:22:25.079410 [debug] [Thread-4 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:25.079871 [debug] [Thread-2 (]: DuckDB adapter: Rolling back transaction.
+[0m17:22:25.083036 [debug] [Thread-2 (]: On model.capstone_bi.fct_tickets: ROLLBACK
+[0m17:22:25.080987 [info ] [Thread-3 (]: 15 of 15 SKIP relation main_gold.fct_ticket_metrics ............................ [[33mSKIP[0m]
+[0m17:22:25.085267 [debug] [Thread-3 (]: Finished running node model.capstone_bi.fct_ticket_metrics
+[0m17:22:25.080451 [debug] [Thread-1 (]: On model.capstone_bi.fct_business_performanceA: Close
+[0m17:22:25.084318 [debug] [Thread-2 (]: Failed to rollback 'model.capstone_bi.fct_tickets'
+[0m17:22:25.086561 [debug] [Thread-2 (]: On model.capstone_bi.fct_tickets: Close
+[0m17:22:25.082484 [debug] [Thread-4 (]: On model.capstone_bi.fct_business_performanceB: ROLLBACK
+[0m17:22:25.088645 [debug] [Thread-2 (]: Runtime Error in model fct_tickets (models/marts/others/fct_tickets.sql)
+  Binder Error: Referenced column "user_id" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_id", "issue_type", "resolution_time_hrs"
+  
+  LINE 13:     user_id,
+               ^
+[0m17:22:25.089162 [debug] [Thread-4 (]: Failed to rollback 'model.capstone_bi.fct_business_performanceB'
+[0m17:22:25.089975 [debug] [Thread-1 (]: Runtime Error in model fct_business_performanceA (models/marts/others/fct_business_performanceA.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 16:         customer_id,
+                   ^
+[0m17:22:25.092606 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd9995e7430>]}
+[0m17:22:25.091882 [debug] [Thread-4 (]: On model.capstone_bi.fct_business_performanceB: Close
+[0m17:22:25.090580 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd9981c3e80>]}
+[0m17:22:25.093956 [error] [Thread-2 (]: 14 of 15 ERROR creating sql table model main_gold.fct_tickets .................. [[31mERROR[0m in 0.07s]
+[0m17:22:25.095062 [debug] [Thread-2 (]: Finished running node model.capstone_bi.fct_tickets
+[0m17:22:25.096800 [debug] [Thread-4 (]: Runtime Error in model fct_business_performanceB (models/marts/others/fct_business_performanceB.sql)
+  Binder Error: Referenced column "closed_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "product_name_raw", "ticket_id", "issue_type", "ticket_status"
+  
+  LINE 17:         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+                                       ^
+[0m17:22:25.099129 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'da800140-cb81-4b0b-a415-8d2b2986dbe2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd9994a60e0>]}
+[0m17:22:25.097634 [error] [Thread-1 (]: 12 of 15 ERROR creating sql table model main_gold.fct_business_performanceA .... [[31mERROR[0m in 0.10s]
+[0m17:22:25.101331 [debug] [Thread-1 (]: Finished running node model.capstone_bi.fct_business_performanceA
+[0m17:22:25.102045 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.fct_tickets' to be skipped because of status 'error'.  Reason: Runtime Error in model fct_tickets (models/marts/others/fct_tickets.sql)
+  Binder Error: Referenced column "user_id" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_id", "issue_type", "resolution_time_hrs"
+  
+  LINE 13:     user_id,
+               ^.
+[0m17:22:25.103196 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.fct_business_performanceA' to be skipped because of status 'error'.  Reason: Runtime Error in model fct_business_performanceA (models/marts/others/fct_business_performanceA.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 16:         customer_id,
+                   ^.
+[0m17:22:25.100156 [error] [Thread-4 (]: 13 of 15 ERROR creating sql table model main_gold.fct_business_performanceB .... [[31mERROR[0m in 0.10s]
+[0m17:22:25.106067 [debug] [Thread-4 (]: Finished running node model.capstone_bi.fct_business_performanceB
+[0m17:22:25.106881 [debug] [Thread-7 (]: Marking all children of 'model.capstone_bi.fct_business_performanceB' to be skipped because of status 'error'.  Reason: Runtime Error in model fct_business_performanceB (models/marts/others/fct_business_performanceB.sql)
+  Binder Error: Referenced column "closed_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "product_name_raw", "ticket_id", "issue_type", "ticket_status"
+  
+  LINE 17:         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+                                       ^.
+[0m17:22:25.112932 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:22:25.118028 [debug] [MainThread]: On master: BEGIN
+[0m17:22:25.118586 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:22:25.121586 [debug] [MainThread]: SQL status: OK in 0.003 seconds
+[0m17:22:25.122127 [debug] [MainThread]: On master: COMMIT
+[0m17:22:25.122661 [debug] [MainThread]: Using duckdb connection "master"
+[0m17:22:25.123060 [debug] [MainThread]: On master: COMMIT
+[0m17:22:25.124608 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m17:22:25.125055 [debug] [MainThread]: On master: Close
+[0m17:22:25.126718 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:22:25.127141 [debug] [MainThread]: Connection 'model.capstone_bi.fct_tickets' was properly closed.
+[0m17:22:25.127543 [debug] [MainThread]: Connection 'model.capstone_bi.fct_business_performanceA' was properly closed.
+[0m17:22:25.127953 [debug] [MainThread]: Connection 'model.capstone_bi.fact_tickets' was properly closed.
+[0m17:22:25.128315 [debug] [MainThread]: Connection 'model.capstone_bi.fct_business_performanceB' was properly closed.
+[0m17:22:25.131176 [info ] [MainThread]: 
+[0m17:22:25.132410 [info ] [MainThread]: Finished running 1 incremental model, 11 table models, 3 view models in 0 hours 0 minutes and 0.78 seconds (0.78s).
+[0m17:22:25.136615 [debug] [MainThread]: Command end result
+[0m17:22:25.185141 [debug] [MainThread]: Wrote artifact WritableManifest to /app/dbt/capstone_bi/target/manifest.json
+[0m17:22:25.187497 [debug] [MainThread]: Wrote artifact SemanticManifest to /app/dbt/capstone_bi/target/semantic_manifest.json
+[0m17:22:25.195025 [debug] [MainThread]: Wrote artifact RunExecutionResult to /app/dbt/capstone_bi/target/run_results.json
+[0m17:22:25.195493 [info ] [MainThread]: 
+[0m17:22:25.196246 [info ] [MainThread]: [31mCompleted with 10 errors, 0 partial successes, and 0 warnings:[0m
+[0m17:22:25.197002 [info ] [MainThread]: 
+[0m17:22:25.197821 [error] [MainThread]: [31mFailure in model stg_users (models/staging/stg_users.sql)[0m
+[0m17:22:25.198631 [error] [MainThread]:   Runtime Error in model stg_users (models/staging/stg_users.sql)
+  Binder Error: Referenced column "username" not found in FROM clause!
+  Candidate bindings: "first_name", "last_name", "gender", "snapshot_month", "email"
+  
+  LINE 9:     username,
+              ^
+[0m17:22:25.199422 [info ] [MainThread]: 
+[0m17:22:25.200839 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/staging/stg_users.sql
+[0m17:22:25.201437 [info ] [MainThread]: 
+[0m17:22:25.202215 [error] [MainThread]: [31mFailure in model stg_products (models/staging/stg_products.sql)[0m
+[0m17:22:25.202991 [error] [MainThread]:   Runtime Error in model stg_products (models/staging/stg_products.sql)
+  Binder Error: Column "description" referenced that exists in the SELECT clause - but this column cannot be referenced before it is defined
+[0m17:22:25.203720 [info ] [MainThread]: 
+[0m17:22:25.204530 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/staging/stg_products.sql
+[0m17:22:25.205208 [info ] [MainThread]: 
+[0m17:22:25.206004 [error] [MainThread]: [31mFailure in model dim_date (models/marts/others/dim_date.sql)[0m
+[0m17:22:25.206850 [error] [MainThread]:   Runtime Error in model dim_date (models/marts/others/dim_date.sql)
+  Binder Error: Referenced column "created_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_name_raw", "dbt_updated_at", "resolution_time_hrs"
+  
+  LINE 16:         created_at as full_date
+                   ^
+[0m17:22:25.207703 [info ] [MainThread]: 
+[0m17:22:25.208758 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/dim_date.sql
+[0m17:22:25.209445 [info ] [MainThread]: 
+[0m17:22:25.210106 [error] [MainThread]: [31mFailure in model dim_agents (models/marts/others/dim_agents.sql)[0m
+[0m17:22:25.211008 [error] [MainThread]:   Runtime Error in model dim_agents (models/marts/others/dim_agents.sql)
+  Binder Error: Referenced column "agent" not found in FROM clause!
+  Candidate bindings: "ticket_id", "issue_type", "purchase_date"
+  
+  LINE 27:     where agent is not null
+                     ^
+[0m17:22:25.211685 [info ] [MainThread]: 
+[0m17:22:25.212413 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/dim_agents.sql
+[0m17:22:25.213061 [info ] [MainThread]: 
+[0m17:22:25.213853 [error] [MainThread]: [31mFailure in model dim_customers (models/marts/others/dim_customers.sql)[0m
+[0m17:22:25.214645 [error] [MainThread]:   Runtime Error in model dim_customers (models/marts/others/dim_customers.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 29:     where customer_id is not null
+                     ^
+[0m17:22:25.215409 [info ] [MainThread]: 
+[0m17:22:25.217051 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/dim_customers.sql
+[0m17:22:25.217727 [info ] [MainThread]: 
+[0m17:22:25.218495 [error] [MainThread]: [31mFailure in model dim_products (models/marts/others/dim_products.sql)[0m
+[0m17:22:25.219258 [error] [MainThread]:   Runtime Error in model dim_products (models/marts/others/dim_products.sql)
+  Binder Error: Referenced column "product_name" not found in FROM clause!
+  Candidate bindings: "product_name_raw", "product_id", "resolution_time_hrs", "purchase_date", "dbt_updated_at"
+  
+  LINE 23:         product_name,
+                   ^
+[0m17:22:25.219995 [info ] [MainThread]: 
+[0m17:22:25.220991 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/dim_products.sql
+[0m17:22:25.222660 [info ] [MainThread]: 
+[0m17:22:25.223419 [error] [MainThread]: [31mFailure in model fact_tickets (models/marts/others/fact_tickets.sql)[0m
+[0m17:22:25.225005 [error] [MainThread]:   Runtime Error in model fact_tickets (models/marts/others/fact_tickets.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 24:         customer_id,
+                   ^
+[0m17:22:25.225506 [info ] [MainThread]: 
+[0m17:22:25.226053 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/fact_tickets.sql
+[0m17:22:25.230432 [info ] [MainThread]: 
+[0m17:22:25.231654 [error] [MainThread]: [31mFailure in model fct_tickets (models/marts/others/fct_tickets.sql)[0m
+[0m17:22:25.232926 [error] [MainThread]:   Runtime Error in model fct_tickets (models/marts/others/fct_tickets.sql)
+  Binder Error: Referenced column "user_id" not found in FROM clause!
+  Candidate bindings: "purchase_date", "ticket_id", "product_id", "issue_type", "resolution_time_hrs"
+  
+  LINE 13:     user_id,
+               ^
+[0m17:22:25.233729 [info ] [MainThread]: 
+[0m17:22:25.234527 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/fct_tickets.sql
+[0m17:22:25.235182 [info ] [MainThread]: 
+[0m17:22:25.235928 [error] [MainThread]: [31mFailure in model fct_business_performanceA (models/marts/others/fct_business_performanceA.sql)[0m
+[0m17:22:25.236679 [error] [MainThread]:   Runtime Error in model fct_business_performanceA (models/marts/others/fct_business_performanceA.sql)
+  Binder Error: Referenced column "customer_id" not found in FROM clause!
+  Candidate bindings: "ticket_id", "product_id", "resolution_time_hrs", "product_name_raw", "purchase_date"
+  
+  LINE 16:         customer_id,
+                   ^
+[0m17:22:25.237389 [info ] [MainThread]: 
+[0m17:22:25.238134 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/fct_business_performanceA.sql
+[0m17:22:25.238808 [info ] [MainThread]: 
+[0m17:22:25.239536 [error] [MainThread]: [31mFailure in model fct_business_performanceB (models/marts/others/fct_business_performanceB.sql)[0m
+[0m17:22:25.241742 [error] [MainThread]:   Runtime Error in model fct_business_performanceB (models/marts/others/fct_business_performanceB.sql)
+  Binder Error: Referenced column "closed_at" not found in FROM clause!
+  Candidate bindings: "purchase_date", "product_name_raw", "ticket_id", "issue_type", "ticket_status"
+  
+  LINE 17:         EXTRACT(EPOCH FROM (closed_at - created_at))/3600 as trt_hours,
+                                       ^
+[0m17:22:25.243418 [info ] [MainThread]: 
+[0m17:22:25.244391 [info ] [MainThread]:   compiled code at target/compiled/capstone_bi/models/marts/others/fct_business_performanceB.sql
+[0m17:22:25.245201 [info ] [MainThread]: 
+[0m17:22:25.246262 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=10 SKIP=4 NO-OP=0 TOTAL=15
+[0m17:22:25.249660 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 4.601695, "process_in_blocks": "2720", "process_kernel_time": 0.343345, "process_mem_max_rss": "170708", "process_out_blocks": "3832", "process_user_time": 5.309024}
+[0m17:22:25.251234 [debug] [MainThread]: Command `dbt run` failed at 17:22:25.251059 after 4.60 seconds
+[0m17:22:25.251925 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99f8c2a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd9a04a3790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7cd99e91ae30>]}
+[0m17:22:25.253650 [debug] [MainThread]: Flushing usage events
+[0m17:22:25.470799 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:22:50.875309 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71bbc4657620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71bbc478f590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71bbc6012660>]}
+
+
+============================== 14:22:50.917817 | 20d35564-fb46-4968-990f-7ca15b045ede ==============================
+[0m14:22:50.917817 [info ] [MainThread]: Running with dbt=1.11.7
+[0m14:22:50.918666 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'fail_fast': 'False', 'log_path': '/usr/app/dbt/capstone_bi/logs', 'version_check': 'True', 'log_cache_events': 'False', 'static_parser': 'True', 'invocation_command': 'dbt debug --profiles-dir /usr/app/dbt', 'log_format': 'default', 'introspect': 'True', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'no_print': 'None', 'warn_error': 'None', 'debug': 'False', 'write_json': 'True', 'use_colors': 'True', 'printer_width': '80', 'profiles_dir': '/usr/app/dbt', 'quiet': 'False', 'indirect_selection': 'eager', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True'}
+[0m14:22:50.933852 [info ] [MainThread]: dbt version: 1.11.7
+[0m14:22:50.934333 [info ] [MainThread]: python version: 3.12.13
+[0m14:22:50.934667 [info ] [MainThread]: python path: /usr/local/bin/python3.12
+[0m14:22:50.935007 [info ] [MainThread]: os info: Linux-6.8.0-1044-azure-x86_64-with-glibc2.41
+[0m14:22:52.737644 [info ] [MainThread]: Using profiles dir at /usr/app/dbt
+[0m14:22:52.738195 [info ] [MainThread]: Using profiles.yml file at /usr/app/dbt/profiles.yml
+[0m14:22:52.738772 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt/capstone_bi/dbt_project.yml
+[0m14:22:52.741625 [info ] [MainThread]: adapter type: duckdb
+[0m14:22:52.741960 [info ] [MainThread]: adapter version: 1.9.6
+[0m14:22:52.853254 [info ] [MainThread]: Configuration:
+[0m14:22:52.853837 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:22:52.854319 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m14:22:52.854615 [info ] [MainThread]: Required dependencies:
+[0m14:22:52.854994 [debug] [MainThread]: Executing "git --help"
+[0m14:22:52.856426 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m14:22:52.856791 [info ] [MainThread]: Connection:
+[0m14:22:52.857136 [info ] [MainThread]:   database: capstone
+[0m14:22:52.857430 [info ] [MainThread]:   schema: main
+[0m14:22:52.857719 [info ] [MainThread]:   path: /shared/duckdb/capstone.duckdb
+[0m14:22:52.858357 [info ] [MainThread]:   config_options: None
+[0m14:22:52.858709 [info ] [MainThread]:   extensions: None
+[0m14:22:52.859004 [info ] [MainThread]:   settings: {}
+[0m14:22:52.859353 [info ] [MainThread]:   external_root: .
+[0m14:22:52.859658 [info ] [MainThread]:   use_credential_provider: None
+[0m14:22:52.859945 [info ] [MainThread]:   attach: None
+[0m14:22:52.860381 [info ] [MainThread]:   filesystems: None
+[0m14:22:52.860659 [info ] [MainThread]:   remote: None
+[0m14:22:52.860951 [info ] [MainThread]:   plugins: None
+[0m14:22:52.861321 [info ] [MainThread]:   disable_transactions: False
+[0m14:22:52.862157 [info ] [MainThread]: Registered adapter: duckdb=1.9.6
+[0m14:22:53.149358 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m14:22:53.519494 [debug] [MainThread]: Using duckdb connection "debug"
+[0m14:22:53.519934 [debug] [MainThread]: On debug: select 1 as id
+[0m14:22:53.520265 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:22:54.821695 [debug] [MainThread]: SQL status: OK in 1.301 seconds
+[0m14:22:54.823432 [debug] [MainThread]: On debug: Close
+[0m14:22:54.824014 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m14:22:54.824669 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:22:54.825175 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+
+[0m14:22:54.827371 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 4.324828, "process_in_blocks": "170440", "process_kernel_time": 0.504153, "process_mem_max_rss": "145220", "process_out_blocks": "4352", "process_user_time": 2.304987}
+[0m14:22:54.827979 [debug] [MainThread]: Command `dbt debug` failed at 14:22:54.827794 after 4.33 seconds
+[0m14:22:54.828376 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:22:54.828749 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71bbc49f1e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71bbc6189340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71bbc4a50ce0>]}
+[0m14:22:54.829213 [debug] [MainThread]: Flushing usage events
+[0m14:22:54.935982 [debug] [MainThread]: An error was encountered while trying to flush usage events
